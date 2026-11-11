@@ -5,10 +5,10 @@
   "outputDirectory": "dist",
   "trailingSlash": false,
   "functions": {
-    "api/index.ts": {
+    "api/index.js": {
       "maxDuration": 60,
       "memory": 1024,
-      "includeFiles": "db_store.json"
+      "includeFiles": ["db_store.json", "dist/handler.cjs"]
     }
   },
   "rewrites": [
