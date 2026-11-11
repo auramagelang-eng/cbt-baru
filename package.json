@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "tsx server.ts",
-    "build": "vite build && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs && esbuild src/server/vercel-entry.ts --bundle --platform=node --format=cjs --outfile=dist/handler.cjs",
+    "postinstall": "npm run build:api",
+    "prebuild": "npm run build:api",
+    "build:api": "esbuild src/server/vercel-entry.ts --bundle --platform=node --format=cjs --outfile=build/handler.cjs",
+    "build": "vite build && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs && npm run build:api",
     "start": "node dist/server.cjs",
     "preview": "vite preview",
     "clean": "rm -rf dist server.cjs",

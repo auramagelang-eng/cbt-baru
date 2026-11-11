@@ -6,10 +6,11 @@
  * tanpa bundling; import relatif tanpa ekstensi (seperti `../src/server/app`)
  * akan gagal di-resolve dan menghasilkan 500 FUNCTION_INVOCATION_FAILED.
  *
- * Seluruh isi aplikasi (Express + dependency) sudah dibundel oleh `npm run build`
- * ke `dist/handler.cjs`, jadi runtime hanya perlu memuat satu file.
+ * Seluruh isi aplikasi (Express + dependency) sudah dibundel ke `build/handler.cjs`
+ * oleh skrip `postinstall`/`build:api`, jadi runtime Vercel hanya memuat satu
+ * file dan tidak melakukan resolusi modul lintas folder sama sekali.
  */
-import bundle from '../dist/handler.cjs';
+import bundle from '../build/handler.cjs';
 
 const handler = bundle && bundle.default ? bundle.default : bundle;
 
