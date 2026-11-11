@@ -197,7 +197,7 @@ export class SupabaseStore implements PersistenceBackend {
     if (!url || !key) {
       this.statusReason = 'env-missing';
       this.statusMessage =
-        'SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY belum diisi. Data hanya ada di memori instance dan akan kembali ke data awal saat server restart.';
+        'SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY belum diisi. Database belum tersambung, jadi semua permintaan tulis DITOLAK agar tidak ada data yang hilang.';
       console.warn(
         '[Supabase] SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY belum diisi. ' +
           'Aplikasi TIDAK punya penyimpanan permanen: semua permintaan tulis akan ditolak.'
