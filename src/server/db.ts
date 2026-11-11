@@ -1,6 +1,7 @@
 import { User, Exam, Question, ParticipantAnswer, ViolationLog, ExamResult } from '../types/cbt';
 import fs from 'fs';
 import path from 'path';
+import { getPersistence, type PersistenceBackend, type SnapshotData } from './persistence';
 
 export interface StoredSession {
   sessionId: string;
@@ -41,10 +42,177 @@ class DatabaseStore {
   public totalRequests = 0;
   public savedRequestsCount = 0; // Each batch save saves N-1 per-question requests
 
+  /**
+   * Bila false, snapshot JSON tidak lagi ditulis ke disk.
+   * Di Vercel filesystem bersifat read-only & sementara, jadi penyimpanan
+   * permanen sepenuhnya diserahkan ke Supabase.
+   */
+  private diskPersistenceEnabled = true;
+
+  /** Saat hydrate dari database, hook tulis dimatikan agar tidak menulis balik. */
+  private suppressPersistence = false;
+
   constructor() {
+    // Vercel: filesystem read-only & ephemeral, jangan pernah menulis snapshot.
+    if (process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME) {
+      this.diskPersistenceEnabled = false;
+    }
+
     if (!this.loadPersistedData()) {
       this.seedDefaultData();
       this.persistData();
+    }
+  }
+
+  /**
+   * Simpan perubahan satu user (nama, token, kunci perangkat) ke cache + database.
+   * Dipakai saat login peserta mengunci perangkat atau mengubah nama.
+   */
+  public saveUser(user: User): void {
+    this.queryCount++;
+
+    // Bersihkan index lama agar token/kode yang berubah tidak menyisakan entri basi.
+    for (const [key, u] of this.usersByToken.entries()) {
+      if (u.id === user.id) this.usersByToken.delete(key);
+    }
+    for (const [key, u] of this.usersByParticipantCode.entries()) {
+      if (u.id === user.id) this.usersByParticipantCode.delete(key);
+    }
+
+    this.indexUser(user);
+    this.persistData();
+    this.persistToBackend((p) => p.saveUser(user));
+  }
+
+  /** Dipanggil server saat berjalan di lingkungan serverless (Vercel). */
+  public setDiskPersistence(enabled: boolean): void {
+    this.diskPersistenceEnabled = enabled;
+  }
+
+  /**
+   * Kirim setiap perubahan ke backend permanen (Supabase).
+   * Fire-and-forget: request tidak menunggu jaringan, tetapi controller bisa
+   * menunggu `flush()` untuk memastikan data benar-benar tersimpan.
+   */
+  private persistToBackend(op: (backend: PersistenceBackend) => Promise<void>): void {
+    if (this.suppressPersistence) return;
+    const backend = getPersistence();
+    if (!backend.ready) return;
+    try {
+      void op(backend);
+    } catch (err) {
+      console.error('[DatabaseStore] Gagal mengirim perubahan ke database:', err);
+    }
+  }
+
+  private indexUser(user: User): void {
+    this.users.set(user.id, user);
+    if (user.token) {
+      const upper = user.token.trim().toUpperCase();
+      this.usersByToken.set(upper, user);
+      this.usersByToken.set(upper.replace(/[\/\-\_\s]/g, ''), user);
+    }
+    if (user.participantCode) {
+      const upper = user.participantCode.trim().toUpperCase();
+      this.usersByParticipantCode.set(upper, user);
+      this.usersByParticipantCode.set(upper.replace(/[\/\-\_\s]/g, ''), user);
+    }
+  }
+
+  private indexExam(exam: Exam): void {
+    this.exams.set(exam.id, exam);
+    if (exam.token) {
+      const upper = exam.token.trim().toUpperCase();
+      this.examsByToken.set(upper, exam);
+      this.examsByToken.set(upper.replace(/[\/\-\_\s]/g, ''), exam);
+    }
+  }
+
+  /** Snapshot lengkap (dipakai untuk bootstrap / migrasi ke Supabase). */
+  public getFullSnapshot(): SnapshotData {
+    return {
+      users: Array.from(this.users.values()),
+      exams: Array.from(this.exams.values()),
+      questionsByExamId: Object.fromEntries(this.questionsByExamId.entries()),
+      sessions: Array.from(this.sessions.values()),
+      violationLogs: [...this.violationLogs],
+    };
+  }
+
+  public isEmpty(): boolean {
+    return this.users.size === 0 && this.exams.size === 0 && this.sessions.size === 0;
+  }
+
+  /**
+   * Isi ulang cache in-memory dari database (sumber kebenaran).
+   * Tidak memicu penulisan balik ke database dan tidak menghapus penghitung metrik.
+   */
+  public hydrate(snapshot: SnapshotData): void {
+    this.suppressPersistence = true;
+    try {
+      this.users.clear();
+      this.usersByToken.clear();
+      this.usersByParticipantCode.clear();
+      snapshot.users.forEach((user) => this.indexUser(user));
+
+      this.exams.clear();
+      this.examsByToken.clear();
+      snapshot.exams.forEach((exam) => this.indexExam(exam));
+
+      this.questionsByExamId.clear();
+      Object.entries(snapshot.questionsByExamId || {}).forEach(([examId, questions]) => {
+        this.questionsByExamId.set(examId, questions);
+      });
+
+      // Gabungkan sesi: sesi IN_PROGRESS yang hidup di instance ini TIDAK
+      // ditimpa data lama dari database (bisa menghapus jawaban terbaru).
+      const previousSessions = new Map(this.sessions);
+      const remoteIds = new Set(snapshot.sessions.map((session) => session.sessionId));
+
+      this.sessions.clear();
+      this.sessionsByParticipantExam.clear();
+
+      snapshot.sessions.forEach((remote) => {
+        const local = previousSessions.get(remote.sessionId);
+        const keepLocal =
+          !!local && local.status === 'IN_PROGRESS' && remote.status === 'IN_PROGRESS';
+        const chosen = keepLocal ? local! : remote;
+
+        this.sessions.set(chosen.sessionId, chosen);
+        this.sessionsByParticipantExam.set(
+          `${chosen.participantId}_${chosen.examId}`,
+          chosen
+        );
+      });
+
+      // Sesi lokal yang belum sempat tercatat di database tetap dipertahankan.
+      previousSessions.forEach((local, sessionId) => {
+        if (remoteIds.has(sessionId)) return;
+        if (local.status !== 'IN_PROGRESS') return;
+        this.sessions.set(sessionId, local);
+        this.sessionsByParticipantExam.set(
+          `${local.participantId}_${local.examId}`,
+          local
+        );
+      });
+
+      this.violationLogs = [...(snapshot.violationLogs || [])];
+    } finally {
+      this.suppressPersistence = false;
+    }
+  }
+
+  /** Sisipkan satu sesi hasil read-through Supabase tanpa menulis balik. */
+  public upsertSessionFromRemote(session: StoredSession): void {
+    this.suppressPersistence = true;
+    try {
+      this.sessions.set(session.sessionId, session);
+      this.sessionsByParticipantExam.set(
+        `${session.participantId}_${session.examId}`,
+        session
+      );
+    } finally {
+      this.suppressPersistence = false;
     }
   }
 
@@ -124,6 +292,9 @@ class DatabaseStore {
 
   private persistTimer: any = null;
   public persistData(immediate = true): void {
+    // Di serverless tidak ada disk permanen; Supabase sudah menerima datanya.
+    if (!this.diskPersistenceEnabled) return;
+
     const doWrite = () => {
       try {
         const data = {
@@ -817,6 +988,7 @@ class DatabaseStore {
       this.examsByToken.set(clean, exam);
     }
     this.persistData();
+    this.persistToBackend((p) => p.saveExam(exam));
   }
 
   public toggleExamActive(examId: string): Exam | undefined {
@@ -855,6 +1027,10 @@ class DatabaseStore {
     this.violationLogs = this.violationLogs.filter(v => !sessionsToDelete.includes(v.sessionId));
 
     this.persistData();
+    this.persistToBackend(async (p) => {
+      await p.deleteSessions(sessionsToDelete);
+      await p.deleteExam(examId);
+    });
     return true;
   }
 
@@ -893,16 +1069,22 @@ class DatabaseStore {
     }
 
     this.persistData();
+    this.persistToBackend(async (p) => {
+      await p.deleteSessions(sessionsToDelete);
+      if (!examId || examId === 'ALL') await p.deleteViolations();
+    });
     return count;
   }
 
   public unlockAllDevices(): number {
     this.queryCount++;
     let count = 0;
+    const changedUsers: User[] = [];
     this.users.forEach(user => {
       if (user.role === 'PARTICIPANT' && (user.activeDeviceId || user.ipAddress)) {
         delete user.activeDeviceId;
         delete user.ipAddress;
+        changedUsers.push(user);
         count++;
       }
     });
@@ -916,6 +1098,9 @@ class DatabaseStore {
     });
 
     this.persistData();
+    if (changedUsers.length > 0) {
+      this.persistToBackend((p) => p.saveUsers(changedUsers));
+    }
     return count;
   }
 
@@ -932,6 +1117,7 @@ class DatabaseStore {
     }
 
     // Clear device lock on all participant sessions without deleting data or answers
+    const changedSessions: StoredSession[] = [];
     this.sessions.forEach(session => {
       if (session.participantId === participantId) {
         if (session.activeDeviceId || session.ipAddress) {
@@ -939,10 +1125,15 @@ class DatabaseStore {
         }
         delete session.activeDeviceId;
         delete session.ipAddress;
+        changedSessions.push(session);
       }
     });
 
     this.persistData();
+    if (user) {
+      this.persistToBackend((p) => p.saveUser(user));
+    }
+    changedSessions.forEach((session) => this.persistToBackend((p) => p.saveSession(session)));
     return unlocked;
   }
 
@@ -973,6 +1164,10 @@ class DatabaseStore {
     this.violationLogs = this.violationLogs.filter(v => !sessionsToDelete.includes(v.sessionId));
 
     this.persistData();
+    this.persistToBackend(async (p) => {
+      await p.deleteSessions(sessionsToDelete);
+      if (user) await p.saveUser(user);
+    });
     return found;
   }
 
@@ -1018,11 +1213,15 @@ class DatabaseStore {
         if (d1r2Exam) {
           d1r2Exam.totalQuestions = d1r2Questions.length;
           this.exams.set('exam_d1_r2', d1r2Exam);
+          this.persistToBackend((p) => p.saveQuestions('exam_d1_r2', d1r2Questions));
+          this.persistToBackend((p) => p.saveExam(d1r2Exam));
         }
       }
     }
 
     this.persistData();
+    this.persistToBackend((p) => p.saveQuestions(examId, questions));
+    if (exam) this.persistToBackend((p) => p.saveExam(exam));
   }
 
   public getSession(sessionId: string): StoredSession | undefined {
@@ -1058,6 +1257,8 @@ class DatabaseStore {
     this.sessions.set(session.sessionId, session);
     this.sessionsByParticipantExam.set(`${session.participantId}_${session.examId}`, session);
     this.persistData();
+    // Jawaban & progres siswa langsung dikirim ke database permanen.
+    this.persistToBackend((p) => p.saveSession(session));
   }
 
   public getAllSessions(): StoredSession[] {
@@ -1069,6 +1270,7 @@ class DatabaseStore {
     this.queryCount++;
     this.violationLogs.unshift(violation);
     this.persistData();
+    this.persistToBackend((p) => p.logViolation(violation));
   }
 
   public getViolationLogs(sessionId?: string): ViolationLog[] {
@@ -1108,6 +1310,7 @@ class DatabaseStore {
       this.usersByParticipantCode.set(upperCode.replace(/[\/\-\_\s]/g, ''), participant);
     }
     this.persistData();
+    this.persistToBackend((p) => p.saveUser(participant));
   }
 
   public deleteParticipant(participantId: string): boolean {
@@ -1129,6 +1332,7 @@ class DatabaseStore {
     this.users.delete(participantId);
     this.resetParticipantSession(participantId);
     this.persistData();
+    this.persistToBackend((p) => p.deleteUser(participantId));
     return true;
   }
 
@@ -1157,6 +1361,7 @@ class DatabaseStore {
     idsToDelete.forEach(id => this.users.delete(id));
     this.resetAllSessions('ALL', true);
     this.persistData();
+    this.persistToBackend((p) => p.clearUsers());
     return count;
   }
 
@@ -1216,6 +1421,13 @@ class DatabaseStore {
     }
 
     this.persistData();
+
+    // Hapus data di database permanen, lalu simpan kembali akun admin.
+    this.persistToBackend(async (p) => {
+      await p.wipeAll();
+      const admin = this.users.get('usr_admin');
+      if (admin) await p.saveUser(admin);
+    });
 
     return {
       examsDeleted,
@@ -1347,6 +1559,7 @@ class DatabaseStore {
           if (u.participantCode) {
             this.usersByParticipantCode.set(u.participantCode.toUpperCase(), u);
           }
+          this.persistToBackend((p) => p.saveUser(u));
         }
       });
     }
@@ -1361,6 +1574,7 @@ class DatabaseStore {
             const cleaned = e.token.trim().toUpperCase().replace(/[\/\-\_\s]/g, '');
             this.examsByToken.set(cleaned, e);
           }
+          this.persistToBackend((p) => p.saveExam(e));
         }
       });
     }
@@ -1374,7 +1588,9 @@ class DatabaseStore {
           if (exam) {
             exam.totalQuestions = questions.length;
             this.exams.set(examId, exam);
+            this.persistToBackend((p) => p.saveExam(exam));
           }
+          this.persistToBackend((p) => p.saveQuestions(examId, questions));
         }
       });
     }

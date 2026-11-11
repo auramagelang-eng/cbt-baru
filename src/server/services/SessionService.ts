@@ -333,6 +333,10 @@ export class SessionService {
 
     if (deviceId) {
       participant.activeDeviceId = deviceId;
+      // Simpan kunci perangkat (user + sesi) agar tidak hilang saat instance berganti.
+      dbStore.saveUser(participant);
+      session.activeDeviceId = deviceId;
+      dbStore.saveSession(session);
     }
 
     // Refresh and synchronize shuffled questions with latest exam master questions (so edited questions/types propagate immediately)

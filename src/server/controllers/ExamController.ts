@@ -4,6 +4,7 @@ import { userRepository } from '../repositories/UserRepository';
 import { sessionService } from '../services/SessionService';
 import { CreateExamSchema, UpdateExamSchema } from '../dto';
 import { EssayGrader } from '../services/EssayGrader';
+import { flushPersistence } from '../supabase';
 
 export class ExamController {
   static getAllExams(req: Request, res: Response) {
@@ -21,7 +22,13 @@ export class ExamController {
     res.json({ data: { ...exam, questions } });
   }
 
-  static createExam(req: Request, res: Response) {
+  /**
+   * Semua aksi tulis admin menunggu `flushPersistence()` supaya data benar-benar
+   * tersimpan di Supabase. Bila database sedang gangguan, jawaban tetap 200
+   * (pekerjaan admin tidak hilang dari memori + antrean retry), dengan tanda
+   * `persisted: false` agar UI bisa menampilkan peringatan.
+   */
+  static async createExam(req: Request, res: Response) {
     const parseResult = CreateExamSchema.safeParse(req.body);
     if (!parseResult.success) {
       res.status(400).json({ error: 'Data ujian tidak valid', details: parseResult.error.format() });
@@ -29,10 +36,11 @@ export class ExamController {
     }
 
     const exam = examService.createExam(parseResult.data);
-    res.status(201).json({ message: 'Ujian berhasil dibuat', data: exam });
+    const persisted = await flushPersistence();
+    res.status(201).json({ message: 'Ujian berhasil dibuat', data: exam, persisted });
   }
 
-  static updateExam(req: Request, res: Response) {
+  static async updateExam(req: Request, res: Response) {
     const parseResult = UpdateExamSchema.safeParse(req.body);
     if (!parseResult.success) {
       res.status(400).json({ error: 'Data pengaturan ujian tidak valid', details: parseResult.error.format() });
@@ -45,10 +53,11 @@ export class ExamController {
       return;
     }
 
-    res.json({ message: 'Pengaturan sesi ujian berhasil diperbarui', data: updated });
+    const persisted = await flushPersistence();
+    res.json({ message: 'Pengaturan sesi ujian berhasil diperbarui', data: updated, persisted });
   }
 
-  static saveQuestions(req: Request, res: Response) {
+  static async saveQuestions(req: Request, res: Response) {
     const { questions } = req.body;
     if (!Array.isArray(questions)) {
       res.status(400).json({ error: 'Format soal harus array' });
@@ -56,25 +65,35 @@ export class ExamController {
     }
 
     const saved = examService.saveExamQuestions(req.params.id, questions);
-    res.json({ message: 'Bank Soal berhasil diperbarui', count: saved.length });
+    const persisted = await flushPersistence();
+    res.json({ message: 'Bank Soal berhasil diperbarui', count: saved.length, persisted });
   }
 
-  static toggleActive(req: Request, res: Response) {
+  static async toggleActive(req: Request, res: Response) {
     const exam = examService.toggleExamActive(req.params.id);
     if (!exam) {
       res.status(404).json({ error: 'Ujian tidak ditemukan' });
       return;
     }
-    res.json({ message: `Sesi ujian berhasil di${exam.isActive ? 'aktifkan' : 'nonaktifkan'}`, data: exam });
+    const persisted = await flushPersistence();
+    res.json({
+      message: `Sesi ujian berhasil di${exam.isActive ? 'aktifkan' : 'nonaktifkan'}`,
+      data: exam,
+      persisted,
+    });
   }
 
-  static deleteExam(req: Request, res: Response) {
+  static async deleteExam(req: Request, res: Response) {
     const success = examService.deleteExam(req.params.id);
     if (!success) {
       res.status(404).json({ error: 'Ujian tidak ditemukan' });
       return;
     }
-    res.json({ message: 'Sesi ujian beserta seluruh bank soal dan riwayatnya berhasil dihapus' });
+    const persisted = await flushPersistence();
+    res.json({
+      message: 'Sesi ujian beserta seluruh bank soal dan riwayatnya berhasil dihapus',
+      persisted,
+    });
   }
 
   static getParticipants(req: Request, res: Response) {
@@ -91,7 +110,7 @@ export class ExamController {
     res.json({ data: enriched });
   }
 
-  static createParticipantBatch(req: Request, res: Response) {
+  static async createParticipantBatch(req: Request, res: Response) {
     const { count = 10 } = req.body;
     const currentCount = userRepository.getAllParticipants().length;
     const created = [];
@@ -112,10 +131,15 @@ export class ExamController {
       created.push(participant);
     }
 
-    res.status(201).json({ message: `Berhasil menambahkan ${created.length} peserta baru`, data: created });
+    const persisted = await flushPersistence();
+    res.status(201).json({
+      message: `Berhasil menambahkan ${created.length} peserta baru`,
+      data: created,
+      persisted,
+    });
   }
 
-  static createSingleParticipant(req: Request, res: Response) {
+  static async createSingleParticipant(req: Request, res: Response) {
     const { name, participantCode, token } = req.body;
     if (!name || !participantCode) {
       res.status(400).json({ error: 'Nama dan Kode Peserta wajib diisi' });
@@ -135,10 +159,11 @@ export class ExamController {
       token: cleanToken,
     });
 
-    res.status(201).json({ message: 'Peserta berhasil ditambahkan', data: participant });
+    const persisted = await flushPersistence();
+    res.status(201).json({ message: 'Peserta berhasil ditambahkan', data: participant, persisted });
   }
 
-  static deleteParticipant(req: Request, res: Response) {
+  static async deleteParticipant(req: Request, res: Response) {
     const { id } = req.params;
     if (!id) {
       res.status(400).json({ error: 'ID peserta diperlukan' });
@@ -149,15 +174,21 @@ export class ExamController {
       res.status(404).json({ error: 'Peserta tidak ditemukan atau tidak dapat dihapus' });
       return;
     }
-    res.json({ message: 'Peserta berhasil dihapus' });
+    const persisted = await flushPersistence();
+    res.json({ message: 'Peserta berhasil dihapus', persisted });
   }
 
-  static clearAllParticipants(req: Request, res: Response) {
+  static async clearAllParticipants(req: Request, res: Response) {
     const count = userRepository.clearAllParticipants();
-    res.json({ message: `Berhasil mengosongkan seluruh daftar peserta (${count} peserta dihapus)`, count });
+    const persisted = await flushPersistence();
+    res.json({
+      message: `Berhasil mengosongkan seluruh daftar peserta (${count} peserta dihapus)`,
+      count,
+      persisted,
+    });
   }
 
-  static importClassParticipants(req: Request, res: Response) {
+  static async importClassParticipants(req: Request, res: Response) {
     const { participants, clearExisting = false } = req.body;
     if (!Array.isArray(participants) || participants.length === 0) {
       res.status(400).json({ error: 'Daftar peserta tidak boleh kosong' });
@@ -165,9 +196,11 @@ export class ExamController {
     }
 
     const created = userRepository.importParticipantsBatch(participants, clearExisting);
+    const persisted = await flushPersistence();
     res.status(201).json({
       message: `Berhasil mengimpor ${created.length} peserta untuk kelas baru`,
       data: created,
+      persisted,
     });
   }
 

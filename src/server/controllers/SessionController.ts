@@ -4,13 +4,24 @@ import { sessionService, getEffectiveQuestion } from '../services/SessionService
 import { examService } from '../services/ExamService';
 import { sessionRepository } from '../repositories/SessionRepository';
 import { BatchSaveAnswersSchema, LogViolationSchema, SubmitExamSchema } from '../dto';
+import { flushPersistence, supabaseStore } from '../supabase';
 
 export class SessionController {
+  /**
+   * Pastikan sesi ada di cache instance ini.
+   * Di Vercel, request peserta bisa mendarat di instance yang berbeda;
+   * bila sesi belum ada di cache, ambil langsung dari Supabase (read-through).
+   */
+  private static async ensureSessionLoaded(sessionId: string): Promise<void> {
+    if (!sessionId || sessionRepository.findById(sessionId)) return;
+    await supabaseStore.loadSession(sessionId);
+  }
+
   /**
    * Single-payload endpoint: Returns student data, exam info, configuration,
    * all questions, and all options in a SINGLE HTTP response.
    */
-  static startOrGetSession(req: AuthenticatedRequest, res: Response) {
+  static async startOrGetSession(req: AuthenticatedRequest, res: Response) {
     const user = req.user;
     const { examId, deviceId } = req.body;
 
@@ -19,7 +30,14 @@ export class SessionController {
       return;
     }
 
-    const result = sessionService.getOrStartSession(user.id, examId, deviceId);
+    let result = sessionService.getOrStartSession(user.id, examId, deviceId);
+
+    // Instance Vercel lain mungkin belum punya sesi ini di cache.
+    if (!result) {
+      await supabaseStore.refreshIfStale(0);
+      result = sessionService.getOrStartSession(user.id, examId, deviceId);
+    }
+
     if (!result) {
       res.status(404).json({ error: 'Ujian atau peserta tidak ditemukan' });
       return;
@@ -38,8 +56,13 @@ export class SessionController {
 
   /**
    * Debounced / Batch answer sync endpoint.
+   *
+   * Endpoint ini menunggu kepastian data tersimpan di Supabase. Bila database
+   * sedang bermasalah, server membalas 503 + `retryable: true` sehingga
+   * aplikasi peserta TIDAK menghapus salinan jawaban di localStorage dan akan
+   * mengirim ulang otomatis (jawaban pekerjaan siswa tidak hilang).
    */
-  static batchSaveAnswers(req: AuthenticatedRequest, res: Response) {
+  static async batchSaveAnswers(req: AuthenticatedRequest, res: Response) {
     const parseResult = BatchSaveAnswersSchema.safeParse(req.body);
     if (!parseResult.success) {
       res.status(400).json({ error: 'Data jawaban tidak valid', details: parseResult.error.format() });
@@ -47,6 +70,8 @@ export class SessionController {
     }
 
     const { sessionId, answers, currentQuestionIndex } = parseResult.data;
+    await SessionController.ensureSessionLoaded(sessionId);
+
     const result = sessionService.batchSaveAnswers(sessionId, answers, currentQuestionIndex);
 
     if (!result.success) {
@@ -56,6 +81,17 @@ export class SessionController {
         savedCount: 0,
         isFinished: session ? session.status !== 'IN_PROGRESS' : true,
         sessionStatus: session?.status || 'COMPLETED',
+      });
+      return;
+    }
+
+    const persisted = await flushPersistence();
+    if (!persisted) {
+      res.status(503).json({
+        error: 'Jawaban tersimpan sementara di server, tetapi database belum mengonfirmasi. Aplikasi akan mencoba lagi.',
+        retryable: true,
+        savedCount: result.count,
+        isFinished: false,
       });
       return;
     }
@@ -74,7 +110,9 @@ export class SessionController {
     }
 
     const { sessionId, type, details } = parseResult.data;
+    await SessionController.ensureSessionLoaded(sessionId);
     const result = await sessionService.logViolation(sessionId, type, details);
+    await flushPersistence();
 
     res.json({
       message: 'Pelanggaran dicatat',
@@ -94,9 +132,14 @@ export class SessionController {
     }
 
     const { sessionId, answers } = parseResult.data;
+    await SessionController.ensureSessionLoaded(sessionId);
+
     if (answers && Object.keys(answers).length > 0) {
       sessionService.batchSaveAnswers(sessionId, answers);
     }
+    // Simpan jawaban terakhir dulu agar penilaian memakai data yang durable.
+    await flushPersistence();
+
     const result = await sessionService.evaluateAndSubmitExam(sessionId, 'COMPLETED');
 
     if (!result) {
@@ -104,12 +147,15 @@ export class SessionController {
       return;
     }
 
+    // Hasil akhir (skor, status, waktu submit) wajib tersimpan sebelum dibalas.
+    const persisted = await flushPersistence();
     const session = sessionRepository.findById(sessionId);
 
     res.json({
       message: 'Ujian Berhasil Disimpan & Dihitung',
       result,
       answers: session?.answers || {},
+      persisted,
     });
   }
 
@@ -117,7 +163,7 @@ export class SessionController {
    * Participant endpoint to get their own updated session result
    * (used for live auto-update as background AI grading finishes).
    */
-  static getMySessionResult(req: AuthenticatedRequest, res: Response) {
+  static async getMySessionResult(req: AuthenticatedRequest, res: Response) {
     const user = req.user;
     const sessionId = req.params.sessionId;
     if (!user || !sessionId) {
@@ -125,6 +171,7 @@ export class SessionController {
       return;
     }
 
+    await SessionController.ensureSessionLoaded(sessionId);
     const session = sessionRepository.findById(sessionId);
     if (!session || session.participantId !== user.id) {
       res.status(404).json({ error: 'Sesi ujian tidak ditemukan' });
@@ -157,8 +204,9 @@ export class SessionController {
   /**
    * Get detailed session answers with AI feedback for admin review.
    */
-  static getSessionAnswersDetail(req: AuthenticatedRequest, res: Response) {
+  static async getSessionAnswersDetail(req: AuthenticatedRequest, res: Response) {
     const sessionId = req.params.sessionId;
+    await SessionController.ensureSessionLoaded(sessionId);
     const session = sessionRepository.findById(sessionId);
     if (!session) {
       res.status(404).json({ error: 'Sesi ujian tidak ditemukan' });
@@ -271,6 +319,7 @@ export class SessionController {
 
   static async forceEndSession(req: AuthenticatedRequest, res: Response) {
     const { sessionId, participantId, examId } = req.body;
+    if (sessionId) await SessionController.ensureSessionLoaded(sessionId);
     if (!sessionId && !participantId) {
       res.status(400).json({ error: 'Session ID atau Participant ID wajib diisi' });
       return;
@@ -288,29 +337,35 @@ export class SessionController {
       return;
     }
 
+    const persisted = await flushPersistence();
+
     res.json({
       message: `Ujian ${result.participantName} (${result.participantCode}) berhasil diselesaikan paksa (Force End). Semua jawaban dan nilai (${result.score} poin / ${result.percentage}%) telah disimpan permanen.`,
       result,
+      persisted,
     });
   }
 
   static async forceEndAllSessions(req: AuthenticatedRequest, res: Response) {
     const { examId } = req.body;
     const { count, results } = await sessionService.forceEndAllSessions(examId);
+    const persisted = await flushPersistence();
     res.json({
       message: `Berhasil menyelesaikan paksa ${count} sesi peserta. Seluruh nilai dan hasil pekerjaan siswa telah disimpan dengan aman ke database.`,
       count,
       results,
+      persisted,
     });
   }
 
-  static checkSessionStatus(req: AuthenticatedRequest, res: Response) {
+  static async checkSessionStatus(req: AuthenticatedRequest, res: Response) {
     const sessionId = req.params.sessionId;
     if (!sessionId) {
       res.status(400).json({ error: 'Session ID wajib diisi' });
       return;
     }
 
+    await SessionController.ensureSessionLoaded(sessionId);
     const session = sessionRepository.findById(sessionId);
     if (!session) {
       res.status(404).json({ error: 'Sesi tidak ditemukan' });

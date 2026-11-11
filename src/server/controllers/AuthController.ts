@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { authService } from '../services/AuthService';
 import { TokenLoginSchema } from '../dto';
+import { flushPersistence } from '../supabase';
 
 export class AuthController {
   static adminLogin(req: Request, res: Response) {
@@ -23,7 +24,7 @@ export class AuthController {
     });
   }
 
-  static participantTokenLogin(req: Request, res: Response) {
+  static async participantTokenLogin(req: Request, res: Response) {
     const parseResult = TokenLoginSchema.safeParse(req.body);
     if (!parseResult.success) {
       res.status(400).json({ error: 'Format token tidak valid', details: parseResult.error.format() });
@@ -42,6 +43,10 @@ export class AuthController {
       res.status(404).json({ error: 'Token peserta atau Token Ujian tidak valid/tidak aktif' });
       return;
     }
+
+    // Kunci perangkat & nama peserta langsung disimpan agar konsisten
+    // walau request berikutnya mendarat di instance server lain.
+    await flushPersistence();
 
     res.json({
       message: 'Verifikasi Token Ujian Berhasil',

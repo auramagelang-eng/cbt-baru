@@ -31,7 +31,7 @@ export class AuthService {
 
     if (fullName && fullName.trim().length > 0) {
       participant.name = fullName.trim();
-      dbStore.persistData();
+      dbStore.saveUser(participant);
     }
 
     const cleanExamToken = examToken.trim().toUpperCase().replace(/[\/\-\_\s]/g, '');
@@ -69,8 +69,11 @@ export class AuthService {
 
     if (deviceId) {
       participant.activeDeviceId = deviceId;
+      // Simpan kunci perangkat ke database agar konsisten lintas instance.
+      dbStore.saveUser(participant);
       if (activeSession) {
         activeSession.activeDeviceId = deviceId;
+        dbStore.saveSession(activeSession);
       }
     }
 

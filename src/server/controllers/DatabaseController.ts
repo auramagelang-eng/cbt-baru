@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { dbStore } from '../db';
 import { cloudflareService } from '../services/CloudflareService';
+import { flushPersistence, supabaseStore } from '../supabase';
 
 export class DatabaseController {
   /**
@@ -22,7 +23,7 @@ export class DatabaseController {
   /**
    * Sync / merge backup data from client browser vault
    */
-  static syncBackup(req: Request, res: Response) {
+  static async syncBackup(req: Request, res: Response) {
     try {
       const { exams, questionsByExamId, participants, users } = req.body;
       const result = dbStore.restoreOrMergeDatabase({
@@ -32,10 +33,14 @@ export class DatabaseController {
         users,
       });
 
+      // Pastikan salinan dari vault browser benar-benar masuk ke Supabase.
+      const persisted = await flushPersistence();
+
       res.json({
         success: true,
         message: 'Database berhasil disinkronkan dan disimpan permanen',
         data: result,
+        persisted,
       });
     } catch (err: any) {
       console.error('[DatabaseController] syncBackup failed:', err);
@@ -61,6 +66,7 @@ export class DatabaseController {
           examsCount: exams.length,
           participantsCount: participants.length,
           questionsCount: totalQuestions,
+          storage: supabaseStore.getStatus(),
         },
       });
     } catch (err: any) {
@@ -77,13 +83,15 @@ export class DatabaseController {
     try {
       const dbResult = dbStore.wipeAllData();
       const cfResult = await cloudflareService.wipeAllData(true);
+      const persisted = await flushPersistence();
 
       res.json({
         success: true,
-        message: 'Seluruh data (Bank Soal, Peserta, Sesi Ujian, dan Hasil) berhasil dihapus bersih dari Cloudflare D1 dan Server!',
+        message: 'Seluruh data (Bank Soal, Peserta, Sesi Ujian, dan Hasil) berhasil dihapus bersih dari database permanen!',
         data: {
           ...dbResult,
           cloudflare: cfResult,
+          persisted,
         },
       });
     } catch (err: any) {
@@ -105,7 +113,8 @@ export class DatabaseController {
       await cloudflareService.pushAllLocalData().catch((e) => {
         console.warn('Re-sync to Cloudflare warning:', e.message);
       });
-      res.json(result);
+      const persisted = await flushPersistence();
+      res.json({ ...result, persisted });
     } catch (err: any) {
       console.error('[DatabaseController] restoreBackup failed:', err);
       res.status(500).json({ error: err.message || 'Gagal memulihkan cadangan data' });
