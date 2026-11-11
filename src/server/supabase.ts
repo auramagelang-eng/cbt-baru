@@ -316,6 +316,9 @@ export class SupabaseStore implements PersistenceBackend {
   async refreshIfStale(minIntervalMs = REFRESH_INTERVAL_MS): Promise<void> {
     if (!this.isReady || !this.client) return;
     if (this.queue.pendingCount > 0) return;
+    // Jangan menimpa cache lokal selama masih ada tulisan yang gagal tersimpan,
+    // supaya soal/ujian yang baru dibuat admin tidak "hilang lagi".
+    if (this.queue.failedCount > 0) return;
     if (Date.now() - this.lastRefreshAt < minIntervalMs) return;
 
     this.lastRefreshAt = Date.now();
@@ -807,5 +810,11 @@ export const supabaseStore = new SupabaseStore();
 
 /** Helper untuk controller: benar bila seluruh data sudah durable. */
 export async function flushPersistence(): Promise<boolean> {
-  return getPersistence().flush();
+  const backend = getPersistence();
+  // Tanpa backend permanen (mis. env Supabase kosong di Vercel) tidak ada
+  // jaminan apa pun data tersimpan. Jangan pernah membalas `persisted: true`
+  // secara palsu: itu yang membuat admin merasa soal sudah masuk padahal
+  // hanya ada di memori instance.
+  if (!backend.ready) return false;
+  return backend.flush();
 }

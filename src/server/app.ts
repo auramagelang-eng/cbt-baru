@@ -107,6 +107,30 @@ export async function createApp(options: CreateAppOptions = {}): Promise<express
   // Apply rate limiter to API routes
   app.use('/api', rateLimiter(5000, 60000));
 
+  /**
+   * Cegah kehilangan data secara diam-diam.
+   *
+   * Di Vercel filesystem bersifat read-only dan setiap request bisa mendarat di
+   * instance yang berbeda, jadi tanpa Supabase semua tulisan hanya singgah di
+   * memori satu instance lalu hilang (inilah penyebab soal "hilang lagi").
+   * Lebih baik menolak dengan pesan jelas daripada membalas "berhasil".
+   */
+  app.use('/api', (req, res, next) => {
+    const isWrite = ['POST', 'PUT', 'PATCH', 'DELETE'].includes(req.method);
+    if (!isWrite) return next();
+    // Login tidak menulis data, dan jawaban peserta sudah ditangani khusus
+    // (aplikasi peserta menyimpan ulang jawaban saat menerima 503).
+    if (req.path.startsWith('/auth/')) return next();
+
+    const status = supabaseStore.getStatus();
+    if (status.durable || dbStore.isDiskPersistenceEnabled()) return next();
+
+    res.status(503).json({
+      error: `Perubahan TIDAK tersimpan: ${status.message}`,
+      storage: status,
+    });
+  });
+
   // --- API ROUTES ---
 
   // Health & Server Performance Metrics

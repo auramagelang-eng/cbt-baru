@@ -90,6 +90,11 @@ class DatabaseStore {
     this.diskPersistenceEnabled = enabled;
   }
 
+  /** true bila snapshot JSON lokal masih dipakai (bukan di Vercel). */
+  public isDiskPersistenceEnabled(): boolean {
+    return this.diskPersistenceEnabled;
+  }
+
   /**
    * Kirim setiap perubahan ke backend permanen (Supabase).
    * Fire-and-forget: request tidak menunggu jaringan, tetapi controller bisa
