@@ -122,6 +122,13 @@ export async function createApp(options: CreateAppOptions = {}): Promise<express
       status: 'ok',
       time: new Date().toISOString(),
       uptimeSeconds: Math.round(process.uptime()),
+      // Penanda versi: dipakai untuk memastikan domain sudah menjalankan commit
+      // terbaru dari GitHub, bukan deployment lama yang masih tersimpan.
+      build: {
+        commit: process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7) || null,
+        commitMessage: process.env.VERCEL_GIT_COMMIT_MESSAGE || null,
+        environment: process.env.VERCEL_ENV || 'local',
+      },
       storage: {
         ...supabaseStore.getStatus(),
         data: {
