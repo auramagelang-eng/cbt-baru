@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
 import { dbStore } from '../db';
-import { cloudflareService } from '../services/CloudflareService';
 import { flushPersistence, supabaseStore } from '../supabase';
 
 export class DatabaseController {
@@ -51,8 +50,10 @@ export class DatabaseController {
   /**
    * Get summary stats of currently stored questions, exams, and participants
    */
-  static getStats(req: Request, res: Response) {
+  static async getStats(req: Request, res: Response) {
     try {
+      // Statistik dibaca ulang dari database, bukan dari cache yang mungkin basi.
+      await supabaseStore.refreshIfStale(0);
       const exams = dbStore.getAllExams();
       const participants = dbStore.getAllParticipants();
       let totalQuestions = 0;
@@ -82,7 +83,6 @@ export class DatabaseController {
   static async wipeAllData(req: Request, res: Response) {
     try {
       const dbResult = dbStore.wipeAllData();
-      const cfResult = await cloudflareService.wipeAllData(true);
       const persisted = await flushPersistence();
 
       res.json({
@@ -90,7 +90,6 @@ export class DatabaseController {
         message: 'Seluruh data (Bank Soal, Peserta, Sesi Ujian, dan Hasil) berhasil dihapus bersih dari database permanen!',
         data: {
           ...dbResult,
-          cloudflare: cfResult,
           persisted,
         },
       });
@@ -105,19 +104,19 @@ export class DatabaseController {
    */
   static async restoreBackup(req: Request, res: Response) {
     try {
-      const result = dbStore.restoreSafetyBackup();
-      if (!result.success) {
-        return res.status(404).json({ error: result.message });
-      }
-      // Re-sync restored data to Cloudflare
-      await cloudflareService.pushAllLocalData().catch((e) => {
-        console.warn('Re-sync to Cloudflare warning:', e.message);
+      // Tidak ada lagi cadangan file: seluruh data dimuat ulang dari database.
+      const snapshot = await supabaseStore.loadAll();
+      dbStore.hydrate(snapshot);
+      res.json({
+        success: true,
+        message: `Data dimuat ulang dari database: ${snapshot.exams.length} ujian, ${snapshot.users.filter((u) => u.role === 'PARTICIPANT').length} peserta.`,
+        restoredExams: snapshot.exams.length,
+        restoredParticipants: snapshot.users.filter((u) => u.role === 'PARTICIPANT').length,
+        persisted: true,
       });
-      const persisted = await flushPersistence();
-      res.json({ ...result, persisted });
     } catch (err: any) {
       console.error('[DatabaseController] restoreBackup failed:', err);
-      res.status(500).json({ error: err.message || 'Gagal memulihkan cadangan data' });
+      res.status(500).json({ error: err.message || 'Gagal memuat ulang data dari database' });
     }
   }
 }

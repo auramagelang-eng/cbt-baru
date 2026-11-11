@@ -1,6 +1,5 @@
 import { dbStore, StoredSession } from '../db';
 import { ViolationLog } from '../../types/cbt';
-import { cloudflareService } from '../services/CloudflareService';
 
 export class SessionRepository {
   findById(sessionId: string): StoredSession | undefined {
@@ -13,7 +12,6 @@ export class SessionRepository {
 
   saveSession(session: StoredSession): StoredSession {
     dbStore.saveSession(session);
-    cloudflareService.syncSession(session);
     return session;
   }
 
@@ -27,7 +25,6 @@ export class SessionRepository {
 
   logViolation(violation: ViolationLog): void {
     dbStore.logViolation(violation);
-    cloudflareService.syncViolation(violation);
   }
 
   getViolationLogs(sessionId?: string): ViolationLog[] {

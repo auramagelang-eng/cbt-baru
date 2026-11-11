@@ -200,7 +200,7 @@ export class SupabaseStore implements PersistenceBackend {
         'SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY belum diisi. Data hanya ada di memori instance dan akan kembali ke data awal saat server restart.';
       console.warn(
         '[Supabase] SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY belum diisi. ' +
-          'Aplikasi berjalan dengan penyimpanan file lokal (db_store.json).'
+          'Aplikasi TIDAK punya penyimpanan permanen: semua permintaan tulis akan ditolak.'
       );
       return;
     }
@@ -274,7 +274,7 @@ export class SupabaseStore implements PersistenceBackend {
     }
   }
 
-  /** Database kosong (deploy pertama): unggah data awal dari memori / db_store.json. */
+  /** Database kosong (deploy pertama): unggah data awal dari memori (mis. akun admin). */
   private async bootstrapFromLocalMemory(): Promise<void> {
     const { dbStore } = await import('./db');
     const snapshot = dbStore.getFullSnapshot();

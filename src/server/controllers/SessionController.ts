@@ -235,7 +235,9 @@ export class SessionController {
   /**
    * Admin monitoring & results endpoints.
    */
-  static getExamResults(req: AuthenticatedRequest, res: Response) {
+  static async getExamResults(req: AuthenticatedRequest, res: Response) {
+    // Hasil ujian dibaca ulang dari database sebelum dikirim ke admin.
+    await supabaseStore.refreshIfStale(0);
     const examId = req.query.examId as string | undefined;
     const results = sessionService.getResults(examId);
     res.json({ data: results });
@@ -275,12 +277,14 @@ export class SessionController {
     }
   }
 
-  static getLiveActiveSessions(req: AuthenticatedRequest, res: Response) {
+  static async getLiveActiveSessions(req: AuthenticatedRequest, res: Response) {
+    await supabaseStore.refreshIfStale(0);
     const activeSessions = sessionService.getActiveSessionsInfo();
     res.json({ data: activeSessions });
   }
 
-  static getViolationLogs(req: AuthenticatedRequest, res: Response) {
+  static async getViolationLogs(req: AuthenticatedRequest, res: Response) {
+    await supabaseStore.refreshIfStale(0);
     const sessionId = req.query.sessionId as string | undefined;
     const logs = sessionRepository.getViolationLogs(sessionId);
     res.json({ data: logs });

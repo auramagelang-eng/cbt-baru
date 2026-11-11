@@ -1,6 +1,5 @@
 import { dbStore } from '../db';
 import { User } from '../../types/cbt';
-import { cloudflareService } from '../services/CloudflareService';
 
 export class UserRepository {
   findByToken(token: string): User | undefined {
@@ -21,22 +20,15 @@ export class UserRepository {
 
   createParticipant(user: User): User {
     dbStore.createParticipant(user);
-    cloudflareService.syncParticipant(user);
     return user;
   }
 
   deleteParticipant(participantId: string): boolean {
-    const success = dbStore.deleteParticipant(participantId);
-    if (success) {
-      cloudflareService.deleteParticipant(participantId);
-    }
-    return success;
+    return dbStore.deleteParticipant(participantId);
   }
 
   clearAllParticipants(): number {
-    const count = dbStore.clearAllParticipants();
-    cloudflareService.clearAllParticipants();
-    return count;
+    return dbStore.clearAllParticipants();
   }
 
   unlockAllDevices(): number {
@@ -51,9 +43,7 @@ export class UserRepository {
     items: Array<{ name: string; participantCode: string; token?: string }>,
     clearExisting: boolean = false
   ): User[] {
-    const users = dbStore.importParticipantsBatch(items, clearExisting);
-    cloudflareService.syncParticipantsBatch(users);
-    return users;
+    return dbStore.importParticipantsBatch(items, clearExisting);
   }
 }
 

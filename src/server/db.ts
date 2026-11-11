@@ -1,6 +1,4 @@
 import { User, Exam, Question, ParticipantAnswer, ViolationLog, ExamResult } from '../types/cbt';
-import fs from 'fs';
-import path from 'path';
 import { getPersistence, type PersistenceBackend, type SnapshotData } from './persistence';
 
 export interface StoredSession {
@@ -21,8 +19,6 @@ export interface StoredSession {
   activeDeviceId?: string;
   ipAddress?: string;
 }
-
-const DB_FILE_PATH = path.join(process.cwd(), 'db_store.json');
 
 class DatabaseStore {
   private users = new Map<string, User>();
@@ -47,17 +43,12 @@ class DatabaseStore {
    * Di Vercel filesystem bersifat read-only & sementara, jadi penyimpanan
    * permanen sepenuhnya diserahkan ke Supabase.
    */
-  private diskPersistenceEnabled = true;
+  private diskPersistenceEnabled = false;
 
   /** Saat hydrate dari database, hook tulis dimatikan agar tidak menulis balik. */
   private suppressPersistence = false;
 
   constructor() {
-    // Vercel: filesystem read-only & ephemeral, jangan pernah menulis snapshot.
-    if (process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME) {
-      this.diskPersistenceEnabled = false;
-    }
-
     if (!this.loadPersistedData()) {
       // Tidak ada snapshot lokal: mulai kosong, hanya admin yang dibuat.
       this.persistData();
@@ -90,9 +81,9 @@ class DatabaseStore {
     this.diskPersistenceEnabled = enabled;
   }
 
-  /** true bila snapshot JSON lokal masih dipakai (bukan di Vercel). */
+  /** Selalu false: snapshot JSON tidak pernah dipakai lagi sebagai penyimpanan. */
   public isDiskPersistenceEnabled(): boolean {
-    return this.diskPersistenceEnabled;
+    return false;
   }
 
   /**
@@ -242,103 +233,20 @@ class DatabaseStore {
     }
   }
 
+  /**
+   * Dulu membaca db_store.json. Sekarang SELALU false: data hanya boleh
+   * berasal dari database (Supabase), tidak dari file snapshot.
+   */
   private loadPersistedData(): boolean {
-    try {
-      if (!fs.existsSync(DB_FILE_PATH)) {
-        return false;
-      }
-      const raw = fs.readFileSync(DB_FILE_PATH, 'utf-8');
-      const data = JSON.parse(raw);
-
-      if (!data || !data.users || !data.exams) {
-        return false;
-      }
-
-      this.users.clear();
-      this.usersByToken.clear();
-      this.usersByParticipantCode.clear();
-      (data.users || []).forEach((u: User) => {
-        if (u.role === 'PARTICIPANT' && !u.originalName) {
-          if (u.name && (u.name.startsWith('Peserta') || u.name.startsWith('Siswa'))) {
-            u.originalName = u.name;
-          } else {
-            const code = (u.participantCode || u.username || '').toUpperCase();
-            const rplMatch = code.match(/^RPL0*(\d+)$/i);
-            if (rplMatch) {
-              u.originalName = `Peserta RPL ${rplMatch[1].padStart(2, '0')}`;
-            } else if (code) {
-              u.originalName = `Peserta ${code}`;
-            }
-          }
-        }
-        this.users.set(u.id, u);
-        if (u.token) this.usersByToken.set(u.token.toUpperCase(), u);
-        if (u.participantCode) this.usersByParticipantCode.set(u.participantCode.toUpperCase(), u);
-      });
-
-      this.exams.clear();
-      this.examsByToken.clear();
-      (data.exams || []).forEach((e: Exam) => {
-        this.exams.set(e.id, e);
-        if (e.token) {
-          this.examsByToken.set(e.token.toUpperCase(), e);
-          const cleaned = e.token.trim().toUpperCase().replace(/[\/\-\_\s]/g, '');
-          this.examsByToken.set(cleaned, e);
-        }
-      });
-
-      this.questionsByExamId.clear();
-      if (data.questionsByExamId) {
-        Object.entries(data.questionsByExamId).forEach(([examId, questions]) => {
-          this.questionsByExamId.set(examId, questions as Question[]);
-        });
-      }
-
-      this.sessions.clear();
-      this.sessionsByParticipantExam.clear();
-      (data.sessions || []).forEach((s: StoredSession) => {
-        this.sessions.set(s.sessionId, s);
-        this.sessionsByParticipantExam.set(`${s.participantId}_${s.examId}`, s);
-      });
-
-      this.violationLogs = data.violationLogs || [];
-
-
-      console.log('DatabaseStore successfully loaded from persistent file:', DB_FILE_PATH);
-      return true;
-    } catch (err) {
-      console.error('Failed to load db_store.json, falling back to seed data:', err);
-      return false;
-    }
+    return false;
   }
 
-  private persistTimer: any = null;
-  public persistData(immediate = true): void {
-    // Di serverless tidak ada disk permanen; Supabase sudah menerima datanya.
-    if (!this.diskPersistenceEnabled) return;
-
-    const doWrite = () => {
-      try {
-        const data = {
-          users: Array.from(this.users.values()),
-          exams: Array.from(this.exams.values()),
-          questionsByExamId: Object.fromEntries(this.questionsByExamId.entries()),
-          sessions: Array.from(this.sessions.values()),
-          violationLogs: this.violationLogs,
-        };
-        fs.writeFileSync(DB_FILE_PATH, JSON.stringify(data, null, 2), 'utf-8');
-      } catch (err) {
-        console.error('Failed to persist database to disk:', err);
-      }
-    };
-
-    if (immediate) {
-      if (this.persistTimer) clearTimeout(this.persistTimer);
-      doWrite();
-    } else {
-      if (this.persistTimer) clearTimeout(this.persistTimer);
-      this.persistTimer = setTimeout(doWrite, 100);
-    }
+  /**
+   * Tidak ada lagi penulisan snapshot ke file. Seluruh data hanya disimpan di
+   * database (Supabase); method ini dipertahankan agar pemanggil lama tetap valid.
+   */
+  public persistData(_immediate = true): void {
+    // sengaja kosong: satu-satunya tempat penyimpanan adalah database
   }
 
   /**
@@ -876,23 +784,6 @@ class DatabaseStore {
       if (u.role === 'PARTICIPANT') participantsDeleted++;
     });
 
-    // 1. Create an automatic safety backup before wiping so data can always be recovered
-    try {
-      const backupPath = path.join(process.cwd(), 'db_backup_latest.json');
-      const backupData = {
-        users: Array.from(this.users.values()),
-        exams: Array.from(this.exams.values()),
-        questionsByExamId: Object.fromEntries(this.questionsByExamId.entries()),
-        sessions: Array.from(this.sessions.values()),
-        violationLogs: this.violationLogs,
-        backedUpAt: new Date().toISOString(),
-      };
-      fs.writeFileSync(backupPath, JSON.stringify(backupData, null, 2), 'utf-8');
-      console.log('[DatabaseStore] Automatic safety backup saved to:', backupPath);
-    } catch (e) {
-      console.warn('[DatabaseStore] Safety backup warning:', e);
-    }
-
     this.exams.clear();
     this.examsByToken.clear();
     this.questionsByExamId.clear();
@@ -930,61 +821,6 @@ class DatabaseStore {
       questionsDeleted,
       sessionsDeleted,
     };
-  }
-
-  public restoreSafetyBackup(): { success: boolean; message: string; restoredExams: number; restoredParticipants: number } {
-    try {
-      const backupPath = path.join(process.cwd(), 'db_backup_latest.json');
-      if (!fs.existsSync(backupPath)) {
-        return { success: false, message: 'File cadangan keselamatan (db_backup_latest.json) tidak ditemukan.', restoredExams: 0, restoredParticipants: 0 };
-      }
-      const raw = fs.readFileSync(backupPath, 'utf-8');
-      const data = JSON.parse(raw);
-      if (!data) {
-        return { success: false, message: 'File cadangan kosong atau rusak.', restoredExams: 0, restoredParticipants: 0 };
-      }
-
-      let restoredExams = 0;
-      let restoredParticipants = 0;
-
-      if (Array.isArray(data.exams)) {
-        data.exams.forEach((e: Exam) => {
-          this.saveExam(e);
-          restoredExams++;
-        });
-      }
-
-      if (data.questionsByExamId) {
-        Object.entries(data.questionsByExamId).forEach(([examId, qs]) => {
-          this.saveQuestionsForExam(examId, qs as Question[]);
-        });
-      }
-
-      if (Array.isArray(data.users)) {
-        data.users.forEach((u: User) => {
-          if (u.role === 'PARTICIPANT') {
-            this.createParticipant(u);
-            restoredParticipants++;
-          }
-        });
-      }
-
-      if (Array.isArray(data.sessions)) {
-        data.sessions.forEach((s: StoredSession) => {
-          this.saveSession(s);
-        });
-      }
-
-      this.persistData(true);
-      return {
-        success: true,
-        message: `Berhasil memulihkan ${restoredExams} ujian dan ${restoredParticipants} peserta dari file cadangan!`,
-        restoredExams,
-        restoredParticipants,
-      };
-    } catch (err: any) {
-      return { success: false, message: `Gagal memulihkan cadangan: ${err.message}`, restoredExams: 0, restoredParticipants: 0 };
-    }
   }
 
   public importParticipantsBatch(

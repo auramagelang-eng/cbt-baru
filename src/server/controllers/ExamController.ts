@@ -107,7 +107,9 @@ export class ExamController {
     });
   }
 
-  static getParticipants(req: Request, res: Response) {
+  static async getParticipants(req: Request, res: Response) {
+    // Daftar peserta selalu dibaca ulang dari database, bukan dari cache basi.
+    await supabaseStore.refreshIfStale(0);
     const participants = userRepository.getAllParticipants();
     const activeSessions = sessionService.getActiveSessionsInfo();
     const activeMap = new Map();

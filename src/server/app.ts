@@ -68,11 +68,6 @@ export async function createApp(options: CreateAppOptions = {}): Promise<express
   app.disable('x-powered-by');
   app.set('trust proxy', 1);
 
-  // Vercel: filesystem read-only & sementara -> simpan hanya ke Supabase.
-  if (process.env.VERCEL) {
-    dbStore.setDiskPersistence(false);
-  }
-
   app.use(express.json({ limit: '10mb' }));
   app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 

@@ -1,7 +1,6 @@
 import { dbStore } from '../db';
 import { Exam, Question } from '../../types/cbt';
 import { cacheEngine } from '../cache';
-import { cloudflareService } from '../services/CloudflareService';
 
 export class ExamRepository {
   findByToken(token: string): Exam | undefined {
@@ -66,7 +65,6 @@ export class ExamRepository {
     cacheEngine.delete(`exams_all`);
     cacheEngine.delete(`exam_id_${exam.id}`);
     cacheEngine.deleteByPrefix('exam_token_');
-    cloudflareService.syncExam(exam);
     return exam;
   }
 
@@ -75,9 +73,6 @@ export class ExamRepository {
     cacheEngine.delete(`exams_all`);
     cacheEngine.delete(`exam_id_${examId}`);
     cacheEngine.deleteByPrefix('exam_token_');
-    if (exam) {
-      cloudflareService.syncExam(exam);
-    }
     return exam;
   }
 
@@ -86,16 +81,12 @@ export class ExamRepository {
     cacheEngine.delete(`exams_all`);
     cacheEngine.delete(`exam_id_${examId}`);
     cacheEngine.deleteByPrefix('exam_token_');
-    if (success) {
-      cloudflareService.deleteExam(examId);
-    }
     return success;
   }
 
   saveQuestions(examId: string, questions: Question[]): Question[] {
     dbStore.saveQuestionsForExam(examId, questions);
     cacheEngine.delete(`questions_exam_${examId}`);
-    cloudflareService.syncQuestions(examId, questions);
     return questions;
   }
 }
