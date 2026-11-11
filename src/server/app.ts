@@ -33,6 +33,15 @@ const safe = (handler: AnyHandler): RequestHandler => {
   };
 };
 
+export interface CreateAppOptions {
+  /**
+   * Middleware Vite HMR untuk mode development lokal.
+   * Sengaja DIINJEKSI dari server.ts (bukan di-import di sini) supaya bundel
+   * serverless Vercel tidak ikut menarik paket `vite` + esbuild native.
+   */
+  devMiddleware?: RequestHandler;
+}
+
 let processGuardsInstalled = false;
 
 /** Jangan biarkan rejection tak tertangani mematikan proses / instance server. */
@@ -52,7 +61,7 @@ function installProcessGuards(): void {
  * Membuat aplikasi Express lengkap dengan seluruh route API,
  * penyimpanan permanen Supabase, dan penanganan error global.
  */
-export async function createApp(): Promise<express.Express> {
+export async function createApp(options: CreateAppOptions = {}): Promise<express.Express> {
   installProcessGuards();
 
   const app = express();
@@ -303,13 +312,13 @@ export async function createApp(): Promise<express.Express> {
 
   // --- VITE / STATIC SERVING ---
   if (process.env.NODE_ENV !== 'production') {
-    const { createServer: createViteServer } = await import('vite');
-    const vite = await createViteServer({
-      server: { middlewareMode: true },
-      appType: 'spa',
-    });
-    app.use(vite.middlewares);
+    if (options.devMiddleware) {
+      app.use(options.devMiddleware);
+    } else {
+      console.warn('[Server] Mode development tanpa middleware Vite (jalankan lewat server.ts).');
+    }
   } else {
+    // Di Vercel aset statis dilayani CDN; blok ini hanya untuk `npm start` lokal.
     const distPath = path.join(process.cwd(), 'dist');
     app.use(express.static(distPath));
     app.get('*', (req, res) => {

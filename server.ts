@@ -1,12 +1,26 @@
+import type { RequestHandler } from 'express';
 import { createApp } from './src/server/app';
 import { supabaseStore } from './src/server/supabase';
 
 /**
  * Entry point server lokal / Cloud Run.
- * Di Vercel, file ini tidak dipakai — lihat `api/index.ts`.
+ * Di Vercel file ini TIDAK dipakai — entry serverless ada di `api/index.ts`.
  */
 async function startServer() {
-  const app = await createApp();
+  let devMiddleware: RequestHandler | undefined;
+
+  // Vite hanya dimuat di mode development, dan hanya dari file ini,
+  // supaya bundel serverless produksi tidak ikut membawa Vite/esbuild.
+  if (process.env.NODE_ENV !== 'production') {
+    const { createServer: createViteServer } = await import('vite');
+    const vite = await createViteServer({
+      server: { middlewareMode: true },
+      appType: 'spa',
+    });
+    devMiddleware = vite.middlewares as unknown as RequestHandler;
+  }
+
+  const app = await createApp({ devMiddleware });
   const PORT = Number(process.env.PORT) || 3000;
 
   app.listen(PORT, '0.0.0.0', () => {
