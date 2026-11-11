@@ -6,7 +6,6 @@ import { Badge } from '../ui/Badge';
 import { Modal } from '../ui/Modal';
 import { QuestionEditorPage } from './QuestionEditorPage';
 import { api } from '../../services/api';
-import { VaultStorage } from '../../services/vaultStorage';
 import { Exam } from '../../types/cbt';
 
 export const ExamManager: React.FC = () => {
@@ -42,7 +41,6 @@ export const ExamManager: React.FC = () => {
       const res = await api.get('/exams');
       const serverExams: Exam[] = res.data.data || [];
       setExams(serverExams);
-      VaultStorage.saveExams(serverExams);
     } catch (e) {
       console.error('Gagal memuat ujian dari server/Cloudflare:', e);
     } finally {
@@ -67,7 +65,6 @@ export const ExamManager: React.FC = () => {
     if (window.confirm(`Apakah Anda yakin ingin MENGHAPUS ujian "${title}"?\n\nSeluruh bank soal, sesi, dan riwayat nilai peserta pada ujian ini akan dihapus permanen.`)) {
       try {
         await api.delete(`/exams/${examId}`);
-        VaultStorage.deleteExam(examId);
         await fetchExams();
       } catch (e) {
         console.error('Gagal menghapus ujian', e);
@@ -163,11 +160,9 @@ export const ExamManager: React.FC = () => {
       }
 
       if (editingExam) {
-        const res = await api.put(`/exams/${editingExam.id}`, payload);
-        if (res.data?.data) VaultStorage.saveSingleExam(res.data.data);
+        await api.put(`/exams/${editingExam.id}`, payload);
       } else {
-        const res = await api.post('/exams', payload);
-        if (res.data?.data) VaultStorage.saveSingleExam(res.data.data);
+        await api.post('/exams', payload);
       }
 
       setIsModalOpen(false);

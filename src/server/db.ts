@@ -202,6 +202,24 @@ class DatabaseStore {
     }
   }
 
+  /**
+   * Ganti daftar soal satu ujian dengan hasil read-through dari Supabase.
+   * Tidak menulis balik ke backend, supaya tidak terjadi loop tulis-baca.
+   */
+  public replaceQuestionsFromRemote(examId: string, questions: Question[]): void {
+    this.suppressPersistence = true;
+    try {
+      this.questionsByExamId.set(examId, questions);
+      const exam = this.exams.get(examId);
+      if (exam) {
+        exam.totalQuestions = questions.length;
+        this.exams.set(examId, exam);
+      }
+    } finally {
+      this.suppressPersistence = false;
+    }
+  }
+
   /** Sisipkan satu sesi hasil read-through Supabase tanpa menulis balik. */
   public upsertSessionFromRemote(session: StoredSession): void {
     this.suppressPersistence = true;

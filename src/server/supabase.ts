@@ -305,6 +305,33 @@ export class SupabaseStore implements PersistenceBackend {
     }
   }
 
+  /**
+   * Read-through bank soal satu ujian langsung dari database.
+   *
+   * Dipakai halaman admin supaya daftar soal SELALU sama dengan isi database,
+   * walaupun request mendarat di instance serverless yang cache-nya masih lama.
+   * Null berarti database belum siap → pemanggil memakai cache in-memory.
+   */
+  async loadExamQuestions(examId: string): Promise<Question[] | null> {
+    if (!this.isReady || !this.client || !examId) return null;
+    try {
+      const { data, error } = await this.client
+        .from(TABLES.questions)
+        .select('*')
+        .eq('exam_id', examId)
+        .order('position', { ascending: true });
+      if (error) throw new Error(error.message);
+
+      const questions = (data || []).map((row: any) => rowToQuestion(row));
+      const { dbStore } = await import('./db');
+      dbStore.replaceQuestionsFromRemote(examId, questions);
+      return questions;
+    } catch (err: any) {
+      console.warn('[Supabase] Read-through soal gagal (memakai cache):', err?.message || err);
+      return null;
+    }
+  }
+
   /** Read-through satu sesi (dipakai bila instance Vercel belum punya sesi di cache). */
   async loadSession(sessionId: string): Promise<boolean> {
     if (!this.isReady || !this.client || !sessionId) return false;

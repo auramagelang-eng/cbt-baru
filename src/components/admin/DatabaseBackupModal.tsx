@@ -17,7 +17,6 @@ import {
 import { Modal } from '../ui/Modal';
 import { Button } from '../ui/Button';
 import { Badge } from '../ui/Badge';
-import { VaultStorage } from '../../services/vaultStorage';
 import { api } from '../../services/api';
 
 interface DatabaseBackupModalProps {
@@ -35,13 +34,11 @@ export const DatabaseBackupModal: React.FC<DatabaseBackupModalProps> = ({
     examsCount: number;
     participantsCount: number;
     questionsCount: number;
-  } | null>(null);
-
-  const [vaultStats, setVaultStats] = useState<{
-    examsCount: number;
-    participantsCount: number;
-    questionsCount: number;
-    lastSaved: string;
+    storage?: {
+      mode?: string;
+      pendingWrites?: number;
+      failedWrites?: number;
+    } | null;
   } | null>(null);
 
   const [isLoading, setIsLoading] = useState(false);
@@ -53,20 +50,8 @@ export const DatabaseBackupModal: React.FC<DatabaseBackupModalProps> = ({
     setIsLoading(true);
     setStatusMessage(null);
     try {
-      // 1. Get Vault Stats
-      const vault = VaultStorage.getVaultState();
-      let totalVaultQuestions = 0;
-      Object.values(vault.questionsByExamId).forEach((qs) => {
-        totalVaultQuestions += qs.length;
-      });
-      setVaultStats({
-        examsCount: vault.exams.length,
-        participantsCount: vault.participants.length,
-        questionsCount: totalVaultQuestions,
-        lastSaved: vault.timestamp,
-      });
-
-      // 2. Get Server Stats
+      // Satu-satunya sumber data adalah database server (Supabase).
+      // Browser tidak lagi menyimpan salinan bank soal/peserta.
       const res = await api.get('/database/stats');
       setServerStats(res.data.data);
     } catch (err: any) {
@@ -82,17 +67,26 @@ export const DatabaseBackupModal: React.FC<DatabaseBackupModalProps> = ({
     }
   }, [isOpen]);
 
-  const handleExportBackup = () => {
+  const handleExportBackup = async () => {
     try {
-      VaultStorage.exportBackupFile();
+      // Backup diambil dari database server, bukan dari localStorage browser.
+      const res = await api.get('/database/backup');
+      const json = JSON.stringify(res.data?.data ?? res.data, null, 2);
+      const url = 'data:application/json;charset=utf-8,' + encodeURIComponent(json);
+      const anchor = document.createElement('a');
+      anchor.setAttribute('href', url);
+      anchor.setAttribute('download', `cbt_database_backup_${new Date().toISOString().slice(0, 10)}.json`);
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
       setStatusMessage({
         type: 'success',
-        text: 'File cadangan database berhasil diunduh ke komputer Anda.',
+        text: 'File cadangan berhasil diunduh langsung dari database server.',
       });
     } catch (err: any) {
       setStatusMessage({
         type: 'error',
-        text: 'Gagal mengunduh file cadangan: ' + err.message,
+        text: 'Gagal mengunduh file cadangan: ' + (err.response?.data?.error || err.message),
       });
     }
   };
@@ -101,10 +95,10 @@ export const DatabaseBackupModal: React.FC<DatabaseBackupModalProps> = ({
     setIsSyncing(true);
     setStatusMessage(null);
     try {
-      const res = await VaultStorage.syncWithServer();
+      await api.get('/database/stats');
       setStatusMessage({
-        type: res.synced ? 'success' : 'error',
-        text: res.message,
+        type: 'success',
+        text: 'Data terbaru berhasil dibaca langsung dari database server.',
       });
       await refreshStats();
       if (onDataRestored) onDataRestored();
@@ -128,7 +122,12 @@ export const DatabaseBackupModal: React.FC<DatabaseBackupModalProps> = ({
       const text = await file.text();
       const parsed = JSON.parse(text);
 
-      await VaultStorage.importBackupData(parsed);
+      // Pemulihan dikirim ke server; server menulis ke database permanen.
+      await api.post('/database/sync-backup', {
+        exams: parsed.exams || [],
+        questionsByExamId: parsed.questionsByExamId || {},
+        participants: parsed.participants || [],
+      });
 
       setStatusMessage({
         type: 'success',
@@ -161,10 +160,10 @@ export const DatabaseBackupModal: React.FC<DatabaseBackupModalProps> = ({
           <ShieldCheck className="w-6 h-6 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
           <div className="space-y-1">
             <h4 className="font-bold text-emerald-900 dark:text-emerald-200 text-sm">
-              Proteksi Data Anti-Hilang (Auto-Restore Aktif)
+              Data Dibaca &amp; Disimpan Hanya di Database
             </h4>
             <p className="text-emerald-800 dark:text-emerald-300/90 leading-relaxed text-xs">
-              Ketika server Cloud Run masuk ke mode <em>sleep</em> atau di-restart, bank soal dan peserta ujian Anda <strong>tidak akan hilang</strong>. Sistem menyimpan salinan persisten di browser Anda dan akan secara otomatis menyinkronkan kembali ke database server saat aplikasi dibuka.
+              Aplikasi <strong>tidak lagi menyimpan bank soal atau peserta di browser</strong>. Semua perubahan langsung ditulis ke database (Supabase) dan setiap tampilan dibaca ulang dari database, sehingga soal yang sudah dihapus tidak muncul kembali dan soal baru tidak hilang saat server restart.
             </p>
           </div>
         </div>
@@ -196,7 +195,7 @@ export const DatabaseBackupModal: React.FC<DatabaseBackupModalProps> = ({
                 <HardDrive className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
                 <span className="font-bold text-slate-800 dark:text-zinc-200">Database Server</span>
               </div>
-              <Badge variant="info">Aktif di Server</Badge>
+              <Badge variant="blue">Aktif di Server</Badge>
             </div>
 
             <div className="space-y-2 pt-1">
@@ -227,39 +226,41 @@ export const DatabaseBackupModal: React.FC<DatabaseBackupModalProps> = ({
             </div>
           </div>
 
-          {/* Browser Vault Card */}
+          {/* Status Penyimpanan (tanpa salinan di browser) */}
           <div className="p-4 rounded-2xl bg-slate-50 dark:bg-zinc-800/60 border border-slate-200 dark:border-zinc-700/60 space-y-3">
             <div className="flex items-center justify-between border-b border-slate-200 dark:border-zinc-700 pb-2.5">
               <div className="flex items-center gap-2">
                 <Laptop className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                <span className="font-bold text-slate-800 dark:text-zinc-200">Cadangan Browser (Vault)</span>
+                <span className="font-bold text-slate-800 dark:text-zinc-200">Status Penyimpanan</span>
               </div>
-              <Badge variant="success">Tersimpan Permanen</Badge>
+              <Badge variant={serverStats?.storage?.mode === 'supabase' ? 'emerald' : 'amber'}>
+                {serverStats?.storage?.mode === 'supabase' ? 'Supabase Aktif' : 'Database Belum Aktif'}
+              </Badge>
             </div>
 
             <div className="space-y-2 pt-1">
               <div className="flex justify-between items-center text-slate-600 dark:text-zinc-400">
                 <span className="flex items-center gap-1.5">
-                  <Layers className="w-3.5 h-3.5" /> Total Sesi Ujian:
+                  <Layers className="w-3.5 h-3.5" /> Mode Penyimpanan:
                 </span>
                 <span className="font-mono font-bold text-slate-900 dark:text-zinc-100">
-                  {vaultStats ? `${vaultStats.examsCount} Ujian` : '...'}
+                  {serverStats?.storage?.mode || '...'}
                 </span>
               </div>
               <div className="flex justify-between items-center text-slate-600 dark:text-zinc-400">
                 <span className="flex items-center gap-1.5">
-                  <FileQuestion className="w-3.5 h-3.5" /> Total Bank Soal:
+                  <FileQuestion className="w-3.5 h-3.5" /> Tulisan Tertunda:
                 </span>
                 <span className="font-mono font-bold text-slate-900 dark:text-zinc-100">
-                  {vaultStats ? `${vaultStats.questionsCount} Soal` : '...'}
+                  {serverStats?.storage?.pendingWrites ?? 0}
                 </span>
               </div>
               <div className="flex justify-between items-center text-slate-600 dark:text-zinc-400">
                 <span className="flex items-center gap-1.5">
-                  <Users className="w-3.5 h-3.5" /> Total Peserta:
+                  <Users className="w-3.5 h-3.5" /> Tulisan Gagal:
                 </span>
                 <span className="font-mono font-bold text-slate-900 dark:text-zinc-100">
-                  {vaultStats ? `${vaultStats.participantsCount} Peserta` : '...'}
+                  {serverStats?.storage?.failedWrites ?? 0}
                 </span>
               </div>
             </div>

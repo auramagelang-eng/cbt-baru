@@ -25,7 +25,6 @@ import { FormattedText } from '../ui/CodeBlock';
 import { ImportQuestionsModal } from './ImportQuestionsModal';
 import { EssayAiRubricEditor } from './EssayAiRubricEditor';
 import { api } from '../../services/api';
-import { VaultStorage } from '../../services/vaultStorage';
 import { Exam, Question, QuestionType, QuestionOption, EssayAiRubric, ShortAnswerMultiItem } from '../../types/cbt';
 
 interface QuestionEditorPageProps {
@@ -110,7 +109,6 @@ export const QuestionEditorPage: React.FC<QuestionEditorPageProps> = ({
       const res = await api.get(`/exams/${exam.id}`);
       const serverQuestions: Question[] = res.data.data?.questions || [];
       setQuestions(serverQuestions);
-      VaultStorage.saveExamQuestions(exam.id, serverQuestions);
     } catch (e: any) {
       console.error('Gagal memuat soal dari server/Cloudflare:', e);
       setErrorMessage('Gagal memuat daftar soal dari server.');
@@ -207,14 +205,21 @@ export const QuestionEditorPage: React.FC<QuestionEditorPageProps> = ({
 
   const syncQuestionsToServer = async (updatedQuestions: Question[]) => {
     setIsSaving(true);
-    // Immediately persist to browser local vault
-    VaultStorage.saveExamQuestions(exam.id, updatedQuestions);
     try {
-      await api.post(`/exams/${exam.id}/questions`, { questions: updatedQuestions });
+      // Satu-satunya sumber penyimpanan adalah database server (Supabase).
+      // Tidak ada lagi salinan di browser, jadi daftar soal selalu sama dengan isi database.
+      const res = await api.post(`/exams/${exam.id}/questions`, { questions: updatedQuestions });
+      if (res.data?.persisted === false) {
+        setErrorMessage('Perubahan belum tersimpan permanen di database. Periksa koneksi database lalu simpan ulang.');
+      }
       if (onQuestionsSaved) onQuestionsSaved();
+      // Muat ulang dari server supaya tampilan = isi database sebenarnya.
+      await fetchExamQuestions();
     } catch (e: any) {
       console.error('Gagal menyimpan soal ke server:', e);
-      setErrorMessage('Soal berhasil dicadangkan di browser. Akan disinkronkan otomatis saat server online.');
+      setErrorMessage('Gagal menyimpan soal ke database. Perubahan dibatalkan.');
+      // Kembalikan daftar ke kondisi database, bukan menyimpan salinan lokal.
+      await fetchExamQuestions();
     } finally {
       setIsSaving(false);
     }

@@ -25,7 +25,6 @@ import { Card } from '../ui/Card';
 import { Button } from '../ui/Button';
 import { Badge } from '../ui/Badge';
 import { api } from '../../services/api';
-import { VaultStorage } from '../../services/vaultStorage';
 import { User, ViolationLog } from '../../types/cbt';
 
 export const ParticipantManager: React.FC = () => {
@@ -69,7 +68,6 @@ export const ParticipantManager: React.FC = () => {
       ]);
       const serverParticipants: User[] = pRes.data.data || [];
       setParticipants(serverParticipants);
-      VaultStorage.saveParticipants(serverParticipants);
       setViolations(vRes.data.data || []);
     } catch (e) {
       console.error('Gagal memuat peserta dari server/Cloudflare:', e);
@@ -153,7 +151,6 @@ export const ParticipantManager: React.FC = () => {
     if (window.confirm(`Hapus akun peserta "${name}" secara permanen?`)) {
       try {
         await api.delete(`/participants/${participantId}`);
-        VaultStorage.deleteParticipant(participantId);
         await fetchParticipantsAndViolations();
       } catch (e: any) {
         alert(e.response?.data?.error || 'Gagal menghapus peserta');
@@ -178,7 +175,6 @@ export const ParticipantManager: React.FC = () => {
     if (window.confirm(`PERINGATAN KERAS: Apakah Anda yakin ingin MENGHAPUS SELURUH ${count} PESERTA?\n\nSemua akun peserta, sesi ujian, dan log anticheat akan dihapus.`)) {
       try {
         const res = await api.post('/participants/clear-all', {});
-        VaultStorage.saveParticipants([]);
         alert(res.data.message || 'Seluruh daftar peserta berhasil dikosongkan!');
         await fetchParticipantsAndViolations();
       } catch (e: any) {

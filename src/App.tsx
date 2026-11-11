@@ -17,7 +17,6 @@ import { Card } from './components/ui/Card';
 import { Badge } from './components/ui/Badge';
 import { api } from './services/api';
 import { OfflineStorageManager } from './services/offlineStorage';
-import { VaultStorage } from './services/vaultStorage';
 import { AntiCheatEngine } from './services/antiCheat';
 import { BookOpen, Users, Activity, Award, CloudLightning, ShieldCheck, CheckCircle2, RotateCcw, Key, Database, Cloud, Trash2, AlertTriangle } from 'lucide-react';
 
@@ -71,7 +70,6 @@ export default function App() {
     setIsWiping(true);
     try {
       const res = await api.post('/database/wipe-all');
-      VaultStorage.clearVault();
       OfflineStorageManager.clearAllOfflineCaches();
       setWipeSuccessMsg(res.data?.message || 'Seluruh data berhasil dihapus bersih dari Cloudflare D1 & Server.');
       setTimeout(() => {

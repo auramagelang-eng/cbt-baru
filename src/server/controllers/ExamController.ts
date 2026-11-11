@@ -4,22 +4,33 @@ import { userRepository } from '../repositories/UserRepository';
 import { sessionService } from '../services/SessionService';
 import { CreateExamSchema, UpdateExamSchema } from '../dto';
 import { EssayGrader } from '../services/EssayGrader';
-import { flushPersistence } from '../supabase';
+import { flushPersistence, supabaseStore } from '../supabase';
 
 export class ExamController {
-  static getAllExams(req: Request, res: Response) {
+  static async getAllExams(req: Request, res: Response) {
+    // Paksa cache menyegarkan diri dari database sebelum daftar ujian dikirim,
+    // supaya jumlah soal / status aktif selalu sesuai isi database.
+    await supabaseStore.refreshIfStale(0);
     const exams = examService.getAllExams();
     res.json({ data: exams });
   }
 
-  static getExamDetail(req: Request, res: Response) {
+  static async getExamDetail(req: Request, res: Response) {
     const exam = examService.getExamById(req.params.id);
     if (!exam) {
       res.status(404).json({ error: 'Ujian tidak ditemukan' });
       return;
     }
-    const questions = examService.getExamQuestions(exam.id);
-    res.json({ data: { ...exam, questions } });
+
+    // Halaman admin membaca ulang soal langsung dari database. Ini mencegah
+    // soal yang baru dihapus muncul lagi / soal baru hilang karena cache
+    // in-memory instance serverless lain masih menyimpan data lama.
+    const freshQuestions = await supabaseStore.loadExamQuestions(exam.id);
+    const questions = freshQuestions ?? examService.getExamQuestions(exam.id);
+
+    res.json({
+      data: { ...exam, totalQuestions: questions.length, questions },
+    });
   }
 
   /**
