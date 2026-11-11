@@ -202,3 +202,18 @@ browser sebelum status tersimpan kembali normal.
   hash + rotasi token berkala.
 - Aktifkan **Point-in-Time Recovery / backup harian** pada paket Supabase berbayar untuk
   perlindungan tambahan.
+
+## Membuat tabel otomatis (opsional, tapi disarankan)
+
+Bila muncul error `Could not find the table 'public.cbt_questions' in the schema cache`,
+tabel `cbt_*` belum ada di project Supabase. Ada dua cara memperbaikinya:
+
+1. **Manual (paling cepat):** buka Supabase Dashboard -> SQL Editor -> tempel seluruh isi
+   `supabase/schema.sql` -> Run. Skrip ini aman dijalankan berulang kali.
+2. **Otomatis:** tambahkan env `SUPABASE_DB_URL` di server/Vercel. Nilainya dari
+   Supabase Dashboard -> Settings -> Database -> Connection string (URI, sertakan password).
+   Saat tabel belum ada, server akan membuatnya sendiri dari `supabase/schema.sql`
+   (dibundel sebagai `src/server/schemaSql.ts`), lalu menyambung ulang.
+
+Setelah tabel tersedia, `/api/health` harus menampilkan `"mode":"supabase"`, `"reason":"ok"`,
+`"durable":true`.

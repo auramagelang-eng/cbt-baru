@@ -1,5 +1,5 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
-import type { Exam, Question, User, ViolationLog } from '../types/cbt';
+import { ensureDatabaseSchema, isMissingSchemaError } from './databaseMigrate';import type { Exam, Question, User, ViolationLog } from '../types/cbt';
 import type { StoredSession } from './db';
 import {
   getPersistence,
@@ -224,9 +224,24 @@ export class SupabaseStore implements PersistenceBackend {
       });
 
       // Probe ringan: memastikan tabel sudah dibuat (lihat supabase/schema.sql).
-      const probe = await this.client
+      // Bila tabel belum ada, server mencoba membuatnya sendiri lewat
+      // SUPABASE_DB_URL memakai skema di src/server/schemaSql.ts.
+      let probe = await this.client
         .from(TABLES.exams)
         .select('id', { count: 'exact', head: true });
+
+      if (probe.error && isMissingSchemaError(probe.error)) {
+        const migration = await ensureDatabaseSchema();
+        console.warn(`[Supabase] ${migration.message}`);
+        if (migration.status === 'created' || migration.status === 'exists') {
+          probe = await this.client
+            .from(TABLES.exams)
+            .select('id', { count: 'exact', head: true });
+        } else {
+          throw new Error(`${probe.error.message}. ${migration.message}`);
+        }
+      }
+
       if (probe.error) {
         throw new Error(
           `${probe.error.message}. Pastikan file supabase/schema.sql sudah dijalankan di SQL Editor Supabase.`

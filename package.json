@@ -7,7 +7,7 @@
     "dev": "tsx server.ts",
     "postinstall": "npm run build:api",
     "prebuild": "npm run build:api",
-    "build:api": "esbuild src/server/vercel-entry.ts --bundle --platform=node --format=cjs --outfile=build/handler.cjs",
+    "build:api": "node scripts/gen-schema-sql.mjs && esbuild src/server/vercel-entry.ts --bundle --platform=node --format=cjs --outfile=build/handler.cjs",
     "build": "vite build && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs && npm run build:api",
     "start": "node dist/server.cjs",
     "preview": "vite preview",
@@ -28,6 +28,7 @@
     "express": "^4.21.2",
     "lucide-react": "^0.546.0",
     "motion": "^12.23.24",
+    "pg": "^8.23.1",
     "react": "^19.0.1",
     "react-dom": "^19.0.1",
     "react-hook-form": "^7.84.0",
@@ -37,13 +38,14 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@types/express": "^4.17.21",
     "@types/node": "^22.14.0",
+    "@types/pg": "^8.23.1",
     "autoprefixer": "^10.4.21",
     "esbuild": "^0.25.0",
     "tailwindcss": "^4.1.14",
     "tsx": "^4.21.0",
     "typescript": "~5.8.2",
-    "vite": "^6.2.3",
-    "@types/express": "^4.17.21"
+    "vite": "^6.2.3"
   }
 }
