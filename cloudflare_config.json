@@ -1,0 +1,12 @@
+{
+  "enabled": true,
+  "mode": "D1_DIRECT",
+  "accountEmail": "aura.magelang@gmail.com",
+  "accountId": "cf_acc_aura_magelang_999339767764",
+  "databaseId": "66175cea-35fe-414d-979a-fe955880691c",
+  "apiToken": "cf_d1_token_aura_magelang_active_edge",
+  "workerUrl": "",
+  "workerAuthSecret": "",
+  "autoSync": true,
+  "syncIntervalMinutes": 5
+}

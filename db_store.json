@@ -1,0 +1,1919 @@
+{
+  "users": [
+    {
+      "id": "usr_admin",
+      "username": "ahmad",
+      "name": "Ahmad (Administrator)",
+      "role": "ADMIN"
+    },
+    {
+      "id": "usr_rpl_01",
+      "username": "rpl01",
+      "name": "Peserta RPL 01",
+      "role": "PARTICIPANT",
+      "participantCode": "RPL-01",
+      "token": "RPL01",
+      "originalName": "Peserta RPL 01"
+    },
+    {
+      "id": "usr_rpl_02",
+      "username": "rpl02",
+      "name": "Peserta RPL 02",
+      "role": "PARTICIPANT",
+      "participantCode": "RPL-02",
+      "token": "RPL02",
+      "originalName": "Peserta RPL 02"
+    },
+    {
+      "id": "usr_rpl_03",
+      "username": "rpl03",
+      "name": "Peserta RPL 03",
+      "role": "PARTICIPANT",
+      "participantCode": "RPL-03",
+      "token": "RPL03",
+      "originalName": "Peserta RPL 03"
+    },
+    {
+      "id": "usr_rpl_04",
+      "username": "rpl04",
+      "name": "Peserta RPL 04",
+      "role": "PARTICIPANT",
+      "participantCode": "RPL-04",
+      "token": "RPL04",
+      "originalName": "Peserta RPL 04"
+    },
+    {
+      "id": "usr_rpl_05",
+      "username": "rpl05",
+      "name": "Peserta RPL 05",
+      "role": "PARTICIPANT",
+      "participantCode": "RPL-05",
+      "token": "RPL05",
+      "originalName": "Peserta RPL 05"
+    },
+    {
+      "id": "usr_rpl_06",
+      "username": "rpl06",
+      "name": "Peserta RPL 06",
+      "role": "PARTICIPANT",
+      "participantCode": "RPL-06",
+      "token": "RPL06",
+      "originalName": "Peserta RPL 06"
+    },
+    {
+      "id": "usr_rpl_07",
+      "username": "rpl07",
+      "name": "Peserta RPL 07",
+      "role": "PARTICIPANT",
+      "participantCode": "RPL-07",
+      "token": "RPL07",
+      "originalName": "Peserta RPL 07"
+    },
+    {
+      "id": "usr_rpl_08",
+      "username": "rpl08",
+      "name": "Peserta RPL 08",
+      "role": "PARTICIPANT",
+      "participantCode": "RPL-08",
+      "token": "RPL08",
+      "originalName": "Peserta RPL 08"
+    },
+    {
+      "id": "usr_rpl_09",
+      "username": "rpl09",
+      "name": "Peserta RPL 09",
+      "role": "PARTICIPANT",
+      "participantCode": "RPL-09",
+      "token": "RPL09",
+      "originalName": "Peserta RPL 09"
+    },
+    {
+      "id": "usr_rpl_10",
+      "username": "rpl10",
+      "name": "Peserta RPL 10",
+      "role": "PARTICIPANT",
+      "participantCode": "RPL-10",
+      "token": "RPL10",
+      "originalName": "Peserta RPL 10"
+    },
+    {
+      "id": "usr_rpl_11",
+      "username": "rpl11",
+      "name": "Peserta RPL 11",
+      "role": "PARTICIPANT",
+      "participantCode": "RPL-11",
+      "token": "RPL11",
+      "originalName": "Peserta RPL 11"
+    },
+    {
+      "id": "usr_rpl_12",
+      "username": "rpl12",
+      "name": "Peserta RPL 12",
+      "role": "PARTICIPANT",
+      "participantCode": "RPL-12",
+      "token": "RPL12",
+      "originalName": "Peserta RPL 12"
+    },
+    {
+      "id": "usr_rpl_13",
+      "username": "rpl13",
+      "name": "Peserta RPL 13",
+      "role": "PARTICIPANT",
+      "participantCode": "RPL-13",
+      "token": "RPL13",
+      "originalName": "Peserta RPL 13"
+    },
+    {
+      "id": "usr_rpl_14",
+      "username": "rpl14",
+      "name": "Peserta RPL 14",
+      "role": "PARTICIPANT",
+      "participantCode": "RPL-14",
+      "token": "RPL14",
+      "originalName": "Peserta RPL 14"
+    },
+    {
+      "id": "usr_rpl_15",
+      "username": "rpl15",
+      "name": "Peserta RPL 15",
+      "role": "PARTICIPANT",
+      "participantCode": "RPL-15",
+      "token": "RPL15",
+      "originalName": "Peserta RPL 15"
+    },
+    {
+      "id": "usr_rpl_16",
+      "username": "rpl16",
+      "name": "Peserta RPL 16",
+      "role": "PARTICIPANT",
+      "participantCode": "RPL-16",
+      "token": "RPL16",
+      "originalName": "Peserta RPL 16"
+    },
+    {
+      "id": "usr_rpl_17",
+      "username": "rpl17",
+      "name": "Peserta RPL 17",
+      "role": "PARTICIPANT",
+      "participantCode": "RPL-17",
+      "token": "RPL17",
+      "originalName": "Peserta RPL 17"
+    },
+    {
+      "id": "usr_rpl_18",
+      "username": "rpl18",
+      "name": "Peserta RPL 18",
+      "role": "PARTICIPANT",
+      "participantCode": "RPL-18",
+      "token": "RPL18",
+      "originalName": "Peserta RPL 18"
+    },
+    {
+      "id": "usr_rpl_19",
+      "username": "rpl19",
+      "name": "Peserta RPL 19",
+      "role": "PARTICIPANT",
+      "participantCode": "RPL-19",
+      "token": "RPL19",
+      "originalName": "Peserta RPL 19"
+    },
+    {
+      "id": "usr_rpl_20",
+      "username": "rpl20",
+      "name": "Peserta RPL 20",
+      "role": "PARTICIPANT",
+      "participantCode": "RPL-20",
+      "token": "RPL20",
+      "originalName": "Peserta RPL 20"
+    }
+  ],
+  "exams": [
+    {
+      "id": "exam_php_multi",
+      "title": "Praktikum PHP Form & Logika (Multi-Blank Fill-In)",
+      "subject": "Pemrograman Web & PHP",
+      "durationMinutes": 45,
+      "totalQuestions": 5,
+      "passPercentage": 75,
+      "token": "PHP01",
+      "isActive": true,
+      "shuffleQuestions": false,
+      "shuffleAnswers": false,
+      "maxViolations": 3,
+      "maxAttempts": 3,
+      "createdAt": "2026-11-09T03:14:29.716Z"
+    },
+    {
+      "id": "exam_php_10",
+      "title": "Praktikum Logika PHP Form & Pemrograman Web",
+      "subject": "Pemrograman Web (PHP)",
+      "durationMinutes": 90,
+      "totalQuestions": 11,
+      "passPercentage": 75,
+      "token": "PHP10",
+      "isActive": true,
+      "shuffleQuestions": false,
+      "shuffleAnswers": false,
+      "maxViolations": 3,
+      "maxAttempts": 3,
+      "createdAt": "2026-11-09T03:17:59.529Z"
+    }
+  ],
+  "questionsByExamId": {
+    "exam_php_multi": [
+      {
+        "id": "q_php_1",
+        "examId": "exam_php_multi",
+        "type": "SHORT_ANSWER_MULTI",
+        "questionText": "Lengkapi form PHP berikut agar dapat menghitung total harga dari input jumlah barang, dengan ketentuan: jika jumlah > 10 maka harga satuan 5000, selain itu harga satuan 6000.\n\n```php\n<form action=\"\" method=\"____(1)____\">\n    Jumlah: <input type=\"number\" name=\"____(2)____\">\n    <button type=\"submit\" name=\"____(3)____\">Hitung</button>\n</form>\n\n<?php\nif (isset($_POST['____(3)____'])) {\n    $jumlah = $_POST['____(2)____'];\n    if ($jumlah ____(4)____ 10) {\n        $harga = 5000;\n    } else {\n        $harga = 6000;\n    }\n    $total = $jumlah * $harga;\n    echo \"Total: \" . ____(5)____;\n}\n?>\n```\n\nIsilah bagian (1)–(5) dengan jawaban tepat!",
+        "points": 10,
+        "options": [],
+        "answerKey": [
+          {
+            "blank": 1,
+            "answer": "POST"
+          },
+          {
+            "blank": 2,
+            "answer": "jumlah"
+          },
+          {
+            "blank": 3,
+            "answer": "hitung"
+          },
+          {
+            "blank": 4,
+            "answer": ">"
+          },
+          {
+            "blank": 5,
+            "answer": "$total"
+          }
+        ],
+        "shortAnswerMultiKey": [
+          {
+            "blank": 1,
+            "answer": "POST"
+          },
+          {
+            "blank": 2,
+            "answer": "jumlah"
+          },
+          {
+            "blank": 3,
+            "answer": "hitung"
+          },
+          {
+            "blank": 4,
+            "answer": ">"
+          },
+          {
+            "blank": 5,
+            "answer": "$total"
+          }
+        ]
+      },
+      {
+        "id": "q_php_2",
+        "examId": "exam_php_multi",
+        "type": "SHORT_ANSWER_MULTI",
+        "questionText": "Lengkapi form PHP berikut agar menampilkan bilangan genap dari 1 sampai batas yang diinput user.\n\n```php\n<form action=\"\" method=\"____(1)____\">\n    Batas: <input type=\"number\" name=\"____(2)____\">\n    <input type=\"submit\" name=\"____(3)____\" value=\"Tampilkan\">\n</form>\n\n<?php\nif (isset($_POST['____(3)____'])) {\n    $batas = $_POST['____(2)____'];\n    for ($i = 1; $i ____(4)____ $batas; $i++) {\n        if ($i ____(5)____ 2 == 0) {\n            echo $i . \" \";\n        }\n    }\n}\n?>\n```\n\nIsilah bagian (1)–(5) dengan jawaban tepat!",
+        "points": 10,
+        "options": [],
+        "answerKey": [
+          {
+            "blank": 1,
+            "answer": "POST"
+          },
+          {
+            "blank": 2,
+            "answer": "batas"
+          },
+          {
+            "blank": 3,
+            "answer": "tampil"
+          },
+          {
+            "blank": 4,
+            "answer": "<="
+          },
+          {
+            "blank": 5,
+            "answer": "%"
+          }
+        ],
+        "shortAnswerMultiKey": [
+          {
+            "blank": 1,
+            "answer": "POST"
+          },
+          {
+            "blank": 2,
+            "answer": "batas"
+          },
+          {
+            "blank": 3,
+            "answer": "tampil"
+          },
+          {
+            "blank": 4,
+            "answer": "<="
+          },
+          {
+            "blank": 5,
+            "answer": "%"
+          }
+        ]
+      },
+      {
+        "id": "q_php_3",
+        "examId": "exam_php_multi",
+        "type": "SHORT_ANSWER_MULTI",
+        "questionText": "Lengkapi form PHP berikut agar mengecek kategori nilai: jika nilai >= 75 maka \"Lulus\", selain itu \"Tidak Lulus\".\n\n```php\n<form action=\"\" method=\"____(1)____\">\n    Nilai: <input type=\"text\" name=\"____(2)____\">\n    <button type=\"submit\" name=\"____(3)____\">Cek</button>\n</form>\n\n<?php\nif (____(4)____($_POST['cek'])) {\n    $nilai = $_POST['____(2)____'];\n    if ($nilai ____(5)____ 75) {\n        echo \"Lulus\";\n    } else {\n        echo \"Tidak Lulus\";\n    }\n}\n?>\n```\n\nIsilah bagian (1)–(5) dengan jawaban tepat!",
+        "points": 10,
+        "options": [],
+        "answerKey": [
+          {
+            "blank": 1,
+            "answer": "POST"
+          },
+          {
+            "blank": 2,
+            "answer": "nilai"
+          },
+          {
+            "blank": 3,
+            "answer": "cek"
+          },
+          {
+            "blank": 4,
+            "answer": "isset"
+          },
+          {
+            "blank": 5,
+            "answer": ">="
+          }
+        ],
+        "shortAnswerMultiKey": [
+          {
+            "blank": 1,
+            "answer": "POST"
+          },
+          {
+            "blank": 2,
+            "answer": "nilai"
+          },
+          {
+            "blank": 3,
+            "answer": "cek"
+          },
+          {
+            "blank": 4,
+            "answer": "isset"
+          },
+          {
+            "blank": 5,
+            "answer": ">="
+          }
+        ]
+      },
+      {
+        "id": "q_php_4",
+        "examId": "exam_php_multi",
+        "type": "SHORT_ANSWER_MULTI",
+        "questionText": "Lengkapi form PHP berikut agar menampilkan tabel perkalian dari angka yang diinput user (1 sampai 10).\n\n```php\n<form action=\"\" method=\"____(1)____\">\n    Angka: <input type=\"number\" name=\"____(2)____\">\n    <input type=\"submit\" name=\"____(3)____\" value=\"Tampilkan\">\n</form>\n\n<?php\nif (isset($_POST['____(3)____'])) {\n    $angka = $_POST['____(2)____'];\n    for ($i = 1; $i <= ____(4)____; $i++) {\n        echo $angka . \" x \" . $i . \" = \" . (____(5)____) . \"<br>\";\n    }\n}\n?>\n```\n\nIsilah bagian (1)–(5) dengan jawaban tepat!",
+        "points": 10,
+        "options": [],
+        "answerKey": [
+          {
+            "blank": 1,
+            "answer": "POST"
+          },
+          {
+            "blank": 2,
+            "answer": "angka"
+          },
+          {
+            "blank": 3,
+            "answer": "tampil"
+          },
+          {
+            "blank": 4,
+            "answer": "10"
+          },
+          {
+            "blank": 5,
+            "answer": "$angka * $i"
+          }
+        ],
+        "shortAnswerMultiKey": [
+          {
+            "blank": 1,
+            "answer": "POST"
+          },
+          {
+            "blank": 2,
+            "answer": "angka"
+          },
+          {
+            "blank": 3,
+            "answer": "tampil"
+          },
+          {
+            "blank": 4,
+            "answer": "10"
+          },
+          {
+            "blank": 5,
+            "answer": "$angka * $i"
+          }
+        ]
+      },
+      {
+        "id": "q_php_5",
+        "examId": "exam_php_multi",
+        "type": "SHORT_ANSWER_MULTI",
+        "questionText": "Lengkapi form PHP berikut agar menjumlahkan angka 1 sampai N (N dari input), menggunakan looping while.\n\n```php\n<form action=\"\" method=\"____(1)____\">\n    N: <input type=\"number\" name=\"____(2)____\">\n    <button type=\"submit\" name=\"____(3)____\">Jumlahkan</button>\n</form>\n\n<?php\nif (isset($_POST['____(3)____'])) {\n    $n = $_POST['____(2)____'];\n    $i = 1;\n    $total = 0;\n    ____(4)____ ($i <= $n) {\n        $total = $total + $i;\n        $i____(5)____;\n    }\n    echo \"Total: \" . $total;\n}\n?>\n```\n\nIsilah bagian (1)–(5) dengan jawaban tepat!",
+        "points": 10,
+        "options": [],
+        "answerKey": [
+          {
+            "blank": 1,
+            "answer": "POST"
+          },
+          {
+            "blank": 2,
+            "answer": "n"
+          },
+          {
+            "blank": 3,
+            "answer": "jumlah"
+          },
+          {
+            "blank": 4,
+            "answer": "while"
+          },
+          {
+            "blank": 5,
+            "answer": "++"
+          }
+        ],
+        "shortAnswerMultiKey": [
+          {
+            "blank": 1,
+            "answer": "POST"
+          },
+          {
+            "blank": 2,
+            "answer": "n"
+          },
+          {
+            "blank": 3,
+            "answer": "jumlah"
+          },
+          {
+            "blank": 4,
+            "answer": "while"
+          },
+          {
+            "blank": 5,
+            "answer": "++"
+          }
+        ]
+      }
+    ],
+    "exam_php_10": [
+      {
+        "id": "q_php_01",
+        "examId": "exam_php_10",
+        "type": "ESSAY",
+        "points": 20,
+        "questionText": "SOAL 1 – PENENTUAN PREDIKAT NILAI\n\nPerhatikan form berikut. Form sudah selesai dibuat. Tugas Anda adalah menuliskan logika PHP untuk menentukan predikat nilai peserta didik.\n\nKetentuan:\n- Nilai 90–100: A\n- Nilai 80–89: B\n- Nilai 70–79: C\n- Nilai 60–69: D\n- Nilai di bawah 60: E\n- Nilai di luar rentang 0–100 dinyatakan tidak valid.\n\nFORM YANG SUDAH DISEDIAKAN:\n```html\n<form method=\"POST\">\n    <label>Nama Peserta Didik</label>\n    <input type=\"text\" name=\"nama\" required>\n\n    <label>Nilai Akhir</label>\n    <input type=\"number\" name=\"nilai\" required>\n\n    <button type=\"submit\" name=\"proses\">Periksa Nilai</button>\n</form>\n```\n\nTUGAS:\nTuliskan kode PHP yang harus diletakkan setelah form untuk:\n1. Memeriksa apakah tombol proses telah ditekan.\n2. Mengambil nama dan nilai dari form.\n3. Memvalidasi nilai.\n4. Menentukan predikat menggunakan if, elseif, dan else.\n5. Menampilkan nama, nilai, dan predikat peserta didik.\n\nTuliskan hanya bagian logika PHP, tidak perlu membuat ulang form!",
+        "essayAnswerKey": "<?php\nif (isset($_POST['proses'])) {\n    $nama = $_POST['nama'];\n    $nilai = $_POST['nilai'];\n\n    if ($nilai < 0 || $nilai > 100) {\n        $predikat = \"Tidak Valid\";\n    } elseif ($nilai >= 90) {\n        $predikat = \"A\";\n    } elseif ($nilai >= 80) {\n        $predikat = \"B\";\n    } elseif ($nilai >= 70) {\n        $predikat = \"C\";\n    } elseif ($nilai >= 60) {\n        $predikat = \"D\";\n    } else {\n        $predikat = \"E\";\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Nilai: $nilai<br>\";\n    echo \"Predikat: $predikat\";\n}\n?>",
+        "essayAiRubric": {
+          "idealAnswer": "<?php\nif (isset($_POST['proses'])) {\n    $nama = $_POST['nama'];\n    $nilai = $_POST['nilai'];\n\n    if ($nilai < 0 || $nilai > 100) {\n        $predikat = \"Tidak Valid\";\n    } elseif ($nilai >= 90) {\n        $predikat = \"A\";\n    } elseif ($nilai >= 80) {\n        $predikat = \"B\";\n    } elseif ($nilai >= 70) {\n        $predikat = \"C\";\n    } elseif ($nilai >= 60) {\n        $predikat = \"D\";\n    } else {\n        $predikat = \"E\";\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Nilai: $nilai<br>\";\n    echo \"Predikat: $predikat\";\n}\n?>",
+          "keyConcepts": [
+            {
+              "concept": "Tombol Submit & Input Form ($_POST)",
+              "weightPercentage": 20,
+              "description": "Memeriksa isset($_POST['proses']) dan mengambil $_POST['nama'], $_POST['nilai']"
+            },
+            {
+              "concept": "Validasi Rentang Nilai (0-100)",
+              "weightPercentage": 25,
+              "description": "Menolak atau menandai nilai di luar rentang 0-100 sebagai tidak valid"
+            },
+            {
+              "concept": "Percabangan if...elseif...else Predikat (A-E)",
+              "weightPercentage": 35,
+              "description": "Menentukan predikat A (>=90), B (>=80), C (>=70), D (>=60), E (<60)"
+            },
+            {
+              "concept": "Output Data & Sintaks PHP Valid",
+              "weightPercentage": 20,
+              "description": "Menampilkan nama, nilai, dan predikat dengan echo"
+            }
+          ],
+          "correctVariations": [
+            {
+              "pattern": "<?php\nif (isset($_POST['proses'])) {\n    $nama = $_POST['nama'];\n    $nilai = $_POST['nilai'];\n\n    if ($nilai < 0 || $nilai > 100) {\n        $predikat = \"Tidak Valid\";\n    } elseif ($nilai >= 90) {\n        $predikat = \"A\";\n    } elseif ($nilai >= 80) {\n        $predikat = \"B\";\n    } elseif ($nilai >= 70) {\n        $predikat = \"C\";\n    } elseif ($nilai >= 60) {\n        $predikat = \"D\";\n    } else {\n        $predikat = \"E\";\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Nilai: $nilai<br>\";\n    echo \"Predikat: $predikat\";\n}\n?>",
+              "description": "Kunci model PHP Form lengkap"
+            },
+            {
+              "pattern": "if (isset($_POST['proses'])) {\n    $nama = $_POST['nama'];\n    $nilai = $_POST['nilai'];\n\n    if ($nilai < 0 || $nilai > 100) {\n        $predikat = \"Tidak Valid\";\n    } elseif ($nilai >= 90) {\n        $predikat = \"A\";\n    } elseif ($nilai >= 80) {\n        $predikat = \"B\";\n    } elseif ($nilai >= 70) {\n        $predikat = \"C\";\n    } elseif ($nilai >= 60) {\n        $predikat = \"D\";\n    } else {\n        $predikat = \"E\";\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Nilai: $nilai<br>\";\n    echo \"Predikat: $predikat\";\n}",
+              "description": "Tanpa tag <?php ?>"
+            }
+          ],
+          "commonMistakes": [
+            {
+              "pattern": "tanpa isset submit",
+              "scorePercentage": 80,
+              "reason": "Logika predikat sudah tepat, disarankan menambahkan isset($_POST['proses']) untuk memeriksa klik tombol form."
+            },
+            {
+              "pattern": "tanpa validasi 0-100",
+              "scorePercentage": 75,
+              "reason": "Percabangan predikat berjalan, namun belum memeriksa validasi nilai di luar rentang 0-100."
+            },
+            {
+              "pattern": "readline form",
+              "scorePercentage": 30,
+              "reason": "Menggunakan readline() CLI bukannya variabel $_POST dari form HTML."
+            }
+          ],
+          "summaryExplanation": "Kode PHP memeriksa pengiriman form dengan isset($_POST['proses']), mengambil data $_POST, memvalidasi rentang 0-100, menentukan predikat A-E dengan if...elseif...else, lalu menampilkan output.",
+          "generatedAt": "2026-11-10T01:30:37.030Z"
+        }
+      },
+      {
+        "id": "q_php_02",
+        "examId": "exam_php_10",
+        "type": "ESSAY",
+        "points": 20,
+        "questionText": "SOAL 2 – SELEKSI PENERIMA BEASISWA\n\nSebuah sekolah menyediakan program beasiswa dengan persyaratan:\n- Nilai rata-rata minimal 85.\n- Penghasilan orang tua maksimal Rp3.000.000.\n- Tidak memiliki catatan pelanggaran berat.\n\nPeserta didik harus memenuhi seluruh persyaratan untuk mendapatkan beasiswa.\n\nFORM YANG SUDAH DISEDIAKAN:\n```html\n<form method=\"POST\">\n    <label>Nama Peserta Didik</label>\n    <input type=\"text\" name=\"nama\" required>\n\n    <label>Nilai Rata-rata</label>\n    <input type=\"number\" name=\"nilai\" required>\n\n    <label>Penghasilan Orang Tua</label>\n    <input type=\"number\" name=\"penghasilan\" required>\n\n    <label>Memiliki Pelanggaran Berat?</label>\n    <select name=\"pelanggaran\">\n        <option value=\"tidak\">Tidak</option>\n        <option value=\"ya\">Ya</option>\n    </select>\n\n    <button type=\"submit\" name=\"seleksi\">Periksa Seleksi</button>\n</form>\n```\n\nTUGAS:\nTuliskan logika PHP untuk:\n1. Mengambil seluruh data dari form.\n2. Memeriksa apakah nilai minimal 85, penghasilan maksimal Rp3.000.000, dan tidak memiliki pelanggaran berat.\n3. Menggunakan operator logika yang tepat.\n4. Menampilkan status BERHAK MENERIMA BEASISWA atau TIDAK BERHAK MENERIMA BEASISWA.\n5. Jika tidak lolos, tampilkan alasan persyaratan yang tidak terpenuhi.",
+        "essayAnswerKey": "<?php\nif (isset($_POST['seleksi'])) {\n    $nama = $_POST['nama'];\n    $nilai = $_POST['nilai'];\n    $penghasilan = $_POST['penghasilan'];\n    $pelanggaran = $_POST['pelanggaran'];\n\n    if ($nilai >= 85 && $penghasilan <= 3000000 && $pelanggaran == \"tidak\") {\n        echo \"$nama BERHAK MENERIMA BEASISWA\";\n    } else {\n        echo \"$nama TIDAK BERHAK MENERIMA BEASISWA<br>\";\n\n        if ($nilai < 85) {\n            echo \"Nilai belum memenuhi syarat<br>\";\n        }\n        if ($penghasilan > 3000000) {\n            echo \"Penghasilan orang tua melebihi batas<br>\";\n        }\n        if ($pelanggaran == \"ya\") {\n            echo \"Memiliki catatan pelanggaran berat\";\n        }\n    }\n}\n?>",
+        "essayAiRubric": {
+          "idealAnswer": "<?php\nif (isset($_POST['seleksi'])) {\n    $nama = $_POST['nama'];\n    $nilai = $_POST['nilai'];\n    $penghasilan = $_POST['penghasilan'];\n    $pelanggaran = $_POST['pelanggaran'];\n\n    if ($nilai >= 85 && $penghasilan <= 3000000 && $pelanggaran == \"tidak\") {\n        echo \"$nama BERHAK MENERIMA BEASISWA\";\n    } else {\n        echo \"$nama TIDAK BERHAK MENERIMA BEASISWA<br>\";\n\n        if ($nilai < 85) {\n            echo \"Nilai belum memenuhi syarat<br>\";\n        }\n        if ($penghasilan > 3000000) {\n            echo \"Penghasilan orang tua melebihi batas<br>\";\n        }\n        if ($pelanggaran == \"ya\") {\n            echo \"Memiliki catatan pelanggaran berat\";\n        }\n    }\n}\n?>",
+          "keyConcepts": [
+            {
+              "concept": "Input Form & Tombol Seleksi ($_POST)",
+              "weightPercentage": 20,
+              "description": "Mengambil data nama, nilai, penghasilan, dan pelanggaran dari $_POST"
+            },
+            {
+              "concept": "Kondisi Beasiswa & Operator &&",
+              "weightPercentage": 35,
+              "description": "Memeriksa nilai >= 85, penghasilan <= 3.000.000, dan tidak ada pelanggaran berat"
+            },
+            {
+              "concept": "Logika Penjelasan Alasan Tidak Lolos",
+              "weightPercentage": 25,
+              "description": "Menampilkan alasan spesifik persyaratan yang tidak terpenuhi"
+            },
+            {
+              "concept": "Output Status Beasiswa & Sintaks Valid",
+              "weightPercentage": 20,
+              "description": "Mencetak status kelolosan beasiswa dan rincian ke layar"
+            }
+          ],
+          "correctVariations": [
+            {
+              "pattern": "<?php\nif (isset($_POST['seleksi'])) {\n    $nama = $_POST['nama'];\n    $nilai = $_POST['nilai'];\n    $penghasilan = $_POST['penghasilan'];\n    $pelanggaran = $_POST['pelanggaran'];\n\n    if ($nilai >= 85 && $penghasilan <= 3000000 && $pelanggaran == \"tidak\") {\n        echo \"$nama BERHAK MENERIMA BEASISWA\";\n    } else {\n        echo \"$nama TIDAK BERHAK MENERIMA BEASISWA<br>\";\n\n        if ($nilai < 85) {\n            echo \"Nilai belum memenuhi syarat<br>\";\n        }\n        if ($penghasilan > 3000000) {\n            echo \"Penghasilan orang tua melebihi batas<br>\";\n        }\n        if ($pelanggaran == \"ya\") {\n            echo \"Memiliki catatan pelanggaran berat\";\n        }\n    }\n}\n?>",
+              "description": "Kunci model PHP Form lengkap"
+            },
+            {
+              "pattern": "if (isset($_POST['seleksi'])) {\n    $nama = $_POST['nama'];\n    $nilai = $_POST['nilai'];\n    $penghasilan = $_POST['penghasilan'];\n    $pelanggaran = $_POST['pelanggaran'];\n\n    if ($nilai >= 85 && $penghasilan <= 3000000 && $pelanggaran == \"tidak\") {\n        echo \"$nama BERHAK MENERIMA BEASISWA\";\n    } else {\n        echo \"$nama TIDAK BERHAK MENERIMA BEASISWA<br>\";\n\n        if ($nilai < 85) {\n            echo \"Nilai belum memenuhi syarat<br>\";\n        }\n        if ($penghasilan > 3000000) {\n            echo \"Penghasilan orang tua melebihi batas<br>\";\n        }\n        if ($pelanggaran == \"ya\") {\n            echo \"Memiliki catatan pelanggaran berat\";\n        }\n    }\n}",
+              "description": "Tanpa tag <?php ?>"
+            }
+          ],
+          "commonMistakes": [
+            {
+              "pattern": "tanpa alasan gagal",
+              "scorePercentage": 70,
+              "reason": "Pengecekan beasiswa sudah benar, namun belum menampilkan alasan spesifik jika siswa tidak lolos."
+            },
+            {
+              "pattern": "salah operator logika",
+              "scorePercentage": 50,
+              "reason": "Menggunakan operator || (OR) bukannya && (AND) untuk persyaratan beasiswa."
+            }
+          ],
+          "summaryExplanation": "Kode PHP mengambil data form, menguji seluruh syarat beasiswa dengan operator &&, dan menampilkan status kelolosan beserta alasan jika ditolak.",
+          "generatedAt": "2026-11-10T01:30:37.031Z"
+        }
+      },
+      {
+        "id": "q_php_03",
+        "examId": "exam_php_10",
+        "type": "ESSAY",
+        "points": 20,
+        "questionText": "SOAL 3 – SISTEM KASIR DAN DISKON\n\nSebuah toko memberikan diskon berdasarkan status pelanggan dan jumlah belanja:\n- Member dengan belanja minimal Rp500.000 mendapatkan diskon 15%.\n- Member dengan belanja di bawah Rp500.000 mendapatkan diskon 10%.\n- Nonmember dengan belanja minimal Rp500.000 mendapatkan diskon 5%.\n- Nonmember dengan belanja di bawah Rp500.000 tidak mendapatkan diskon.\n\nFORM YANG SUDAH DISEDIAKAN:\n```html\n<form method=\"POST\">\n    <label>Nama Pelanggan</label>\n    <input type=\"text\" name=\"nama\" required>\n\n    <label>Status Pelanggan</label>\n    <select name=\"member\">\n        <option value=\"ya\">Member</option>\n        <option value=\"tidak\">Nonmember</option>\n    </select>\n\n    <label>Total Belanja</label>\n    <input type=\"number\" name=\"belanja\" required>\n\n    <button type=\"submit\" name=\"hitung\">Hitung Pembayaran</button>\n</form>\n```\n\nTUGAS:\nTuliskan logika PHP untuk:\n1. Mengambil nama, status pelanggan, dan total belanja.\n2. Menentukan persentase diskon menggunakan percabangan if dan elseif atau nested if.\n3. Menghitung nominal potongan harga.\n4. Menghitung total pembayaran setelah diskon.\n5. Menampilkan nama pelanggan, status member, total belanja, diskon, dan total pembayaran.",
+        "essayAnswerKey": "<?php\nif (isset($_POST['hitung'])) {\n    $nama = $_POST['nama'];\n    $member = $_POST['member'];\n    $belanja = $_POST['belanja'];\n\n    if ($member == \"ya\") {\n        if ($belanja >= 500000) {\n            $diskon = 0.15;\n        } else {\n            $diskon = 0.10;\n        }\n    } elseif ($belanja >= 500000) {\n        $diskon = 0.05;\n    } else {\n        $diskon = 0;\n    }\n\n    $potongan = $belanja * $diskon;\n    $total = $belanja - $potongan;\n\n    echo \"Nama: $nama<br>\";\n    echo \"Total Belanja: Rp$belanja<br>\";\n    echo \"Diskon: Rp$potongan<br>\";\n    echo \"Total Pembayaran: Rp$total\";\n}\n?>",
+        "essayAiRubric": {
+          "idealAnswer": "<?php\nif (isset($_POST['hitung'])) {\n    $nama = $_POST['nama'];\n    $member = $_POST['member'];\n    $belanja = $_POST['belanja'];\n\n    if ($member == \"ya\") {\n        if ($belanja >= 500000) {\n            $diskon = 0.15;\n        } else {\n            $diskon = 0.10;\n        }\n    } elseif ($belanja >= 500000) {\n        $diskon = 0.05;\n    } else {\n        $diskon = 0;\n    }\n\n    $potongan = $belanja * $diskon;\n    $total = $belanja - $potongan;\n\n    echo \"Nama: $nama<br>\";\n    echo \"Total Belanja: Rp$belanja<br>\";\n    echo \"Diskon: Rp$potongan<br>\";\n    echo \"Total Pembayaran: Rp$total\";\n}\n?>",
+          "keyConcepts": [
+            {
+              "concept": "Input Form Kasir ($_POST)",
+              "weightPercentage": 20,
+              "description": "Mengambil nama, status member, dan total belanja dari form"
+            },
+            {
+              "concept": "Percabangan Diskon Member & Nonmember",
+              "weightPercentage": 35,
+              "description": "Menentukan persentase diskon 15%, 10%, 5%, atau 0% dengan percabangan"
+            },
+            {
+              "concept": "Perhitungan Potongan & Total Pembayaran",
+              "weightPercentage": 25,
+              "description": "Menghitung nominal potongan harga dan total belanja akhir"
+            },
+            {
+              "concept": "Output Rincian Transaksi",
+              "weightPercentage": 20,
+              "description": "Menampilkan nama, total belanja, diskon, dan total bayar"
+            }
+          ],
+          "correctVariations": [
+            {
+              "pattern": "<?php\nif (isset($_POST['hitung'])) {\n    $nama = $_POST['nama'];\n    $member = $_POST['member'];\n    $belanja = $_POST['belanja'];\n\n    if ($member == \"ya\") {\n        if ($belanja >= 500000) {\n            $diskon = 0.15;\n        } else {\n            $diskon = 0.10;\n        }\n    } elseif ($belanja >= 500000) {\n        $diskon = 0.05;\n    } else {\n        $diskon = 0;\n    }\n\n    $potongan = $belanja * $diskon;\n    $total = $belanja - $potongan;\n\n    echo \"Nama: $nama<br>\";\n    echo \"Total Belanja: Rp$belanja<br>\";\n    echo \"Diskon: Rp$potongan<br>\";\n    echo \"Total Pembayaran: Rp$total\";\n}\n?>",
+              "description": "Kunci model PHP Form lengkap"
+            },
+            {
+              "pattern": "if (isset($_POST['hitung'])) {\n    $nama = $_POST['nama'];\n    $member = $_POST['member'];\n    $belanja = $_POST['belanja'];\n\n    if ($member == \"ya\") {\n        if ($belanja >= 500000) {\n            $diskon = 0.15;\n        } else {\n            $diskon = 0.10;\n        }\n    } elseif ($belanja >= 500000) {\n        $diskon = 0.05;\n    } else {\n        $diskon = 0;\n    }\n\n    $potongan = $belanja * $diskon;\n    $total = $belanja - $potongan;\n\n    echo \"Nama: $nama<br>\";\n    echo \"Total Belanja: Rp$belanja<br>\";\n    echo \"Diskon: Rp$potongan<br>\";\n    echo \"Total Pembayaran: Rp$total\";\n}",
+              "description": "Tanpa tag <?php ?>"
+            }
+          ],
+          "commonMistakes": [
+            {
+              "pattern": "tanpa diskon nonmember",
+              "scorePercentage": 65,
+              "reason": "Hanya menghitung diskon untuk member, belum menghitung diskon 5% untuk nonmember."
+            },
+            {
+              "pattern": "lupa kurangi belanja",
+              "scorePercentage": 60,
+              "reason": "Menghitung potongan diskon tetapi total pembayaran belum dikurangi nominal potongan."
+            }
+          ],
+          "summaryExplanation": "Kode PHP menentukan persentase diskon berdasarkan status member dan batas belanja Rp500.000, menghitung potongan serta total pembayaran.",
+          "generatedAt": "2026-11-10T01:30:37.031Z"
+        }
+      },
+      {
+        "id": "q_php_04",
+        "examId": "exam_php_10",
+        "type": "ESSAY",
+        "points": 20,
+        "questionText": "SOAL 4 – VALIDASI PEMINJAMAN BARANG\n\nSebuah laboratorium komputer menyediakan fasilitas peminjaman perangkat. Ketentuan:\n- Stok tersedia sebanyak 15 unit.\n- Jika jumlah pinjam kurang dari 1, tampilkan pesan jumlah tidak valid.\n- Jika stok kosong, tampilkan pesan stok habis.\n- Jika jumlah pinjam melebihi stok, peminjaman ditolak.\n- Jika memenuhi ketentuan, peminjaman berhasil dan sisa stok dihitung.\n\nFORM YANG SUDAH DISEDIAKAN:\n```html\n<form method=\"POST\">\n    <label>Nama Peminjam</label>\n    <input type=\"text\" name=\"nama\" required>\n\n    <label>Nama Perangkat</label>\n    <select name=\"perangkat\">\n        <option value=\"Laptop\">Laptop</option>\n        <option value=\"Mouse\">Mouse</option>\n        <option value=\"Keyboard\">Keyboard</option>\n    </select>\n\n    <label>Jumlah Pinjam</label>\n    <input type=\"number\" name=\"jumlah\" required>\n\n    <button type=\"submit\" name=\"pinjam\">Proses Peminjaman</button>\n</form>\n```\n\nTUGAS:\nTuliskan logika PHP untuk:\n1. Menentukan stok awal sebanyak 15 unit.\n2. Mengambil data nama, perangkat, dan jumlah pinjam.\n3. Memeriksa kondisi peminjaman menggunakan if, elseif, dan else.\n4. Mengurangi stok jika peminjaman berhasil.\n5. Menampilkan nama peminjam, perangkat, status peminjaman, dan sisa stok.",
+        "essayAnswerKey": "<?php\n$stok = 15;\n\nif (isset($_POST['pinjam'])) {\n    $nama = $_POST['nama'];\n    $perangkat = $_POST['perangkat'];\n    $jumlah = $_POST['jumlah'];\n\n    if ($jumlah < 1) {\n        $pesan = \"Jumlah peminjaman tidak valid\";\n    } elseif ($stok <= 0) {\n        $pesan = \"Stok habis\";\n    } elseif ($jumlah > $stok) {\n        $pesan = \"Peminjaman ditolak, stok tidak mencukupi\";\n    } else {\n        $stok = $stok - $jumlah;\n        $pesan = \"Peminjaman berhasil\";\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Perangkat: $perangkat<br>\";\n    echo \"Status: $pesan<br>\";\n    echo \"Sisa stok: $stok\";\n}\n?>",
+        "essayAiRubric": {
+          "idealAnswer": "<?php\n$stok = 15;\n\nif (isset($_POST['pinjam'])) {\n    $nama = $_POST['nama'];\n    $perangkat = $_POST['perangkat'];\n    $jumlah = $_POST['jumlah'];\n\n    if ($jumlah < 1) {\n        $pesan = \"Jumlah peminjaman tidak valid\";\n    } elseif ($stok <= 0) {\n        $pesan = \"Stok habis\";\n    } elseif ($jumlah > $stok) {\n        $pesan = \"Peminjaman ditolak, stok tidak mencukupi\";\n    } else {\n        $stok = $stok - $jumlah;\n        $pesan = \"Peminjaman berhasil\";\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Perangkat: $perangkat<br>\";\n    echo \"Status: $pesan<br>\";\n    echo \"Sisa stok: $stok\";\n}\n?>",
+          "keyConcepts": [
+            {
+              "concept": "Stok Awal 15 & Input Form ($_POST)",
+              "weightPercentage": 20,
+              "description": "Inisialisasi stok 15 dan mengambil nama, perangkat, jumlah pinjam"
+            },
+            {
+              "concept": "Validasi Jumlah Pinjam & Stok",
+              "weightPercentage": 35,
+              "description": "Memeriksa jumlah < 1, stok kosong, dan jumlah melebihi stok"
+            },
+            {
+              "concept": "Pengurangan Sisa Stok ($stok - $jumlah)",
+              "weightPercentage": 25,
+              "description": "Mengurangi stok perangkat saat peminjaman berhasil"
+            },
+            {
+              "concept": "Output Status & Sisa Stok",
+              "weightPercentage": 20,
+              "description": "Menampilkan rincian peminjaman dan sisa stok terkini"
+            }
+          ],
+          "correctVariations": [
+            {
+              "pattern": "<?php\n$stok = 15;\n\nif (isset($_POST['pinjam'])) {\n    $nama = $_POST['nama'];\n    $perangkat = $_POST['perangkat'];\n    $jumlah = $_POST['jumlah'];\n\n    if ($jumlah < 1) {\n        $pesan = \"Jumlah peminjaman tidak valid\";\n    } elseif ($stok <= 0) {\n        $pesan = \"Stok habis\";\n    } elseif ($jumlah > $stok) {\n        $pesan = \"Peminjaman ditolak, stok tidak mencukupi\";\n    } else {\n        $stok = $stok - $jumlah;\n        $pesan = \"Peminjaman berhasil\";\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Perangkat: $perangkat<br>\";\n    echo \"Status: $pesan<br>\";\n    echo \"Sisa stok: $stok\";\n}\n?>",
+              "description": "Kunci model PHP Form lengkap"
+            },
+            {
+              "pattern": "$stok = 15;\n\nif (isset($_POST['pinjam'])) {\n    $nama = $_POST['nama'];\n    $perangkat = $_POST['perangkat'];\n    $jumlah = $_POST['jumlah'];\n\n    if ($jumlah < 1) {\n        $pesan = \"Jumlah peminjaman tidak valid\";\n    } elseif ($stok <= 0) {\n        $pesan = \"Stok habis\";\n    } elseif ($jumlah > $stok) {\n        $pesan = \"Peminjaman ditolak, stok tidak mencukupi\";\n    } else {\n        $stok = $stok - $jumlah;\n        $pesan = \"Peminjaman berhasil\";\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Perangkat: $perangkat<br>\";\n    echo \"Status: $pesan<br>\";\n    echo \"Sisa stok: $stok\";\n}",
+              "description": "Tanpa tag <?php ?>"
+            }
+          ],
+          "commonMistakes": [
+            {
+              "pattern": "tanpa pengurangan stok",
+              "scorePercentage": 65,
+              "reason": "Validasi berhasil namun lupa memperbarui variabel sisa stok perangkat."
+            },
+            {
+              "pattern": "tanpa validasi negatif",
+              "scorePercentage": 70,
+              "reason": "Belum memeriksa kondisi jika jumlah pinjam kurang dari 1."
+            }
+          ],
+          "summaryExplanation": "Kode PHP menginisialisasi stok 15 unit, memvalidasi kondisi peminjaman, mengurangi stok jika berhasil, dan menampilkan status.",
+          "generatedAt": "2026-11-10T01:30:37.031Z"
+        }
+      },
+      {
+        "id": "q_php_05",
+        "examId": "exam_php_10",
+        "type": "ESSAY",
+        "points": 20,
+        "questionText": "SOAL 5 – PENENTUAN KELULUSAN KOMPETENSI\n\nGuru ingin membuat sistem untuk menentukan status kompetensi peserta didik berdasarkan nilai teori dan praktik.\n\nKetentuan:\n- Nilai harus berada pada rentang 0 sampai 100.\n- Jika salah satu nilai kurang dari 60, status BELUM KOMPETEN.\n- Jika kedua nilai minimal 60 dan rata-rata minimal 75, status KOMPETEN.\n- Jika kedua nilai minimal 60 tetapi rata-rata kurang dari 75, status PERLU PENGAYAAN.\n\nFORM YANG SUDAH DISEDIAKAN:\n```html\n<form method=\"POST\">\n    <label>Nama Peserta Didik</label>\n    <input type=\"text\" name=\"nama\" required>\n\n    <label>Nilai Teori</label>\n    <input type=\"number\" name=\"teori\" required>\n\n    <label>Nilai Praktik</label>\n    <input type=\"number\" name=\"praktik\" required>\n\n    <button type=\"submit\" name=\"cek\">Periksa Kompetensi</button>\n</form>\n```\n\nTUGAS:\nTuliskan logika PHP untuk:\n1. Mengambil nama, nilai teori, dan nilai praktik dari form.\n2. Memvalidasi nilai berada pada rentang 0 sampai 100.\n3. Menghitung nilai rata-rata.\n4. Menentukan status kompetensi.\n5. Menampilkan nama, status, dan nilai rata-rata.",
+        "essayAnswerKey": "<?php\nif (isset($_POST['cek'])) {\n    $nama = $_POST['nama'];\n    $teori = $_POST['teori'];\n    $praktik = $_POST['praktik'];\n\n    if ($teori < 0 || $teori > 100 || $praktik < 0 || $praktik > 100) {\n        $status = \"Nilai tidak valid\";\n    } else {\n        $rata = ($teori + $praktik) / 2;\n\n        if ($teori < 60 || $praktik < 60) {\n            $status = \"BELUM KOMPETEN\";\n        } elseif ($rata >= 75) {\n            $status = \"KOMPETEN\";\n        } else {\n            $status = \"PERLU PENGAYAAN\";\n        }\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Status: $status\";\n}\n?>",
+        "essayAiRubric": {
+          "idealAnswer": "<?php\nif (isset($_POST['cek'])) {\n    $nama = $_POST['nama'];\n    $teori = $_POST['teori'];\n    $praktik = $_POST['praktik'];\n\n    if ($teori < 0 || $teori > 100 || $praktik < 0 || $praktik > 100) {\n        $status = \"Nilai tidak valid\";\n    } else {\n        $rata = ($teori + $praktik) / 2;\n\n        if ($teori < 60 || $praktik < 60) {\n            $status = \"BELUM KOMPETEN\";\n        } elseif ($rata >= 75) {\n            $status = \"KOMPETEN\";\n        } else {\n            $status = \"PERLU PENGAYAAN\";\n        }\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Status: $status\";\n}\n?>",
+          "keyConcepts": [
+            {
+              "concept": "Input Form Nilai Teori & Praktik",
+              "weightPercentage": 20,
+              "description": "Mengambil data nama, nilai teori, dan praktik dari form"
+            },
+            {
+              "concept": "Validasi Rentang 0-100 & Rata-rata",
+              "weightPercentage": 25,
+              "description": "Memvalidasi nilai 0-100 dan menghitung rata-rata ($teori + $praktik) / 2"
+            },
+            {
+              "concept": "Percabangan Status Kompetensi",
+              "weightPercentage": 35,
+              "description": "Menentukan KOMPETEN, BELUM KOMPETEN, atau PERLU PENGAYAAN"
+            },
+            {
+              "concept": "Output Nama, Rata-rata, & Status",
+              "weightPercentage": 20,
+              "description": "Menampilkan nama, nilai rata-rata, dan status kompetensi"
+            }
+          ],
+          "correctVariations": [
+            {
+              "pattern": "<?php\nif (isset($_POST['cek'])) {\n    $nama = $_POST['nama'];\n    $teori = $_POST['teori'];\n    $praktik = $_POST['praktik'];\n\n    if ($teori < 0 || $teori > 100 || $praktik < 0 || $praktik > 100) {\n        $status = \"Nilai tidak valid\";\n    } else {\n        $rata = ($teori + $praktik) / 2;\n\n        if ($teori < 60 || $praktik < 60) {\n            $status = \"BELUM KOMPETEN\";\n        } elseif ($rata >= 75) {\n            $status = \"KOMPETEN\";\n        } else {\n            $status = \"PERLU PENGAYAAN\";\n        }\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Status: $status\";\n}\n?>",
+              "description": "Kunci model PHP Form lengkap"
+            },
+            {
+              "pattern": "if (isset($_POST['cek'])) {\n    $nama = $_POST['nama'];\n    $teori = $_POST['teori'];\n    $praktik = $_POST['praktik'];\n\n    if ($teori < 0 || $teori > 100 || $praktik < 0 || $praktik > 100) {\n        $status = \"Nilai tidak valid\";\n    } else {\n        $rata = ($teori + $praktik) / 2;\n\n        if ($teori < 60 || $praktik < 60) {\n            $status = \"BELUM KOMPETEN\";\n        } elseif ($rata >= 75) {\n            $status = \"KOMPETEN\";\n        } else {\n            $status = \"PERLU PENGAYAAN\";\n        }\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Status: $status\";\n}",
+              "description": "Tanpa tag <?php ?>"
+            }
+          ],
+          "commonMistakes": [
+            {
+              "pattern": "tanpa status pengayaan",
+              "scorePercentage": 65,
+              "reason": "Hanya menentukan KOMPETEN dan BELUM KOMPETEN, belum menangani kategori PERLU PENGAYAAN."
+            },
+            {
+              "pattern": "tanpa validasi 0-100",
+              "scorePercentage": 75,
+              "reason": "Belum memvalidasi batas nilai 0 sampai 100."
+            }
+          ],
+          "summaryExplanation": "Kode PHP memvalidasi nilai teori dan praktik pada rentang 0-100, menghitung rata-rata, dan menentukan status kompetensi.",
+          "generatedAt": "2026-11-10T01:30:37.031Z"
+        }
+      },
+      {
+        "id": "q_php_06",
+        "examId": "exam_php_10",
+        "type": "ESSAY",
+        "points": 20,
+        "questionText": "SOAL 6 – DERET BILANGAN GENAP\n\nBuatlah program PHP untuk menampilkan deret bilangan genap dari 2 sampai dengan batas angka yang ditentukan oleh pengguna melalui form, serta hitung total jumlah bilangan genap tersebut.\n\nFORM YANG SUDAH DISEDIAKAN:\n```html\n<form method=\"POST\">\n    <label>Batas Akhir Angka</label>\n    <input type=\"number\" name=\"batas\" required>\n\n    <button type=\"submit\" name=\"tampil\">Tampilkan Deret</button>\n</form>\n```\n\nTUGAS:\nTuliskan logika PHP untuk:\n1. Memeriksa apakah tombol tampil ditekan dan mengambil nilai batas.\n2. Menggunakan perulangan for untuk menampilkan bilangan genap mulai dari 2.\n3. Menjumlahkan akumulasi nilai seluruh bilangan genap tersebut.\n4. Menampilkan deret bilangan genap dan hasil penjumlahan akhirnya.",
+        "essayAnswerKey": "<?php\nif (isset($_POST['tampil'])) {\n    $batas = $_POST['batas'];\n    $total = 0;\n\n    for ($i = 2; $i <= $batas; $i += 2) {\n        echo $i . \" \";\n        $total += $i;\n    }\n\n    echo \"<br>Jumlah: $total\";\n}\n?>",
+        "essayAiRubric": {
+          "idealAnswer": "<?php\nif (isset($_POST['tampil'])) {\n    $batas = $_POST['batas'];\n    $total = 0;\n\n    for ($i = 2; $i <= $batas; $i += 2) {\n        echo $i . \" \";\n        $total += $i;\n    }\n\n    echo \"<br>Jumlah: $total\";\n}\n?>",
+          "keyConcepts": [
+            {
+              "concept": "Input Batas Deret Bilangan ($_POST)",
+              "weightPercentage": 20,
+              "description": "Mengambil nilai batas dari form $_POST['batas']"
+            },
+            {
+              "concept": "Perulangan for Bilangan Genap",
+              "weightPercentage": 35,
+              "description": "Menggunakan perulangan for mulai dari 2 sampai batas genap"
+            },
+            {
+              "concept": "Akumulasi Jumlah Bilangan Genap ($total += $i)",
+              "weightPercentage": 25,
+              "description": "Menjumlahkan seluruh bilangan genap yang dicetak"
+            },
+            {
+              "concept": "Output Deret Bilangan & Total Akhir",
+              "weightPercentage": 20,
+              "description": "Mencetak deret angka dan total jumlah keseluruhan"
+            }
+          ],
+          "correctVariations": [
+            {
+              "pattern": "<?php\nif (isset($_POST['tampil'])) {\n    $batas = $_POST['batas'];\n    $total = 0;\n\n    for ($i = 2; $i <= $batas; $i += 2) {\n        echo $i . \" \";\n        $total += $i;\n    }\n\n    echo \"<br>Jumlah: $total\";\n}\n?>",
+              "description": "Kunci model PHP Form lengkap"
+            },
+            {
+              "pattern": "if (isset($_POST['tampil'])) {\n    $batas = $_POST['batas'];\n    $total = 0;\n\n    for ($i = 2; $i <= $batas; $i += 2) {\n        echo $i . \" \";\n        $total += $i;\n    }\n\n    echo \"<br>Jumlah: $total\";\n}",
+              "description": "Tanpa tag <?php ?>"
+            }
+          ],
+          "commonMistakes": [
+            {
+              "pattern": "tanpa total penjumlahan",
+              "scorePercentage": 65,
+              "reason": "Perulangan deret genap sudah benar namun belum menghitung jumlah seluruh bilangan genap."
+            },
+            {
+              "pattern": "mulai dari 0 atau 1",
+              "scorePercentage": 80,
+              "reason": "Disarankan mulai dari angka genap pertama (2)."
+            }
+          ],
+          "summaryExplanation": "Kode PHP menggunakan perulangan for dari 2 sampai batas untuk menampilkan deret bilangan genap dan mengakumulasikan total jumlahnya.",
+          "generatedAt": "2026-11-10T01:30:37.031Z"
+        }
+      },
+      {
+        "id": "q_php_07",
+        "examId": "exam_php_10",
+        "type": "ESSAY",
+        "points": 20,
+        "questionText": "SOAL 7 – SIMULASI ANGSURAN PINJAMAN\n\nSebuah koperasi simpan pinjam membutuhkan kalkulator simulasi angsuran. Pengguna memasukkan nama nasabah, besaran angsuran per bulan, dan lama periode (jumlah bulan). Program harus menghitung total akumulasi pembayaran menggunakan perulangan while.\n\nFORM YANG SUDAH DISEDIAKAN:\n```html\n<form method=\"POST\">\n    <label>Nama Nasabah</label>\n    <input type=\"text\" name=\"nama\" required>\n\n    <label>Nominal Angsuran per Bulan (Rp)</label>\n    <input type=\"number\" name=\"angsuran\" required>\n\n    <label>Jumlah Bulan</label>\n    <input type=\"number\" name=\"bulan\" required>\n\n    <button type=\"submit\" name=\"hitung\">Hitung Total Pembayaran</button>\n</form>\n```\n\nTUGAS:\nTuliskan logika PHP untuk:\n1. Memeriksa tombol hitung dan mengambil data nama, angsuran, dan bulan.\n2. Menggunakan perulangan while untuk mengiterasi tiap bulan dan mengakumulasikan total pembayaran.\n3. Menampilkan rincian nama, lama bulan, dan total keseluruhan pembayaran pinjaman.",
+        "essayAnswerKey": "<?php\nif (isset($_POST['hitung'])) {\n    $nama = $_POST['nama'];\n    $angsuran = $_POST['angsuran'];\n    $bulan = $_POST['bulan'];\n\n    $i = 1;\n    $total = 0;\n\n    while ($i <= $bulan) {\n        $total += $angsuran;\n        $i++;\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Total pembayaran: Rp$total\";\n}\n?>",
+        "essayAiRubric": {
+          "idealAnswer": "<?php\nif (isset($_POST['hitung'])) {\n    $nama = $_POST['nama'];\n    $angsuran = $_POST['angsuran'];\n    $bulan = $_POST['bulan'];\n\n    $i = 1;\n    $total = 0;\n\n    while ($i <= $bulan) {\n        $total += $angsuran;\n        $i++;\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Total pembayaran: Rp$total\";\n}\n?>",
+          "keyConcepts": [
+            {
+              "concept": "Input Pelanggan, Angsuran, Bulan ($_POST)",
+              "weightPercentage": 20,
+              "description": "Mengambil data dari form $_POST"
+            },
+            {
+              "concept": "Perulangan while Menjumlahkan Angsuran",
+              "weightPercentage": 35,
+              "description": "Menggunakan perulangan while untuk iterasi bulan angsuran"
+            },
+            {
+              "concept": "Variabel Akumulator Total ($total += $angsuran)",
+              "weightPercentage": 25,
+              "description": "Menjumlahkan akumulasi nominal pembayaran"
+            },
+            {
+              "concept": "Output Nama, Bulan, & Total Pembayaran",
+              "weightPercentage": 20,
+              "description": "Menampilkan data pelanggan dan total pembayaran angsuran"
+            }
+          ],
+          "correctVariations": [
+            {
+              "pattern": "<?php\nif (isset($_POST['hitung'])) {\n    $nama = $_POST['nama'];\n    $angsuran = $_POST['angsuran'];\n    $bulan = $_POST['bulan'];\n\n    $i = 1;\n    $total = 0;\n\n    while ($i <= $bulan) {\n        $total += $angsuran;\n        $i++;\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Total pembayaran: Rp$total\";\n}\n?>",
+              "description": "Kunci model PHP Form lengkap"
+            },
+            {
+              "pattern": "if (isset($_POST['hitung'])) {\n    $nama = $_POST['nama'];\n    $angsuran = $_POST['angsuran'];\n    $bulan = $_POST['bulan'];\n\n    $i = 1;\n    $total = 0;\n\n    while ($i <= $bulan) {\n        $total += $angsuran;\n        $i++;\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Total pembayaran: Rp$total\";\n}",
+              "description": "Tanpa tag <?php ?>"
+            }
+          ],
+          "commonMistakes": [
+            {
+              "pattern": "bukan while",
+              "scorePercentage": 60,
+              "reason": "Soal secara spesifik meminta perulangan while, hindari perkalian langsung tanpa loop."
+            },
+            {
+              "pattern": "infinite loop while",
+              "scorePercentage": 30,
+              "reason": "Lupa menambahkan increment counter ($i++) di dalam perulangan while."
+            }
+          ],
+          "summaryExplanation": "Kode PHP menggunakan perulangan while dan variabel akumulator untuk menghitung total pembayaran angsuran per bulan.",
+          "generatedAt": "2026-11-10T01:30:37.031Z"
+        }
+      },
+      {
+        "id": "q_php_08",
+        "examId": "exam_php_10",
+        "type": "ESSAY",
+        "points": 20,
+        "questionText": "SOAL 8 – TABEL PERKALIAN OTOMATIS\n\nBuatlah sistem tabel perkalian otomatis di mana pengguna menginput sebuah angka dasar melalui form, lalu program menghasilkan baris tabel perkalian angka tersebut dari pengali 1 sampai 10 menggunakan perulangan for.\n\nFORM YANG SUDAH DISEDIAKAN:\n```html\n<form method=\"POST\">\n    <label>Angka Dasar Perkalian</label>\n    <input type=\"number\" name=\"angka\" required>\n\n    <button type=\"submit\" name=\"buat\">Tampilkan Tabel Perkalian</button>\n</form>\n```\n\nTUGAS:\nTuliskan logika PHP untuk:\n1. Memeriksa tombol buat dan mengambil input angka.\n2. Menggunakan perulangan for dari 1 sampai 10.\n3. Menghitung hasil perkalian pada tiap baris.\n4. Menampilkan format tabel perkalian (contoh: \"5 x 1 = 5\", \"5 x 2 = 10\", dst.) dengan pemisah baris <br>.",
+        "essayAnswerKey": "<?php\nif (isset($_POST['buat'])) {\n    $angka = $_POST['angka'];\n\n    for ($i = 1; $i <= 10; $i++) {\n        $hasil = $angka * $i;\n        echo \"$angka x $i = $hasil<br>\";\n    }\n}\n?>",
+        "essayAiRubric": {
+          "idealAnswer": "<?php\nif (isset($_POST['buat'])) {\n    $angka = $_POST['angka'];\n\n    for ($i = 1; $i <= 10; $i++) {\n        $hasil = $angka * $i;\n        echo \"$angka x $i = $hasil<br>\";\n    }\n}\n?>",
+          "keyConcepts": [
+            {
+              "concept": "Input Angka Form ($_POST)",
+              "weightPercentage": 20,
+              "description": "Mengambil angka dari form $_POST['angka']"
+            },
+            {
+              "concept": "Perulangan for Iterasi 1 sampai 10",
+              "weightPercentage": 35,
+              "description": "Menggunakan perulangan for ($i=1; $i<=10; $i++)"
+            },
+            {
+              "concept": "Kalkulasi Perkalian ($angka * $i)",
+              "weightPercentage": 25,
+              "description": "Menghitung hasil kali angka pada setiap iterasi"
+            },
+            {
+              "concept": "Output Format Tabel Perkalian",
+              "weightPercentage": 20,
+              "description": "Menampilkan baris perkalian lengkap dengan <br>"
+            }
+          ],
+          "correctVariations": [
+            {
+              "pattern": "<?php\nif (isset($_POST['buat'])) {\n    $angka = $_POST['angka'];\n\n    for ($i = 1; $i <= 10; $i++) {\n        $hasil = $angka * $i;\n        echo \"$angka x $i = $hasil<br>\";\n    }\n}\n?>",
+              "description": "Kunci model PHP Form lengkap"
+            },
+            {
+              "pattern": "if (isset($_POST['buat'])) {\n    $angka = $_POST['angka'];\n\n    for ($i = 1; $i <= 10; $i++) {\n        $hasil = $angka * $i;\n        echo \"$angka x $i = $hasil<br>\";\n    }\n}",
+              "description": "Tanpa tag <?php ?>"
+            }
+          ],
+          "commonMistakes": [
+            {
+              "pattern": "iterasi kurang dari 10",
+              "scorePercentage": 70,
+              "reason": "Perulangan belum berjalan lengkap sampai 10 (misal hanya sampai 9 atau batas keliru)."
+            },
+            {
+              "pattern": "lupa echo format",
+              "scorePercentage": 60,
+              "reason": "Menghitung perkalian namun tidak mencetak format tabel perkalian (Angka x i = Hasil)."
+            }
+          ],
+          "summaryExplanation": "Kode PHP mengambil angka dari form dan menggunakan perulangan for dari 1 sampai 10 untuk mencetak tabel perkalian lengkap.",
+          "generatedAt": "2026-11-10T01:30:37.031Z"
+        }
+      },
+      {
+        "id": "q_php_09",
+        "examId": "exam_php_10",
+        "type": "ESSAY",
+        "points": 20,
+        "questionText": "SOAL 9 – REKAP DATA NILAI SISWA (ARRAY & FOREACH)\n\nSebuah form mengirimkan data nama siswa dan array yang berisi nilai 5 mata pelajaran (dalam input name=\"nilai[]\"). Program harus membaca seluruh array nilai menggunakan perulangan foreach, menampilkan masing-masing nilai, menghitung total dan rata-rata nilai, serta menghitung berapa banyak nilai yang mencapai batas lulus (minimal 75).\n\nFORM YANG SUDAH DISEDIAKAN:\n```html\n<form method=\"POST\">\n    <label>Nama Siswa</label>\n    <input type=\"text\" name=\"nama\" required>\n\n    <label>Nilai 1-5:</label>\n    <input type=\"number\" name=\"nilai[]\" required>\n    <input type=\"number\" name=\"nilai[]\" required>\n    <input type=\"number\" name=\"nilai[]\" required>\n    <input type=\"number\" name=\"nilai[]\" required>\n    <input type=\"number\" name=\"nilai[]\" required>\n\n    <button type=\"submit\" name=\"rekap\">Proses Rekapitulasi</button>\n</form>\n```\n\nTUGAS:\nTuliskan logika PHP untuk:\n1. Memeriksa tombol rekap dan mengambil data nama serta array nilai.\n2. Menggunakan perulangan foreach untuk menelusuri array nilai dan mencetak setiap nilainya.\n3. Menghitung total nilai, rata-rata nilai, dan jumlah nilai yang >= 75.\n4. Menampilkan rekapitulasi lengkap.",
+        "essayAnswerKey": "<?php\nif (isset($_POST['rekap'])) {\n    $nama = $_POST['nama'];\n    $nilai = $_POST['nilai'];\n\n    $total = 0;\n    $lulus = 0;\n\n    echo \"Nama: $nama<br>\";\n\n    foreach ($nilai as $angka) {\n        echo \"Nilai: $angka<br>\";\n        $total += $angka;\n        if ($angka >= 75) $lulus++;\n    }\n\n    $rata = $total / count($nilai);\n\n    echo \"Total: $total<br>Rata-rata: $rata<br>Jumlah nilai minimal 75: $lulus\";\n}\n?>",
+        "essayAiRubric": {
+          "idealAnswer": "<?php\nif (isset($_POST['rekap'])) {\n    $nama = $_POST['nama'];\n    $nilai = $_POST['nilai'];\n\n    $total = 0;\n    $lulus = 0;\n\n    echo \"Nama: $nama<br>\";\n\n    foreach ($nilai as $angka) {\n        echo \"Nilai: $angka<br>\";\n        $total += $angka;\n        if ($angka >= 75) $lulus++;\n    }\n\n    $rata = $total / count($nilai);\n\n    echo \"Total: $total<br>Rata-rata: $rata<br>Jumlah nilai minimal 75: $lulus\";\n}\n?>",
+          "keyConcepts": [
+            {
+              "concept": "Input Form Array Nilai ($_POST['nilai'])",
+              "weightPercentage": 20,
+              "description": "Membaca nama dan array lima nilai dari form"
+            },
+            {
+              "concept": "Perulangan foreach Iterasi Array",
+              "weightPercentage": 35,
+              "description": "Menggunakan perulangan foreach untuk menelusuri array nilai"
+            },
+            {
+              "concept": "Akumulasi Total, Rata-rata, & Filter >= 75",
+              "weightPercentage": 25,
+              "description": "Menghitung total nilai, rata-rata, dan jumlah nilai lulus (>=75)"
+            },
+            {
+              "concept": "Output Rekapitulasi Lengkap",
+              "weightPercentage": 20,
+              "description": "Menampilkan setiap nilai, total, rata-rata, dan jumlah nilai lulus"
+            }
+          ],
+          "correctVariations": [
+            {
+              "pattern": "<?php\nif (isset($_POST['rekap'])) {\n    $nama = $_POST['nama'];\n    $nilai = $_POST['nilai'];\n\n    $total = 0;\n    $lulus = 0;\n\n    echo \"Nama: $nama<br>\";\n\n    foreach ($nilai as $angka) {\n        echo \"Nilai: $angka<br>\";\n        $total += $angka;\n        if ($angka >= 75) $lulus++;\n    }\n\n    $rata = $total / count($nilai);\n\n    echo \"Total: $total<br>Rata-rata: $rata<br>Jumlah nilai minimal 75: $lulus\";\n}\n?>",
+              "description": "Kunci model PHP Form lengkap"
+            },
+            {
+              "pattern": "if (isset($_POST['rekap'])) {\n    $nama = $_POST['nama'];\n    $nilai = $_POST['nilai'];\n\n    $total = 0;\n    $lulus = 0;\n\n    echo \"Nama: $nama<br>\";\n\n    foreach ($nilai as $angka) {\n        echo \"Nilai: $angka<br>\";\n        $total += $angka;\n        if ($angka >= 75) $lulus++;\n    }\n\n    $rata = $total / count($nilai);\n\n    echo \"Total: $total<br>Rata-rata: $rata<br>Jumlah nilai minimal 75: $lulus\";\n}",
+              "description": "Tanpa tag <?php ?>"
+            }
+          ],
+          "commonMistakes": [
+            {
+              "pattern": "bukan foreach",
+              "scorePercentage": 65,
+              "reason": "Soal secara spesifik meminta perulangan foreach untuk menelusuri data array."
+            },
+            {
+              "pattern": "tanpa hitung lulus 75",
+              "scorePercentage": 70,
+              "reason": "Perulangan dan rata-rata berjalan, namun belum menghitung jumlah nilai yang mencapai minimal 75."
+            }
+          ],
+          "summaryExplanation": "Kode PHP menggunakan perulangan foreach untuk menelusuri array nilai, mencetak setiap nilai, serta menghitung total, rata-rata, dan jumlah nilai >= 75.",
+          "generatedAt": "2026-11-10T01:30:37.031Z"
+        }
+      },
+      {
+        "id": "q_php_10",
+        "examId": "exam_php_10",
+        "type": "ESSAY",
+        "points": 20,
+        "questionText": "SOAL 10 – POLA SEGITIGA BINTANG (NESTED LOOP)\n\nBuatlah program PHP untuk mencetak pola segitiga siku-siku karakter bintang (*) berdasarkan jumlah baris yang diinputkan pengguna melalui form. Wajib menggunakan perulangan bersarang (nested loop: perulangan for luar untuk baris dan perulangan for dalam untuk kolom bintang).\n\nFORM YANG SUDAH DISEDIAKAN:\n```html\n<form method=\"POST\">\n    <label>Jumlah Baris Bintang</label>\n    <input type=\"number\" name=\"baris\" required>\n\n    <button type=\"submit\" name=\"buat\">Cetak Pola Bintang</button>\n</form>\n```\n\nTUGAS:\nTuliskan logika PHP untuk:\n1. Memeriksa tombol buat dan mengambil input jumlah baris.\n2. Menggunakan perulangan luar untuk mengatur baris dari 1 sampai jumlah baris.\n3. Menggunakan perulangan dalam untuk mencetak bintang sejumlah nomor baris saat itu.\n4. Mencetak tanda pindah baris (<br>) pada setiap akhir baris segitiga.",
+        "essayAnswerKey": "<?php\nif (isset($_POST['buat'])) {\n    $baris = $_POST['baris'];\n\n    for ($i = 1; $i <= $baris; $i++) {\n        for ($j = 1; $j <= $i; $j++) {\n            echo \"*\";\n        }\n        echo \"<br>\";\n    }\n}\n?>",
+        "essayAiRubric": {
+          "idealAnswer": "<?php\nif (isset($_POST['buat'])) {\n    $baris = $_POST['baris'];\n\n    for ($i = 1; $i <= $baris; $i++) {\n        for ($j = 1; $j <= $i; $j++) {\n            echo \"*\";\n        }\n        echo \"<br>\";\n    }\n}\n?>",
+          "keyConcepts": [
+            {
+              "concept": "Input Jumlah Baris ($_POST['baris'])",
+              "weightPercentage": 20,
+              "description": "Mengambil jumlah baris pola bintang dari form"
+            },
+            {
+              "concept": "Perulangan Luar for (Baris)",
+              "weightPercentage": 25,
+              "description": "Menggunakan perulangan for luar untuk menentukan baris 1 sampai N"
+            },
+            {
+              "concept": "Perulangan Dalam for (Cetak Bintang)",
+              "weightPercentage": 35,
+              "description": "Menggunakan perulangan for dalam (nested loop) untuk mencetak bintang"
+            },
+            {
+              "concept": "Output Baris Baru (<br>) & Validitas",
+              "weightPercentage": 20,
+              "description": "Mencetak baris baru setelah perulangan dalam selesai"
+            }
+          ],
+          "correctVariations": [
+            {
+              "pattern": "<?php\nif (isset($_POST['buat'])) {\n    $baris = $_POST['baris'];\n\n    for ($i = 1; $i <= $baris; $i++) {\n        for ($j = 1; $j <= $i; $j++) {\n            echo \"*\";\n        }\n        echo \"<br>\";\n    }\n}\n?>",
+              "description": "Kunci model PHP Form lengkap"
+            },
+            {
+              "pattern": "if (isset($_POST['buat'])) {\n    $baris = $_POST['baris'];\n\n    for ($i = 1; $i <= $baris; $i++) {\n        for ($j = 1; $j <= $i; $j++) {\n            echo \"*\";\n        }\n        echo \"<br>\";\n    }\n}",
+              "description": "Tanpa tag <?php ?>"
+            }
+          ],
+          "commonMistakes": [
+            {
+              "pattern": "bukan nested loop",
+              "scorePercentage": 60,
+              "reason": "Soal mewajibkan nested loop (perulangan bersarang), hindari hanya menggunakan 1 perulangan."
+            },
+            {
+              "pattern": "lupa baris baru",
+              "scorePercentage": 65,
+              "reason": "Perulangan bersarang berjalan namun lupa mencetak pemisah baris baru (<br>) di akhir tiap baris."
+            }
+          ],
+          "summaryExplanation": "Kode PHP mengambil jumlah baris dari form dan menggunakan nested loop (perulangan bersarang for) untuk mencetak pola bintang bertingkat.",
+          "generatedAt": "2026-11-10T01:30:37.031Z"
+        }
+      },
+      {
+        "id": "q_test_cf_extra",
+        "examId": "exam_php_10",
+        "type": "ESSAY",
+        "points": 20,
+        "questionText": "SOAL UJI TAMBAHAN CLOUDFLARE\nTuliskan logika PHP form untuk validasi input email.",
+        "essayAnswerKey": "<?php echo \"valid\"; ?>",
+        "essayAiRubric": {
+          "idealAnswer": "<?php echo \"valid\"; ?>",
+          "keyConcepts": [
+            {
+              "concept": "Pemeriksaan Form & Input ($_POST)",
+              "weightPercentage": 25,
+              "description": "Memeriksa submit form dan mengambil input via $_POST"
+            },
+            {
+              "concept": "Struktur Logika Percabangan / Perulangan",
+              "weightPercentage": 35,
+              "description": "Mengimplementasikan struktur logika sesuai ketentuan soal"
+            },
+            {
+              "concept": "Pemrosesan Data & Logika Bisnis",
+              "weightPercentage": 20,
+              "description": "Melakukan kalkulasi atau validasi data sesuai instruksi"
+            },
+            {
+              "concept": "Output Respon Form & Sintaks Valid",
+              "weightPercentage": 20,
+              "description": "Menampilkan hasil pemrosesan form dengan echo"
+            }
+          ],
+          "correctVariations": [
+            {
+              "pattern": "<?php echo \"valid\"; ?>",
+              "description": "Kunci model PHP Form lengkap"
+            },
+            {
+              "pattern": "echo \"valid\";",
+              "description": "Tanpa tag <?php ?>"
+            }
+          ],
+          "commonMistakes": [
+            {
+              "pattern": "readline pada form",
+              "scorePercentage": 30,
+              "reason": "Menggunakan readline() CLI bukannya variabel $_POST dari form HTML."
+            },
+            {
+              "pattern": "syntax error",
+              "scorePercentage": 15,
+              "reason": "Terdapat parse error fatal pada sintaks PHP."
+            }
+          ],
+          "summaryExplanation": "Kode PHP memproses pengiriman data dari form HTML menggunakan superglobal $_POST, mengeksekusi logika yang diminta, dan menampilkan output.",
+          "generatedAt": "2026-11-10T01:30:37.032Z"
+        }
+      }
+    ],
+    "exam_d1_r2": [
+      {
+        "id": "q_php_01",
+        "examId": "exam_d1_r2",
+        "type": "ESSAY",
+        "points": 20,
+        "questionText": "SOAL 1 – PENENTUAN PREDIKAT NILAI\n\nPerhatikan form berikut. Form sudah selesai dibuat. Tugas Anda adalah menuliskan logika PHP untuk menentukan predikat nilai peserta didik.\n\nKetentuan:\n- Nilai 90–100: A\n- Nilai 80–89: B\n- Nilai 70–79: C\n- Nilai 60–69: D\n- Nilai di bawah 60: E\n- Nilai di luar rentang 0–100 dinyatakan tidak valid.\n\nFORM YANG SUDAH DISEDIAKAN:\n```html\n<form method=\"POST\">\n    <label>Nama Peserta Didik</label>\n    <input type=\"text\" name=\"nama\" required>\n\n    <label>Nilai Akhir</label>\n    <input type=\"number\" name=\"nilai\" required>\n\n    <button type=\"submit\" name=\"proses\">Periksa Nilai</button>\n</form>\n```\n\nTUGAS:\nTuliskan kode PHP yang harus diletakkan setelah form untuk:\n1. Memeriksa apakah tombol proses telah ditekan.\n2. Mengambil nama dan nilai dari form.\n3. Memvalidasi nilai.\n4. Menentukan predikat menggunakan if, elseif, dan else.\n5. Menampilkan nama, nilai, dan predikat peserta didik.\n\nTuliskan hanya bagian logika PHP, tidak perlu membuat ulang form!",
+        "essayAnswerKey": "<?php\nif (isset($_POST['proses'])) {\n    $nama = $_POST['nama'];\n    $nilai = $_POST['nilai'];\n\n    if ($nilai < 0 || $nilai > 100) {\n        $predikat = \"Tidak Valid\";\n    } elseif ($nilai >= 90) {\n        $predikat = \"A\";\n    } elseif ($nilai >= 80) {\n        $predikat = \"B\";\n    } elseif ($nilai >= 70) {\n        $predikat = \"C\";\n    } elseif ($nilai >= 60) {\n        $predikat = \"D\";\n    } else {\n        $predikat = \"E\";\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Nilai: $nilai<br>\";\n    echo \"Predikat: $predikat\";\n}\n?>"
+      },
+      {
+        "id": "q_php_02",
+        "examId": "exam_d1_r2",
+        "type": "ESSAY",
+        "points": 20,
+        "questionText": "SOAL 2 – SELEKSI PENERIMA BEASISWA\n\nSebuah sekolah menyediakan program beasiswa dengan persyaratan:\n- Nilai rata-rata minimal 85.\n- Penghasilan orang tua maksimal Rp3.000.000.\n- Tidak memiliki catatan pelanggaran berat.\n\nPeserta didik harus memenuhi seluruh persyaratan untuk mendapatkan beasiswa.\n\nFORM YANG SUDAH DISEDIAKAN:\n```html\n<form method=\"POST\">\n    <label>Nama Peserta Didik</label>\n    <input type=\"text\" name=\"nama\" required>\n\n    <label>Nilai Rata-rata</label>\n    <input type=\"number\" name=\"nilai\" required>\n\n    <label>Penghasilan Orang Tua</label>\n    <input type=\"number\" name=\"penghasilan\" required>\n\n    <label>Memiliki Pelanggaran Berat?</label>\n    <select name=\"pelanggaran\">\n        <option value=\"tidak\">Tidak</option>\n        <option value=\"ya\">Ya</option>\n    </select>\n\n    <button type=\"submit\" name=\"seleksi\">Periksa Seleksi</button>\n</form>\n```\n\nTUGAS:\nTuliskan logika PHP untuk:\n1. Mengambil seluruh data dari form.\n2. Memeriksa apakah nilai minimal 85, penghasilan maksimal Rp3.000.000, dan tidak memiliki pelanggaran berat.\n3. Menggunakan operator logika yang tepat.\n4. Menampilkan status BERHAK MENERIMA BEASISWA atau TIDAK BERHAK MENERIMA BEASISWA.\n5. Jika tidak lolos, tampilkan alasan persyaratan yang tidak terpenuhi.",
+        "essayAnswerKey": "<?php\nif (isset($_POST['seleksi'])) {\n    $nama = $_POST['nama'];\n    $nilai = $_POST['nilai'];\n    $penghasilan = $_POST['penghasilan'];\n    $pelanggaran = $_POST['pelanggaran'];\n\n    if ($nilai >= 85 && $penghasilan <= 3000000 && $pelanggaran == \"tidak\") {\n        echo \"$nama BERHAK MENERIMA BEASISWA\";\n    } else {\n        echo \"$nama TIDAK BERHAK MENERIMA BEASISWA<br>\";\n\n        if ($nilai < 85) {\n            echo \"Nilai belum memenuhi syarat<br>\";\n        }\n        if ($penghasilan > 3000000) {\n            echo \"Penghasilan orang tua melebihi batas<br>\";\n        }\n        if ($pelanggaran == \"ya\") {\n            echo \"Memiliki catatan pelanggaran berat\";\n        }\n    }\n}\n?>"
+      },
+      {
+        "id": "q_php_03",
+        "examId": "exam_d1_r2",
+        "type": "ESSAY",
+        "points": 20,
+        "questionText": "SOAL 3 – SISTEM KASIR DAN DISKON\n\nSebuah toko memberikan diskon berdasarkan status pelanggan dan jumlah belanja:\n- Member dengan belanja minimal Rp500.000 mendapatkan diskon 15%.\n- Member dengan belanja di bawah Rp500.000 mendapatkan diskon 10%.\n- Nonmember dengan belanja minimal Rp500.000 mendapatkan diskon 5%.\n- Nonmember dengan belanja di bawah Rp500.000 tidak mendapatkan diskon.\n\nFORM YANG SUDAH DISEDIAKAN:\n```html\n<form method=\"POST\">\n    <label>Nama Pelanggan</label>\n    <input type=\"text\" name=\"nama\" required>\n\n    <label>Status Pelanggan</label>\n    <select name=\"member\">\n        <option value=\"ya\">Member</option>\n        <option value=\"tidak\">Nonmember</option>\n    </select>\n\n    <label>Total Belanja</label>\n    <input type=\"number\" name=\"belanja\" required>\n\n    <button type=\"submit\" name=\"hitung\">Hitung Pembayaran</button>\n</form>\n```\n\nTUGAS:\nTuliskan logika PHP untuk:\n1. Mengambil nama, status pelanggan, dan total belanja.\n2. Menentukan persentase diskon menggunakan percabangan if dan elseif atau nested if.\n3. Menghitung nominal potongan harga.\n4. Menghitung total pembayaran setelah diskon.\n5. Menampilkan nama pelanggan, status member, total belanja, diskon, dan total pembayaran.",
+        "essayAnswerKey": "<?php\nif (isset($_POST['hitung'])) {\n    $nama = $_POST['nama'];\n    $member = $_POST['member'];\n    $belanja = $_POST['belanja'];\n\n    if ($member == \"ya\") {\n        if ($belanja >= 500000) {\n            $diskon = 0.15;\n        } else {\n            $diskon = 0.10;\n        }\n    } elseif ($belanja >= 500000) {\n        $diskon = 0.05;\n    } else {\n        $diskon = 0;\n    }\n\n    $potongan = $belanja * $diskon;\n    $total = $belanja - $potongan;\n\n    echo \"Nama: $nama<br>\";\n    echo \"Total Belanja: Rp$belanja<br>\";\n    echo \"Diskon: Rp$potongan<br>\";\n    echo \"Total Pembayaran: Rp$total\";\n}\n?>"
+      },
+      {
+        "id": "q_php_04",
+        "examId": "exam_d1_r2",
+        "type": "ESSAY",
+        "points": 20,
+        "questionText": "SOAL 4 – VALIDASI PEMINJAMAN BARANG\n\nSebuah laboratorium komputer menyediakan fasilitas peminjaman perangkat. Ketentuan:\n- Stok tersedia sebanyak 15 unit.\n- Jika jumlah pinjam kurang dari 1, tampilkan pesan jumlah tidak valid.\n- Jika stok kosong, tampilkan pesan stok habis.\n- Jika jumlah pinjam melebihi stok, peminjaman ditolak.\n- Jika memenuhi ketentuan, peminjaman berhasil dan sisa stok dihitung.\n\nFORM YANG SUDAH DISEDIAKAN:\n```html\n<form method=\"POST\">\n    <label>Nama Peminjam</label>\n    <input type=\"text\" name=\"nama\" required>\n\n    <label>Nama Perangkat</label>\n    <select name=\"perangkat\">\n        <option value=\"Laptop\">Laptop</option>\n        <option value=\"Mouse\">Mouse</option>\n        <option value=\"Keyboard\">Keyboard</option>\n    </select>\n\n    <label>Jumlah Pinjam</label>\n    <input type=\"number\" name=\"jumlah\" required>\n\n    <button type=\"submit\" name=\"pinjam\">Proses Peminjaman</button>\n</form>\n```\n\nTUGAS:\nTuliskan logika PHP untuk:\n1. Menentukan stok awal sebanyak 15 unit.\n2. Mengambil data nama, perangkat, dan jumlah pinjam.\n3. Memeriksa kondisi peminjaman menggunakan if, elseif, dan else.\n4. Mengurangi stok jika peminjaman berhasil.\n5. Menampilkan nama peminjam, perangkat, status peminjaman, dan sisa stok.",
+        "essayAnswerKey": "<?php\n$stok = 15;\n\nif (isset($_POST['pinjam'])) {\n    $nama = $_POST['nama'];\n    $perangkat = $_POST['perangkat'];\n    $jumlah = $_POST['jumlah'];\n\n    if ($jumlah < 1) {\n        $pesan = \"Jumlah peminjaman tidak valid\";\n    } elseif ($stok <= 0) {\n        $pesan = \"Stok habis\";\n    } elseif ($jumlah > $stok) {\n        $pesan = \"Peminjaman ditolak, stok tidak mencukupi\";\n    } else {\n        $stok = $stok - $jumlah;\n        $pesan = \"Peminjaman berhasil\";\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Perangkat: $perangkat<br>\";\n    echo \"Status: $pesan<br>\";\n    echo \"Sisa stok: $stok\";\n}\n?>"
+      },
+      {
+        "id": "q_php_05",
+        "examId": "exam_d1_r2",
+        "type": "ESSAY",
+        "points": 20,
+        "questionText": "SOAL 5 – PENENTUAN KELULUSAN KOMPETENSI\n\nGuru ingin membuat sistem untuk menentukan status kompetensi peserta didik berdasarkan nilai teori dan praktik.\n\nKetentuan:\n- Nilai harus berada pada rentang 0 sampai 100.\n- Jika salah satu nilai kurang dari 60, status BELUM KOMPETEN.\n- Jika kedua nilai minimal 60 dan rata-rata minimal 75, status KOMPETEN.\n- Jika kedua nilai minimal 60 tetapi rata-rata kurang dari 75, status PERLU PENGAYAAN.\n\nFORM YANG SUDAH DISEDIAKAN:\n```html\n<form method=\"POST\">\n    <label>Nama Peserta Didik</label>\n    <input type=\"text\" name=\"nama\" required>\n\n    <label>Nilai Teori</label>\n    <input type=\"number\" name=\"teori\" required>\n\n    <label>Nilai Praktik</label>\n    <input type=\"number\" name=\"praktik\" required>\n\n    <button type=\"submit\" name=\"cek\">Periksa Kompetensi</button>\n</form>\n```\n\nTUGAS:\nTuliskan logika PHP untuk:\n1. Mengambil nama, nilai teori, dan nilai praktik dari form.\n2. Memvalidasi nilai berada pada rentang 0 sampai 100.\n3. Menghitung nilai rata-rata.\n4. Menentukan status kompetensi.\n5. Menampilkan nama, status, dan nilai rata-rata.",
+        "essayAnswerKey": "<?php\nif (isset($_POST['cek'])) {\n    $nama = $_POST['nama'];\n    $teori = $_POST['teori'];\n    $praktik = $_POST['praktik'];\n\n    if ($teori < 0 || $teori > 100 || $praktik < 0 || $praktik > 100) {\n        $status = \"Nilai tidak valid\";\n    } else {\n        $rata = ($teori + $praktik) / 2;\n\n        if ($teori < 60 || $praktik < 60) {\n            $status = \"BELUM KOMPETEN\";\n        } elseif ($rata >= 75) {\n            $status = \"KOMPETEN\";\n        } else {\n            $status = \"PERLU PENGAYAAN\";\n        }\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Status: $status\";\n}\n?>"
+      },
+      {
+        "id": "q_php_06",
+        "examId": "exam_d1_r2",
+        "type": "ESSAY",
+        "points": 20,
+        "questionText": "SOAL 6 – DERET BILANGAN GENAP\n\nBuatlah program PHP untuk menampilkan deret bilangan genap dari 2 sampai dengan batas angka yang ditentukan oleh pengguna melalui form, serta hitung total jumlah bilangan genap tersebut.\n\nFORM YANG SUDAH DISEDIAKAN:\n```html\n<form method=\"POST\">\n    <label>Batas Akhir Angka</label>\n    <input type=\"number\" name=\"batas\" required>\n\n    <button type=\"submit\" name=\"tampil\">Tampilkan Deret</button>\n</form>\n```\n\nTUGAS:\nTuliskan logika PHP untuk:\n1. Memeriksa apakah tombol tampil ditekan dan mengambil nilai batas.\n2. Menggunakan perulangan for untuk menampilkan bilangan genap mulai dari 2.\n3. Menjumlahkan akumulasi nilai seluruh bilangan genap tersebut.\n4. Menampilkan deret bilangan genap dan hasil penjumlahan akhirnya.",
+        "essayAnswerKey": "<?php\nif (isset($_POST['tampil'])) {\n    $batas = $_POST['batas'];\n    $total = 0;\n\n    for ($i = 2; $i <= $batas; $i += 2) {\n        echo $i . \" \";\n        $total += $i;\n    }\n\n    echo \"<br>Jumlah: $total\";\n}\n?>"
+      },
+      {
+        "id": "q_php_07",
+        "examId": "exam_d1_r2",
+        "type": "ESSAY",
+        "points": 20,
+        "questionText": "SOAL 7 – SIMULASI ANGSURAN PINJAMAN\n\nSebuah koperasi simpan pinjam membutuhkan kalkulator simulasi angsuran. Pengguna memasukkan nama nasabah, besaran angsuran per bulan, dan lama periode (jumlah bulan). Program harus menghitung total akumulasi pembayaran menggunakan perulangan while.\n\nFORM YANG SUDAH DISEDIAKAN:\n```html\n<form method=\"POST\">\n    <label>Nama Nasabah</label>\n    <input type=\"text\" name=\"nama\" required>\n\n    <label>Nominal Angsuran per Bulan (Rp)</label>\n    <input type=\"number\" name=\"angsuran\" required>\n\n    <label>Jumlah Bulan</label>\n    <input type=\"number\" name=\"bulan\" required>\n\n    <button type=\"submit\" name=\"hitung\">Hitung Total Pembayaran</button>\n</form>\n```\n\nTUGAS:\nTuliskan logika PHP untuk:\n1. Memeriksa tombol hitung dan mengambil data nama, angsuran, dan bulan.\n2. Menggunakan perulangan while untuk mengiterasi tiap bulan dan mengakumulasikan total pembayaran.\n3. Menampilkan rincian nama, lama bulan, dan total keseluruhan pembayaran pinjaman.",
+        "essayAnswerKey": "<?php\nif (isset($_POST['hitung'])) {\n    $nama = $_POST['nama'];\n    $angsuran = $_POST['angsuran'];\n    $bulan = $_POST['bulan'];\n\n    $i = 1;\n    $total = 0;\n\n    while ($i <= $bulan) {\n        $total += $angsuran;\n        $i++;\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Total pembayaran: Rp$total\";\n}\n?>"
+      },
+      {
+        "id": "q_php_08",
+        "examId": "exam_d1_r2",
+        "type": "ESSAY",
+        "points": 20,
+        "questionText": "SOAL 8 – TABEL PERKALIAN OTOMATIS\n\nBuatlah sistem tabel perkalian otomatis di mana pengguna menginput sebuah angka dasar melalui form, lalu program menghasilkan baris tabel perkalian angka tersebut dari pengali 1 sampai 10 menggunakan perulangan for.\n\nFORM YANG SUDAH DISEDIAKAN:\n```html\n<form method=\"POST\">\n    <label>Angka Dasar Perkalian</label>\n    <input type=\"number\" name=\"angka\" required>\n\n    <button type=\"submit\" name=\"buat\">Tampilkan Tabel Perkalian</button>\n</form>\n```\n\nTUGAS:\nTuliskan logika PHP untuk:\n1. Memeriksa tombol buat dan mengambil input angka.\n2. Menggunakan perulangan for dari 1 sampai 10.\n3. Menghitung hasil perkalian pada tiap baris.\n4. Menampilkan format tabel perkalian (contoh: \"5 x 1 = 5\", \"5 x 2 = 10\", dst.) dengan pemisah baris <br>.",
+        "essayAnswerKey": "<?php\nif (isset($_POST['buat'])) {\n    $angka = $_POST['angka'];\n\n    for ($i = 1; $i <= 10; $i++) {\n        $hasil = $angka * $i;\n        echo \"$angka x $i = $hasil<br>\";\n    }\n}\n?>"
+      },
+      {
+        "id": "q_php_09",
+        "examId": "exam_d1_r2",
+        "type": "ESSAY",
+        "points": 20,
+        "questionText": "SOAL 9 – REKAP DATA NILAI SISWA (ARRAY & FOREACH)\n\nSebuah form mengirimkan data nama siswa dan array yang berisi nilai 5 mata pelajaran (dalam input name=\"nilai[]\"). Program harus membaca seluruh array nilai menggunakan perulangan foreach, menampilkan masing-masing nilai, menghitung total dan rata-rata nilai, serta menghitung berapa banyak nilai yang mencapai batas lulus (minimal 75).\n\nFORM YANG SUDAH DISEDIAKAN:\n```html\n<form method=\"POST\">\n    <label>Nama Siswa</label>\n    <input type=\"text\" name=\"nama\" required>\n\n    <label>Nilai 1-5:</label>\n    <input type=\"number\" name=\"nilai[]\" required>\n    <input type=\"number\" name=\"nilai[]\" required>\n    <input type=\"number\" name=\"nilai[]\" required>\n    <input type=\"number\" name=\"nilai[]\" required>\n    <input type=\"number\" name=\"nilai[]\" required>\n\n    <button type=\"submit\" name=\"rekap\">Proses Rekapitulasi</button>\n</form>\n```\n\nTUGAS:\nTuliskan logika PHP untuk:\n1. Memeriksa tombol rekap dan mengambil data nama serta array nilai.\n2. Menggunakan perulangan foreach untuk menelusuri array nilai dan mencetak setiap nilainya.\n3. Menghitung total nilai, rata-rata nilai, dan jumlah nilai yang >= 75.\n4. Menampilkan rekapitulasi lengkap.",
+        "essayAnswerKey": "<?php\nif (isset($_POST['rekap'])) {\n    $nama = $_POST['nama'];\n    $nilai = $_POST['nilai'];\n\n    $total = 0;\n    $lulus = 0;\n\n    echo \"Nama: $nama<br>\";\n\n    foreach ($nilai as $angka) {\n        echo \"Nilai: $angka<br>\";\n        $total += $angka;\n        if ($angka >= 75) $lulus++;\n    }\n\n    $rata = $total / count($nilai);\n\n    echo \"Total: $total<br>Rata-rata: $rata<br>Jumlah nilai minimal 75: $lulus\";\n}\n?>"
+      },
+      {
+        "id": "q_php_10",
+        "examId": "exam_d1_r2",
+        "type": "ESSAY",
+        "points": 20,
+        "questionText": "SOAL 10 – POLA SEGITIGA BINTANG (NESTED LOOP)\n\nBuatlah program PHP untuk mencetak pola segitiga siku-siku karakter bintang (*) berdasarkan jumlah baris yang diinputkan pengguna melalui form. Wajib menggunakan perulangan bersarang (nested loop: perulangan for luar untuk baris dan perulangan for dalam untuk kolom bintang).\n\nFORM YANG SUDAH DISEDIAKAN:\n```html\n<form method=\"POST\">\n    <label>Jumlah Baris Bintang</label>\n    <input type=\"number\" name=\"baris\" required>\n\n    <button type=\"submit\" name=\"buat\">Cetak Pola Bintang</button>\n</form>\n```\n\nTUGAS:\nTuliskan logika PHP untuk:\n1. Memeriksa tombol buat dan mengambil input jumlah baris.\n2. Menggunakan perulangan luar untuk mengatur baris dari 1 sampai jumlah baris.\n3. Menggunakan perulangan dalam untuk mencetak bintang sejumlah nomor baris saat itu.\n4. Mencetak tanda pindah baris (<br>) pada setiap akhir baris segitiga.",
+        "essayAnswerKey": "<?php\nif (isset($_POST['buat'])) {\n    $baris = $_POST['baris'];\n\n    for ($i = 1; $i <= $baris; $i++) {\n        for ($j = 1; $j <= $i; $j++) {\n            echo \"*\";\n        }\n        echo \"<br>\";\n    }\n}\n?>"
+      },
+      {
+        "id": "q_test_cf_extra",
+        "examId": "exam_d1_r2",
+        "type": "ESSAY",
+        "points": 20,
+        "questionText": "SOAL UJI TAMBAHAN CLOUDFLARE\nTuliskan logika PHP form untuk validasi input email.",
+        "essayAnswerKey": "<?php echo \"valid\"; ?>",
+        "essayAiRubric": {
+          "idealAnswer": "<?php echo \"valid\"; ?>",
+          "keyConcepts": [
+            {
+              "concept": "Pemeriksaan Form & Input ($_POST)",
+              "weightPercentage": 25,
+              "description": "Memeriksa submit form dan mengambil input via $_POST"
+            },
+            {
+              "concept": "Struktur Logika Percabangan / Perulangan",
+              "weightPercentage": 35,
+              "description": "Mengimplementasikan struktur logika sesuai ketentuan soal"
+            },
+            {
+              "concept": "Pemrosesan Data & Logika Bisnis",
+              "weightPercentage": 20,
+              "description": "Melakukan kalkulasi atau validasi data sesuai instruksi"
+            },
+            {
+              "concept": "Output Respon Form & Sintaks Valid",
+              "weightPercentage": 20,
+              "description": "Menampilkan hasil pemrosesan form dengan echo"
+            }
+          ],
+          "correctVariations": [
+            {
+              "pattern": "<?php echo \"valid\"; ?>",
+              "description": "Kunci model PHP Form lengkap"
+            },
+            {
+              "pattern": "echo \"valid\";",
+              "description": "Tanpa tag <?php ?>"
+            }
+          ],
+          "commonMistakes": [
+            {
+              "pattern": "readline pada form",
+              "scorePercentage": 30,
+              "reason": "Menggunakan readline() CLI bukannya variabel $_POST dari form HTML."
+            },
+            {
+              "pattern": "syntax error",
+              "scorePercentage": 15,
+              "reason": "Terdapat parse error fatal pada sintaks PHP."
+            }
+          ],
+          "summaryExplanation": "Kode PHP memproses pengiriman data dari form HTML menggunakan superglobal $_POST, mengeksekusi logika yang diminta, dan menampilkan output.",
+          "generatedAt": "2026-11-10T01:30:37.032Z"
+        }
+      }
+    ]
+  },
+  "sessions": [
+    {
+      "sessionId": "sess_usr_rpl_01_exam_php_10_att1_1794289511236",
+      "examId": "exam_php_10",
+      "participantId": "usr_rpl_01",
+      "attemptNumber": 1,
+      "startTime": 1794289511236,
+      "endTime": 1794294911236,
+      "shuffledQuestions": [
+        {
+          "id": "q_php_01",
+          "examId": "exam_php_10",
+          "type": "ESSAY",
+          "points": 20,
+          "questionText": "SOAL 1 – PENENTUAN PREDIKAT NILAI\n\nPerhatikan form berikut. Form sudah selesai dibuat. Tugas Anda adalah menuliskan logika PHP untuk menentukan predikat nilai peserta didik.\n\nKetentuan:\n- Nilai 90–100: A\n- Nilai 80–89: B\n- Nilai 70–79: C\n- Nilai 60–69: D\n- Nilai di bawah 60: E\n- Nilai di luar rentang 0–100 dinyatakan tidak valid.\n\nFORM YANG SUDAH DISEDIAKAN:\n```html\n<form method=\"POST\">\n    <label>Nama Peserta Didik</label>\n    <input type=\"text\" name=\"nama\" required>\n\n    <label>Nilai Akhir</label>\n    <input type=\"number\" name=\"nilai\" required>\n\n    <button type=\"submit\" name=\"proses\">Periksa Nilai</button>\n</form>\n```\n\nTUGAS:\nTuliskan kode PHP yang harus diletakkan setelah form untuk:\n1. Memeriksa apakah tombol proses telah ditekan.\n2. Mengambil nama dan nilai dari form.\n3. Memvalidasi nilai.\n4. Menentukan predikat menggunakan if, elseif, dan else.\n5. Menampilkan nama, nilai, dan predikat peserta didik.\n\nTuliskan hanya bagian logika PHP, tidak perlu membuat ulang form!",
+          "essayAnswerKey": "<?php\nif (isset($_POST['proses'])) {\n    $nama = $_POST['nama'];\n    $nilai = $_POST['nilai'];\n\n    if ($nilai < 0 || $nilai > 100) {\n        $predikat = \"Tidak Valid\";\n    } elseif ($nilai >= 90) {\n        $predikat = \"A\";\n    } elseif ($nilai >= 80) {\n        $predikat = \"B\";\n    } elseif ($nilai >= 70) {\n        $predikat = \"C\";\n    } elseif ($nilai >= 60) {\n        $predikat = \"D\";\n    } else {\n        $predikat = \"E\";\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Nilai: $nilai<br>\";\n    echo \"Predikat: $predikat\";\n}\n?>",
+          "essayAiRubric": {
+            "idealAnswer": "<?php\nif (isset($_POST['proses'])) {\n    $nama = $_POST['nama'];\n    $nilai = $_POST['nilai'];\n\n    if ($nilai < 0 || $nilai > 100) {\n        $predikat = \"Tidak Valid\";\n    } elseif ($nilai >= 90) {\n        $predikat = \"A\";\n    } elseif ($nilai >= 80) {\n        $predikat = \"B\";\n    } elseif ($nilai >= 70) {\n        $predikat = \"C\";\n    } elseif ($nilai >= 60) {\n        $predikat = \"D\";\n    } else {\n        $predikat = \"E\";\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Nilai: $nilai<br>\";\n    echo \"Predikat: $predikat\";\n}\n?>",
+            "keyConcepts": [
+              {
+                "concept": "Tombol Submit & Input Form ($_POST)",
+                "weightPercentage": 20,
+                "description": "Memeriksa isset($_POST['proses']) dan mengambil $_POST['nama'], $_POST['nilai']"
+              },
+              {
+                "concept": "Validasi Rentang Nilai (0-100)",
+                "weightPercentage": 25,
+                "description": "Menolak atau menandai nilai di luar rentang 0-100 sebagai tidak valid"
+              },
+              {
+                "concept": "Percabangan if...elseif...else Predikat (A-E)",
+                "weightPercentage": 35,
+                "description": "Menentukan predikat A (>=90), B (>=80), C (>=70), D (>=60), E (<60)"
+              },
+              {
+                "concept": "Output Data & Sintaks PHP Valid",
+                "weightPercentage": 20,
+                "description": "Menampilkan nama, nilai, dan predikat dengan echo"
+              }
+            ],
+            "correctVariations": [
+              {
+                "pattern": "<?php\nif (isset($_POST['proses'])) {\n    $nama = $_POST['nama'];\n    $nilai = $_POST['nilai'];\n\n    if ($nilai < 0 || $nilai > 100) {\n        $predikat = \"Tidak Valid\";\n    } elseif ($nilai >= 90) {\n        $predikat = \"A\";\n    } elseif ($nilai >= 80) {\n        $predikat = \"B\";\n    } elseif ($nilai >= 70) {\n        $predikat = \"C\";\n    } elseif ($nilai >= 60) {\n        $predikat = \"D\";\n    } else {\n        $predikat = \"E\";\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Nilai: $nilai<br>\";\n    echo \"Predikat: $predikat\";\n}\n?>",
+                "description": "Kunci model PHP Form lengkap"
+              },
+              {
+                "pattern": "if (isset($_POST['proses'])) {\n    $nama = $_POST['nama'];\n    $nilai = $_POST['nilai'];\n\n    if ($nilai < 0 || $nilai > 100) {\n        $predikat = \"Tidak Valid\";\n    } elseif ($nilai >= 90) {\n        $predikat = \"A\";\n    } elseif ($nilai >= 80) {\n        $predikat = \"B\";\n    } elseif ($nilai >= 70) {\n        $predikat = \"C\";\n    } elseif ($nilai >= 60) {\n        $predikat = \"D\";\n    } else {\n        $predikat = \"E\";\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Nilai: $nilai<br>\";\n    echo \"Predikat: $predikat\";\n}",
+                "description": "Tanpa tag <?php ?>"
+              }
+            ],
+            "commonMistakes": [
+              {
+                "pattern": "tanpa isset submit",
+                "scorePercentage": 80,
+                "reason": "Logika predikat sudah tepat, disarankan menambahkan isset($_POST['proses']) untuk memeriksa klik tombol form."
+              },
+              {
+                "pattern": "tanpa validasi 0-100",
+                "scorePercentage": 75,
+                "reason": "Percabangan predikat berjalan, namun belum memeriksa validasi nilai di luar rentang 0-100."
+              },
+              {
+                "pattern": "readline form",
+                "scorePercentage": 30,
+                "reason": "Menggunakan readline() CLI bukannya variabel $_POST dari form HTML."
+              }
+            ],
+            "summaryExplanation": "Kode PHP memeriksa pengiriman form dengan isset($_POST['proses']), mengambil data $_POST, memvalidasi rentang 0-100, menentukan predikat A-E dengan if...elseif...else, lalu menampilkan output.",
+            "generatedAt": "2026-11-10T01:30:37.030Z"
+          },
+          "options": []
+        },
+        {
+          "id": "q_php_02",
+          "examId": "exam_php_10",
+          "type": "ESSAY",
+          "points": 20,
+          "questionText": "SOAL 2 – SELEKSI PENERIMA BEASISWA\n\nSebuah sekolah menyediakan program beasiswa dengan persyaratan:\n- Nilai rata-rata minimal 85.\n- Penghasilan orang tua maksimal Rp3.000.000.\n- Tidak memiliki catatan pelanggaran berat.\n\nPeserta didik harus memenuhi seluruh persyaratan untuk mendapatkan beasiswa.\n\nFORM YANG SUDAH DISEDIAKAN:\n```html\n<form method=\"POST\">\n    <label>Nama Peserta Didik</label>\n    <input type=\"text\" name=\"nama\" required>\n\n    <label>Nilai Rata-rata</label>\n    <input type=\"number\" name=\"nilai\" required>\n\n    <label>Penghasilan Orang Tua</label>\n    <input type=\"number\" name=\"penghasilan\" required>\n\n    <label>Memiliki Pelanggaran Berat?</label>\n    <select name=\"pelanggaran\">\n        <option value=\"tidak\">Tidak</option>\n        <option value=\"ya\">Ya</option>\n    </select>\n\n    <button type=\"submit\" name=\"seleksi\">Periksa Seleksi</button>\n</form>\n```\n\nTUGAS:\nTuliskan logika PHP untuk:\n1. Mengambil seluruh data dari form.\n2. Memeriksa apakah nilai minimal 85, penghasilan maksimal Rp3.000.000, dan tidak memiliki pelanggaran berat.\n3. Menggunakan operator logika yang tepat.\n4. Menampilkan status BERHAK MENERIMA BEASISWA atau TIDAK BERHAK MENERIMA BEASISWA.\n5. Jika tidak lolos, tampilkan alasan persyaratan yang tidak terpenuhi.",
+          "essayAnswerKey": "<?php\nif (isset($_POST['seleksi'])) {\n    $nama = $_POST['nama'];\n    $nilai = $_POST['nilai'];\n    $penghasilan = $_POST['penghasilan'];\n    $pelanggaran = $_POST['pelanggaran'];\n\n    if ($nilai >= 85 && $penghasilan <= 3000000 && $pelanggaran == \"tidak\") {\n        echo \"$nama BERHAK MENERIMA BEASISWA\";\n    } else {\n        echo \"$nama TIDAK BERHAK MENERIMA BEASISWA<br>\";\n\n        if ($nilai < 85) {\n            echo \"Nilai belum memenuhi syarat<br>\";\n        }\n        if ($penghasilan > 3000000) {\n            echo \"Penghasilan orang tua melebihi batas<br>\";\n        }\n        if ($pelanggaran == \"ya\") {\n            echo \"Memiliki catatan pelanggaran berat\";\n        }\n    }\n}\n?>",
+          "essayAiRubric": {
+            "idealAnswer": "<?php\nif (isset($_POST['seleksi'])) {\n    $nama = $_POST['nama'];\n    $nilai = $_POST['nilai'];\n    $penghasilan = $_POST['penghasilan'];\n    $pelanggaran = $_POST['pelanggaran'];\n\n    if ($nilai >= 85 && $penghasilan <= 3000000 && $pelanggaran == \"tidak\") {\n        echo \"$nama BERHAK MENERIMA BEASISWA\";\n    } else {\n        echo \"$nama TIDAK BERHAK MENERIMA BEASISWA<br>\";\n\n        if ($nilai < 85) {\n            echo \"Nilai belum memenuhi syarat<br>\";\n        }\n        if ($penghasilan > 3000000) {\n            echo \"Penghasilan orang tua melebihi batas<br>\";\n        }\n        if ($pelanggaran == \"ya\") {\n            echo \"Memiliki catatan pelanggaran berat\";\n        }\n    }\n}\n?>",
+            "keyConcepts": [
+              {
+                "concept": "Input Form & Tombol Seleksi ($_POST)",
+                "weightPercentage": 20,
+                "description": "Mengambil data nama, nilai, penghasilan, dan pelanggaran dari $_POST"
+              },
+              {
+                "concept": "Kondisi Beasiswa & Operator &&",
+                "weightPercentage": 35,
+                "description": "Memeriksa nilai >= 85, penghasilan <= 3.000.000, dan tidak ada pelanggaran berat"
+              },
+              {
+                "concept": "Logika Penjelasan Alasan Tidak Lolos",
+                "weightPercentage": 25,
+                "description": "Menampilkan alasan spesifik persyaratan yang tidak terpenuhi"
+              },
+              {
+                "concept": "Output Status Beasiswa & Sintaks Valid",
+                "weightPercentage": 20,
+                "description": "Mencetak status kelolosan beasiswa dan rincian ke layar"
+              }
+            ],
+            "correctVariations": [
+              {
+                "pattern": "<?php\nif (isset($_POST['seleksi'])) {\n    $nama = $_POST['nama'];\n    $nilai = $_POST['nilai'];\n    $penghasilan = $_POST['penghasilan'];\n    $pelanggaran = $_POST['pelanggaran'];\n\n    if ($nilai >= 85 && $penghasilan <= 3000000 && $pelanggaran == \"tidak\") {\n        echo \"$nama BERHAK MENERIMA BEASISWA\";\n    } else {\n        echo \"$nama TIDAK BERHAK MENERIMA BEASISWA<br>\";\n\n        if ($nilai < 85) {\n            echo \"Nilai belum memenuhi syarat<br>\";\n        }\n        if ($penghasilan > 3000000) {\n            echo \"Penghasilan orang tua melebihi batas<br>\";\n        }\n        if ($pelanggaran == \"ya\") {\n            echo \"Memiliki catatan pelanggaran berat\";\n        }\n    }\n}\n?>",
+                "description": "Kunci model PHP Form lengkap"
+              },
+              {
+                "pattern": "if (isset($_POST['seleksi'])) {\n    $nama = $_POST['nama'];\n    $nilai = $_POST['nilai'];\n    $penghasilan = $_POST['penghasilan'];\n    $pelanggaran = $_POST['pelanggaran'];\n\n    if ($nilai >= 85 && $penghasilan <= 3000000 && $pelanggaran == \"tidak\") {\n        echo \"$nama BERHAK MENERIMA BEASISWA\";\n    } else {\n        echo \"$nama TIDAK BERHAK MENERIMA BEASISWA<br>\";\n\n        if ($nilai < 85) {\n            echo \"Nilai belum memenuhi syarat<br>\";\n        }\n        if ($penghasilan > 3000000) {\n            echo \"Penghasilan orang tua melebihi batas<br>\";\n        }\n        if ($pelanggaran == \"ya\") {\n            echo \"Memiliki catatan pelanggaran berat\";\n        }\n    }\n}",
+                "description": "Tanpa tag <?php ?>"
+              }
+            ],
+            "commonMistakes": [
+              {
+                "pattern": "tanpa alasan gagal",
+                "scorePercentage": 70,
+                "reason": "Pengecekan beasiswa sudah benar, namun belum menampilkan alasan spesifik jika siswa tidak lolos."
+              },
+              {
+                "pattern": "salah operator logika",
+                "scorePercentage": 50,
+                "reason": "Menggunakan operator || (OR) bukannya && (AND) untuk persyaratan beasiswa."
+              }
+            ],
+            "summaryExplanation": "Kode PHP mengambil data form, menguji seluruh syarat beasiswa dengan operator &&, dan menampilkan status kelolosan beserta alasan jika ditolak.",
+            "generatedAt": "2026-11-10T01:30:37.031Z"
+          },
+          "options": []
+        },
+        {
+          "id": "q_php_03",
+          "examId": "exam_php_10",
+          "type": "ESSAY",
+          "points": 20,
+          "questionText": "SOAL 3 – SISTEM KASIR DAN DISKON\n\nSebuah toko memberikan diskon berdasarkan status pelanggan dan jumlah belanja:\n- Member dengan belanja minimal Rp500.000 mendapatkan diskon 15%.\n- Member dengan belanja di bawah Rp500.000 mendapatkan diskon 10%.\n- Nonmember dengan belanja minimal Rp500.000 mendapatkan diskon 5%.\n- Nonmember dengan belanja di bawah Rp500.000 tidak mendapatkan diskon.\n\nFORM YANG SUDAH DISEDIAKAN:\n```html\n<form method=\"POST\">\n    <label>Nama Pelanggan</label>\n    <input type=\"text\" name=\"nama\" required>\n\n    <label>Status Pelanggan</label>\n    <select name=\"member\">\n        <option value=\"ya\">Member</option>\n        <option value=\"tidak\">Nonmember</option>\n    </select>\n\n    <label>Total Belanja</label>\n    <input type=\"number\" name=\"belanja\" required>\n\n    <button type=\"submit\" name=\"hitung\">Hitung Pembayaran</button>\n</form>\n```\n\nTUGAS:\nTuliskan logika PHP untuk:\n1. Mengambil nama, status pelanggan, dan total belanja.\n2. Menentukan persentase diskon menggunakan percabangan if dan elseif atau nested if.\n3. Menghitung nominal potongan harga.\n4. Menghitung total pembayaran setelah diskon.\n5. Menampilkan nama pelanggan, status member, total belanja, diskon, dan total pembayaran.",
+          "essayAnswerKey": "<?php\nif (isset($_POST['hitung'])) {\n    $nama = $_POST['nama'];\n    $member = $_POST['member'];\n    $belanja = $_POST['belanja'];\n\n    if ($member == \"ya\") {\n        if ($belanja >= 500000) {\n            $diskon = 0.15;\n        } else {\n            $diskon = 0.10;\n        }\n    } elseif ($belanja >= 500000) {\n        $diskon = 0.05;\n    } else {\n        $diskon = 0;\n    }\n\n    $potongan = $belanja * $diskon;\n    $total = $belanja - $potongan;\n\n    echo \"Nama: $nama<br>\";\n    echo \"Total Belanja: Rp$belanja<br>\";\n    echo \"Diskon: Rp$potongan<br>\";\n    echo \"Total Pembayaran: Rp$total\";\n}\n?>",
+          "essayAiRubric": {
+            "idealAnswer": "<?php\nif (isset($_POST['hitung'])) {\n    $nama = $_POST['nama'];\n    $member = $_POST['member'];\n    $belanja = $_POST['belanja'];\n\n    if ($member == \"ya\") {\n        if ($belanja >= 500000) {\n            $diskon = 0.15;\n        } else {\n            $diskon = 0.10;\n        }\n    } elseif ($belanja >= 500000) {\n        $diskon = 0.05;\n    } else {\n        $diskon = 0;\n    }\n\n    $potongan = $belanja * $diskon;\n    $total = $belanja - $potongan;\n\n    echo \"Nama: $nama<br>\";\n    echo \"Total Belanja: Rp$belanja<br>\";\n    echo \"Diskon: Rp$potongan<br>\";\n    echo \"Total Pembayaran: Rp$total\";\n}\n?>",
+            "keyConcepts": [
+              {
+                "concept": "Input Form Kasir ($_POST)",
+                "weightPercentage": 20,
+                "description": "Mengambil nama, status member, dan total belanja dari form"
+              },
+              {
+                "concept": "Percabangan Diskon Member & Nonmember",
+                "weightPercentage": 35,
+                "description": "Menentukan persentase diskon 15%, 10%, 5%, atau 0% dengan percabangan"
+              },
+              {
+                "concept": "Perhitungan Potongan & Total Pembayaran",
+                "weightPercentage": 25,
+                "description": "Menghitung nominal potongan harga dan total belanja akhir"
+              },
+              {
+                "concept": "Output Rincian Transaksi",
+                "weightPercentage": 20,
+                "description": "Menampilkan nama, total belanja, diskon, dan total bayar"
+              }
+            ],
+            "correctVariations": [
+              {
+                "pattern": "<?php\nif (isset($_POST['hitung'])) {\n    $nama = $_POST['nama'];\n    $member = $_POST['member'];\n    $belanja = $_POST['belanja'];\n\n    if ($member == \"ya\") {\n        if ($belanja >= 500000) {\n            $diskon = 0.15;\n        } else {\n            $diskon = 0.10;\n        }\n    } elseif ($belanja >= 500000) {\n        $diskon = 0.05;\n    } else {\n        $diskon = 0;\n    }\n\n    $potongan = $belanja * $diskon;\n    $total = $belanja - $potongan;\n\n    echo \"Nama: $nama<br>\";\n    echo \"Total Belanja: Rp$belanja<br>\";\n    echo \"Diskon: Rp$potongan<br>\";\n    echo \"Total Pembayaran: Rp$total\";\n}\n?>",
+                "description": "Kunci model PHP Form lengkap"
+              },
+              {
+                "pattern": "if (isset($_POST['hitung'])) {\n    $nama = $_POST['nama'];\n    $member = $_POST['member'];\n    $belanja = $_POST['belanja'];\n\n    if ($member == \"ya\") {\n        if ($belanja >= 500000) {\n            $diskon = 0.15;\n        } else {\n            $diskon = 0.10;\n        }\n    } elseif ($belanja >= 500000) {\n        $diskon = 0.05;\n    } else {\n        $diskon = 0;\n    }\n\n    $potongan = $belanja * $diskon;\n    $total = $belanja - $potongan;\n\n    echo \"Nama: $nama<br>\";\n    echo \"Total Belanja: Rp$belanja<br>\";\n    echo \"Diskon: Rp$potongan<br>\";\n    echo \"Total Pembayaran: Rp$total\";\n}",
+                "description": "Tanpa tag <?php ?>"
+              }
+            ],
+            "commonMistakes": [
+              {
+                "pattern": "tanpa diskon nonmember",
+                "scorePercentage": 65,
+                "reason": "Hanya menghitung diskon untuk member, belum menghitung diskon 5% untuk nonmember."
+              },
+              {
+                "pattern": "lupa kurangi belanja",
+                "scorePercentage": 60,
+                "reason": "Menghitung potongan diskon tetapi total pembayaran belum dikurangi nominal potongan."
+              }
+            ],
+            "summaryExplanation": "Kode PHP menentukan persentase diskon berdasarkan status member dan batas belanja Rp500.000, menghitung potongan serta total pembayaran.",
+            "generatedAt": "2026-11-10T01:30:37.031Z"
+          },
+          "options": []
+        },
+        {
+          "id": "q_php_04",
+          "examId": "exam_php_10",
+          "type": "ESSAY",
+          "points": 20,
+          "questionText": "SOAL 4 – VALIDASI PEMINJAMAN BARANG\n\nSebuah laboratorium komputer menyediakan fasilitas peminjaman perangkat. Ketentuan:\n- Stok tersedia sebanyak 15 unit.\n- Jika jumlah pinjam kurang dari 1, tampilkan pesan jumlah tidak valid.\n- Jika stok kosong, tampilkan pesan stok habis.\n- Jika jumlah pinjam melebihi stok, peminjaman ditolak.\n- Jika memenuhi ketentuan, peminjaman berhasil dan sisa stok dihitung.\n\nFORM YANG SUDAH DISEDIAKAN:\n```html\n<form method=\"POST\">\n    <label>Nama Peminjam</label>\n    <input type=\"text\" name=\"nama\" required>\n\n    <label>Nama Perangkat</label>\n    <select name=\"perangkat\">\n        <option value=\"Laptop\">Laptop</option>\n        <option value=\"Mouse\">Mouse</option>\n        <option value=\"Keyboard\">Keyboard</option>\n    </select>\n\n    <label>Jumlah Pinjam</label>\n    <input type=\"number\" name=\"jumlah\" required>\n\n    <button type=\"submit\" name=\"pinjam\">Proses Peminjaman</button>\n</form>\n```\n\nTUGAS:\nTuliskan logika PHP untuk:\n1. Menentukan stok awal sebanyak 15 unit.\n2. Mengambil data nama, perangkat, dan jumlah pinjam.\n3. Memeriksa kondisi peminjaman menggunakan if, elseif, dan else.\n4. Mengurangi stok jika peminjaman berhasil.\n5. Menampilkan nama peminjam, perangkat, status peminjaman, dan sisa stok.",
+          "essayAnswerKey": "<?php\n$stok = 15;\n\nif (isset($_POST['pinjam'])) {\n    $nama = $_POST['nama'];\n    $perangkat = $_POST['perangkat'];\n    $jumlah = $_POST['jumlah'];\n\n    if ($jumlah < 1) {\n        $pesan = \"Jumlah peminjaman tidak valid\";\n    } elseif ($stok <= 0) {\n        $pesan = \"Stok habis\";\n    } elseif ($jumlah > $stok) {\n        $pesan = \"Peminjaman ditolak, stok tidak mencukupi\";\n    } else {\n        $stok = $stok - $jumlah;\n        $pesan = \"Peminjaman berhasil\";\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Perangkat: $perangkat<br>\";\n    echo \"Status: $pesan<br>\";\n    echo \"Sisa stok: $stok\";\n}\n?>",
+          "essayAiRubric": {
+            "idealAnswer": "<?php\n$stok = 15;\n\nif (isset($_POST['pinjam'])) {\n    $nama = $_POST['nama'];\n    $perangkat = $_POST['perangkat'];\n    $jumlah = $_POST['jumlah'];\n\n    if ($jumlah < 1) {\n        $pesan = \"Jumlah peminjaman tidak valid\";\n    } elseif ($stok <= 0) {\n        $pesan = \"Stok habis\";\n    } elseif ($jumlah > $stok) {\n        $pesan = \"Peminjaman ditolak, stok tidak mencukupi\";\n    } else {\n        $stok = $stok - $jumlah;\n        $pesan = \"Peminjaman berhasil\";\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Perangkat: $perangkat<br>\";\n    echo \"Status: $pesan<br>\";\n    echo \"Sisa stok: $stok\";\n}\n?>",
+            "keyConcepts": [
+              {
+                "concept": "Stok Awal 15 & Input Form ($_POST)",
+                "weightPercentage": 20,
+                "description": "Inisialisasi stok 15 dan mengambil nama, perangkat, jumlah pinjam"
+              },
+              {
+                "concept": "Validasi Jumlah Pinjam & Stok",
+                "weightPercentage": 35,
+                "description": "Memeriksa jumlah < 1, stok kosong, dan jumlah melebihi stok"
+              },
+              {
+                "concept": "Pengurangan Sisa Stok ($stok - $jumlah)",
+                "weightPercentage": 25,
+                "description": "Mengurangi stok perangkat saat peminjaman berhasil"
+              },
+              {
+                "concept": "Output Status & Sisa Stok",
+                "weightPercentage": 20,
+                "description": "Menampilkan rincian peminjaman dan sisa stok terkini"
+              }
+            ],
+            "correctVariations": [
+              {
+                "pattern": "<?php\n$stok = 15;\n\nif (isset($_POST['pinjam'])) {\n    $nama = $_POST['nama'];\n    $perangkat = $_POST['perangkat'];\n    $jumlah = $_POST['jumlah'];\n\n    if ($jumlah < 1) {\n        $pesan = \"Jumlah peminjaman tidak valid\";\n    } elseif ($stok <= 0) {\n        $pesan = \"Stok habis\";\n    } elseif ($jumlah > $stok) {\n        $pesan = \"Peminjaman ditolak, stok tidak mencukupi\";\n    } else {\n        $stok = $stok - $jumlah;\n        $pesan = \"Peminjaman berhasil\";\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Perangkat: $perangkat<br>\";\n    echo \"Status: $pesan<br>\";\n    echo \"Sisa stok: $stok\";\n}\n?>",
+                "description": "Kunci model PHP Form lengkap"
+              },
+              {
+                "pattern": "$stok = 15;\n\nif (isset($_POST['pinjam'])) {\n    $nama = $_POST['nama'];\n    $perangkat = $_POST['perangkat'];\n    $jumlah = $_POST['jumlah'];\n\n    if ($jumlah < 1) {\n        $pesan = \"Jumlah peminjaman tidak valid\";\n    } elseif ($stok <= 0) {\n        $pesan = \"Stok habis\";\n    } elseif ($jumlah > $stok) {\n        $pesan = \"Peminjaman ditolak, stok tidak mencukupi\";\n    } else {\n        $stok = $stok - $jumlah;\n        $pesan = \"Peminjaman berhasil\";\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Perangkat: $perangkat<br>\";\n    echo \"Status: $pesan<br>\";\n    echo \"Sisa stok: $stok\";\n}",
+                "description": "Tanpa tag <?php ?>"
+              }
+            ],
+            "commonMistakes": [
+              {
+                "pattern": "tanpa pengurangan stok",
+                "scorePercentage": 65,
+                "reason": "Validasi berhasil namun lupa memperbarui variabel sisa stok perangkat."
+              },
+              {
+                "pattern": "tanpa validasi negatif",
+                "scorePercentage": 70,
+                "reason": "Belum memeriksa kondisi jika jumlah pinjam kurang dari 1."
+              }
+            ],
+            "summaryExplanation": "Kode PHP menginisialisasi stok 15 unit, memvalidasi kondisi peminjaman, mengurangi stok jika berhasil, dan menampilkan status.",
+            "generatedAt": "2026-11-10T01:30:37.031Z"
+          },
+          "options": []
+        },
+        {
+          "id": "q_php_05",
+          "examId": "exam_php_10",
+          "type": "ESSAY",
+          "points": 20,
+          "questionText": "SOAL 5 – PENENTUAN KELULUSAN KOMPETENSI\n\nGuru ingin membuat sistem untuk menentukan status kompetensi peserta didik berdasarkan nilai teori dan praktik.\n\nKetentuan:\n- Nilai harus berada pada rentang 0 sampai 100.\n- Jika salah satu nilai kurang dari 60, status BELUM KOMPETEN.\n- Jika kedua nilai minimal 60 dan rata-rata minimal 75, status KOMPETEN.\n- Jika kedua nilai minimal 60 tetapi rata-rata kurang dari 75, status PERLU PENGAYAAN.\n\nFORM YANG SUDAH DISEDIAKAN:\n```html\n<form method=\"POST\">\n    <label>Nama Peserta Didik</label>\n    <input type=\"text\" name=\"nama\" required>\n\n    <label>Nilai Teori</label>\n    <input type=\"number\" name=\"teori\" required>\n\n    <label>Nilai Praktik</label>\n    <input type=\"number\" name=\"praktik\" required>\n\n    <button type=\"submit\" name=\"cek\">Periksa Kompetensi</button>\n</form>\n```\n\nTUGAS:\nTuliskan logika PHP untuk:\n1. Mengambil nama, nilai teori, dan nilai praktik dari form.\n2. Memvalidasi nilai berada pada rentang 0 sampai 100.\n3. Menghitung nilai rata-rata.\n4. Menentukan status kompetensi.\n5. Menampilkan nama, status, dan nilai rata-rata.",
+          "essayAnswerKey": "<?php\nif (isset($_POST['cek'])) {\n    $nama = $_POST['nama'];\n    $teori = $_POST['teori'];\n    $praktik = $_POST['praktik'];\n\n    if ($teori < 0 || $teori > 100 || $praktik < 0 || $praktik > 100) {\n        $status = \"Nilai tidak valid\";\n    } else {\n        $rata = ($teori + $praktik) / 2;\n\n        if ($teori < 60 || $praktik < 60) {\n            $status = \"BELUM KOMPETEN\";\n        } elseif ($rata >= 75) {\n            $status = \"KOMPETEN\";\n        } else {\n            $status = \"PERLU PENGAYAAN\";\n        }\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Status: $status\";\n}\n?>",
+          "essayAiRubric": {
+            "idealAnswer": "<?php\nif (isset($_POST['cek'])) {\n    $nama = $_POST['nama'];\n    $teori = $_POST['teori'];\n    $praktik = $_POST['praktik'];\n\n    if ($teori < 0 || $teori > 100 || $praktik < 0 || $praktik > 100) {\n        $status = \"Nilai tidak valid\";\n    } else {\n        $rata = ($teori + $praktik) / 2;\n\n        if ($teori < 60 || $praktik < 60) {\n            $status = \"BELUM KOMPETEN\";\n        } elseif ($rata >= 75) {\n            $status = \"KOMPETEN\";\n        } else {\n            $status = \"PERLU PENGAYAAN\";\n        }\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Status: $status\";\n}\n?>",
+            "keyConcepts": [
+              {
+                "concept": "Input Form Nilai Teori & Praktik",
+                "weightPercentage": 20,
+                "description": "Mengambil data nama, nilai teori, dan praktik dari form"
+              },
+              {
+                "concept": "Validasi Rentang 0-100 & Rata-rata",
+                "weightPercentage": 25,
+                "description": "Memvalidasi nilai 0-100 dan menghitung rata-rata ($teori + $praktik) / 2"
+              },
+              {
+                "concept": "Percabangan Status Kompetensi",
+                "weightPercentage": 35,
+                "description": "Menentukan KOMPETEN, BELUM KOMPETEN, atau PERLU PENGAYAAN"
+              },
+              {
+                "concept": "Output Nama, Rata-rata, & Status",
+                "weightPercentage": 20,
+                "description": "Menampilkan nama, nilai rata-rata, dan status kompetensi"
+              }
+            ],
+            "correctVariations": [
+              {
+                "pattern": "<?php\nif (isset($_POST['cek'])) {\n    $nama = $_POST['nama'];\n    $teori = $_POST['teori'];\n    $praktik = $_POST['praktik'];\n\n    if ($teori < 0 || $teori > 100 || $praktik < 0 || $praktik > 100) {\n        $status = \"Nilai tidak valid\";\n    } else {\n        $rata = ($teori + $praktik) / 2;\n\n        if ($teori < 60 || $praktik < 60) {\n            $status = \"BELUM KOMPETEN\";\n        } elseif ($rata >= 75) {\n            $status = \"KOMPETEN\";\n        } else {\n            $status = \"PERLU PENGAYAAN\";\n        }\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Status: $status\";\n}\n?>",
+                "description": "Kunci model PHP Form lengkap"
+              },
+              {
+                "pattern": "if (isset($_POST['cek'])) {\n    $nama = $_POST['nama'];\n    $teori = $_POST['teori'];\n    $praktik = $_POST['praktik'];\n\n    if ($teori < 0 || $teori > 100 || $praktik < 0 || $praktik > 100) {\n        $status = \"Nilai tidak valid\";\n    } else {\n        $rata = ($teori + $praktik) / 2;\n\n        if ($teori < 60 || $praktik < 60) {\n            $status = \"BELUM KOMPETEN\";\n        } elseif ($rata >= 75) {\n            $status = \"KOMPETEN\";\n        } else {\n            $status = \"PERLU PENGAYAAN\";\n        }\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Status: $status\";\n}",
+                "description": "Tanpa tag <?php ?>"
+              }
+            ],
+            "commonMistakes": [
+              {
+                "pattern": "tanpa status pengayaan",
+                "scorePercentage": 65,
+                "reason": "Hanya menentukan KOMPETEN dan BELUM KOMPETEN, belum menangani kategori PERLU PENGAYAAN."
+              },
+              {
+                "pattern": "tanpa validasi 0-100",
+                "scorePercentage": 75,
+                "reason": "Belum memvalidasi batas nilai 0 sampai 100."
+              }
+            ],
+            "summaryExplanation": "Kode PHP memvalidasi nilai teori dan praktik pada rentang 0-100, menghitung rata-rata, dan menentukan status kompetensi.",
+            "generatedAt": "2026-11-10T01:30:37.031Z"
+          },
+          "options": []
+        },
+        {
+          "id": "q_php_06",
+          "examId": "exam_php_10",
+          "type": "ESSAY",
+          "points": 20,
+          "questionText": "SOAL 6 – DERET BILANGAN GENAP\n\nBuatlah program PHP untuk menampilkan deret bilangan genap dari 2 sampai dengan batas angka yang ditentukan oleh pengguna melalui form, serta hitung total jumlah bilangan genap tersebut.\n\nFORM YANG SUDAH DISEDIAKAN:\n```html\n<form method=\"POST\">\n    <label>Batas Akhir Angka</label>\n    <input type=\"number\" name=\"batas\" required>\n\n    <button type=\"submit\" name=\"tampil\">Tampilkan Deret</button>\n</form>\n```\n\nTUGAS:\nTuliskan logika PHP untuk:\n1. Memeriksa apakah tombol tampil ditekan dan mengambil nilai batas.\n2. Menggunakan perulangan for untuk menampilkan bilangan genap mulai dari 2.\n3. Menjumlahkan akumulasi nilai seluruh bilangan genap tersebut.\n4. Menampilkan deret bilangan genap dan hasil penjumlahan akhirnya.",
+          "essayAnswerKey": "<?php\nif (isset($_POST['tampil'])) {\n    $batas = $_POST['batas'];\n    $total = 0;\n\n    for ($i = 2; $i <= $batas; $i += 2) {\n        echo $i . \" \";\n        $total += $i;\n    }\n\n    echo \"<br>Jumlah: $total\";\n}\n?>",
+          "essayAiRubric": {
+            "idealAnswer": "<?php\nif (isset($_POST['tampil'])) {\n    $batas = $_POST['batas'];\n    $total = 0;\n\n    for ($i = 2; $i <= $batas; $i += 2) {\n        echo $i . \" \";\n        $total += $i;\n    }\n\n    echo \"<br>Jumlah: $total\";\n}\n?>",
+            "keyConcepts": [
+              {
+                "concept": "Input Batas Deret Bilangan ($_POST)",
+                "weightPercentage": 20,
+                "description": "Mengambil nilai batas dari form $_POST['batas']"
+              },
+              {
+                "concept": "Perulangan for Bilangan Genap",
+                "weightPercentage": 35,
+                "description": "Menggunakan perulangan for mulai dari 2 sampai batas genap"
+              },
+              {
+                "concept": "Akumulasi Jumlah Bilangan Genap ($total += $i)",
+                "weightPercentage": 25,
+                "description": "Menjumlahkan seluruh bilangan genap yang dicetak"
+              },
+              {
+                "concept": "Output Deret Bilangan & Total Akhir",
+                "weightPercentage": 20,
+                "description": "Mencetak deret angka dan total jumlah keseluruhan"
+              }
+            ],
+            "correctVariations": [
+              {
+                "pattern": "<?php\nif (isset($_POST['tampil'])) {\n    $batas = $_POST['batas'];\n    $total = 0;\n\n    for ($i = 2; $i <= $batas; $i += 2) {\n        echo $i . \" \";\n        $total += $i;\n    }\n\n    echo \"<br>Jumlah: $total\";\n}\n?>",
+                "description": "Kunci model PHP Form lengkap"
+              },
+              {
+                "pattern": "if (isset($_POST['tampil'])) {\n    $batas = $_POST['batas'];\n    $total = 0;\n\n    for ($i = 2; $i <= $batas; $i += 2) {\n        echo $i . \" \";\n        $total += $i;\n    }\n\n    echo \"<br>Jumlah: $total\";\n}",
+                "description": "Tanpa tag <?php ?>"
+              }
+            ],
+            "commonMistakes": [
+              {
+                "pattern": "tanpa total penjumlahan",
+                "scorePercentage": 65,
+                "reason": "Perulangan deret genap sudah benar namun belum menghitung jumlah seluruh bilangan genap."
+              },
+              {
+                "pattern": "mulai dari 0 atau 1",
+                "scorePercentage": 80,
+                "reason": "Disarankan mulai dari angka genap pertama (2)."
+              }
+            ],
+            "summaryExplanation": "Kode PHP menggunakan perulangan for dari 2 sampai batas untuk menampilkan deret bilangan genap dan mengakumulasikan total jumlahnya.",
+            "generatedAt": "2026-11-10T01:30:37.031Z"
+          },
+          "options": []
+        },
+        {
+          "id": "q_php_07",
+          "examId": "exam_php_10",
+          "type": "ESSAY",
+          "points": 20,
+          "questionText": "SOAL 7 – SIMULASI ANGSURAN PINJAMAN\n\nSebuah koperasi simpan pinjam membutuhkan kalkulator simulasi angsuran. Pengguna memasukkan nama nasabah, besaran angsuran per bulan, dan lama periode (jumlah bulan). Program harus menghitung total akumulasi pembayaran menggunakan perulangan while.\n\nFORM YANG SUDAH DISEDIAKAN:\n```html\n<form method=\"POST\">\n    <label>Nama Nasabah</label>\n    <input type=\"text\" name=\"nama\" required>\n\n    <label>Nominal Angsuran per Bulan (Rp)</label>\n    <input type=\"number\" name=\"angsuran\" required>\n\n    <label>Jumlah Bulan</label>\n    <input type=\"number\" name=\"bulan\" required>\n\n    <button type=\"submit\" name=\"hitung\">Hitung Total Pembayaran</button>\n</form>\n```\n\nTUGAS:\nTuliskan logika PHP untuk:\n1. Memeriksa tombol hitung dan mengambil data nama, angsuran, dan bulan.\n2. Menggunakan perulangan while untuk mengiterasi tiap bulan dan mengakumulasikan total pembayaran.\n3. Menampilkan rincian nama, lama bulan, dan total keseluruhan pembayaran pinjaman.",
+          "essayAnswerKey": "<?php\nif (isset($_POST['hitung'])) {\n    $nama = $_POST['nama'];\n    $angsuran = $_POST['angsuran'];\n    $bulan = $_POST['bulan'];\n\n    $i = 1;\n    $total = 0;\n\n    while ($i <= $bulan) {\n        $total += $angsuran;\n        $i++;\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Total pembayaran: Rp$total\";\n}\n?>",
+          "essayAiRubric": {
+            "idealAnswer": "<?php\nif (isset($_POST['hitung'])) {\n    $nama = $_POST['nama'];\n    $angsuran = $_POST['angsuran'];\n    $bulan = $_POST['bulan'];\n\n    $i = 1;\n    $total = 0;\n\n    while ($i <= $bulan) {\n        $total += $angsuran;\n        $i++;\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Total pembayaran: Rp$total\";\n}\n?>",
+            "keyConcepts": [
+              {
+                "concept": "Input Pelanggan, Angsuran, Bulan ($_POST)",
+                "weightPercentage": 20,
+                "description": "Mengambil data dari form $_POST"
+              },
+              {
+                "concept": "Perulangan while Menjumlahkan Angsuran",
+                "weightPercentage": 35,
+                "description": "Menggunakan perulangan while untuk iterasi bulan angsuran"
+              },
+              {
+                "concept": "Variabel Akumulator Total ($total += $angsuran)",
+                "weightPercentage": 25,
+                "description": "Menjumlahkan akumulasi nominal pembayaran"
+              },
+              {
+                "concept": "Output Nama, Bulan, & Total Pembayaran",
+                "weightPercentage": 20,
+                "description": "Menampilkan data pelanggan dan total pembayaran angsuran"
+              }
+            ],
+            "correctVariations": [
+              {
+                "pattern": "<?php\nif (isset($_POST['hitung'])) {\n    $nama = $_POST['nama'];\n    $angsuran = $_POST['angsuran'];\n    $bulan = $_POST['bulan'];\n\n    $i = 1;\n    $total = 0;\n\n    while ($i <= $bulan) {\n        $total += $angsuran;\n        $i++;\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Total pembayaran: Rp$total\";\n}\n?>",
+                "description": "Kunci model PHP Form lengkap"
+              },
+              {
+                "pattern": "if (isset($_POST['hitung'])) {\n    $nama = $_POST['nama'];\n    $angsuran = $_POST['angsuran'];\n    $bulan = $_POST['bulan'];\n\n    $i = 1;\n    $total = 0;\n\n    while ($i <= $bulan) {\n        $total += $angsuran;\n        $i++;\n    }\n\n    echo \"Nama: $nama<br>\";\n    echo \"Total pembayaran: Rp$total\";\n}",
+                "description": "Tanpa tag <?php ?>"
+              }
+            ],
+            "commonMistakes": [
+              {
+                "pattern": "bukan while",
+                "scorePercentage": 60,
+                "reason": "Soal secara spesifik meminta perulangan while, hindari perkalian langsung tanpa loop."
+              },
+              {
+                "pattern": "infinite loop while",
+                "scorePercentage": 30,
+                "reason": "Lupa menambahkan increment counter ($i++) di dalam perulangan while."
+              }
+            ],
+            "summaryExplanation": "Kode PHP menggunakan perulangan while dan variabel akumulator untuk menghitung total pembayaran angsuran per bulan.",
+            "generatedAt": "2026-11-10T01:30:37.031Z"
+          },
+          "options": []
+        },
+        {
+          "id": "q_php_08",
+          "examId": "exam_php_10",
+          "type": "ESSAY",
+          "points": 20,
+          "questionText": "SOAL 8 – TABEL PERKALIAN OTOMATIS\n\nBuatlah sistem tabel perkalian otomatis di mana pengguna menginput sebuah angka dasar melalui form, lalu program menghasilkan baris tabel perkalian angka tersebut dari pengali 1 sampai 10 menggunakan perulangan for.\n\nFORM YANG SUDAH DISEDIAKAN:\n```html\n<form method=\"POST\">\n    <label>Angka Dasar Perkalian</label>\n    <input type=\"number\" name=\"angka\" required>\n\n    <button type=\"submit\" name=\"buat\">Tampilkan Tabel Perkalian</button>\n</form>\n```\n\nTUGAS:\nTuliskan logika PHP untuk:\n1. Memeriksa tombol buat dan mengambil input angka.\n2. Menggunakan perulangan for dari 1 sampai 10.\n3. Menghitung hasil perkalian pada tiap baris.\n4. Menampilkan format tabel perkalian (contoh: \"5 x 1 = 5\", \"5 x 2 = 10\", dst.) dengan pemisah baris <br>.",
+          "essayAnswerKey": "<?php\nif (isset($_POST['buat'])) {\n    $angka = $_POST['angka'];\n\n    for ($i = 1; $i <= 10; $i++) {\n        $hasil = $angka * $i;\n        echo \"$angka x $i = $hasil<br>\";\n    }\n}\n?>",
+          "essayAiRubric": {
+            "idealAnswer": "<?php\nif (isset($_POST['buat'])) {\n    $angka = $_POST['angka'];\n\n    for ($i = 1; $i <= 10; $i++) {\n        $hasil = $angka * $i;\n        echo \"$angka x $i = $hasil<br>\";\n    }\n}\n?>",
+            "keyConcepts": [
+              {
+                "concept": "Input Angka Form ($_POST)",
+                "weightPercentage": 20,
+                "description": "Mengambil angka dari form $_POST['angka']"
+              },
+              {
+                "concept": "Perulangan for Iterasi 1 sampai 10",
+                "weightPercentage": 35,
+                "description": "Menggunakan perulangan for ($i=1; $i<=10; $i++)"
+              },
+              {
+                "concept": "Kalkulasi Perkalian ($angka * $i)",
+                "weightPercentage": 25,
+                "description": "Menghitung hasil kali angka pada setiap iterasi"
+              },
+              {
+                "concept": "Output Format Tabel Perkalian",
+                "weightPercentage": 20,
+                "description": "Menampilkan baris perkalian lengkap dengan <br>"
+              }
+            ],
+            "correctVariations": [
+              {
+                "pattern": "<?php\nif (isset($_POST['buat'])) {\n    $angka = $_POST['angka'];\n\n    for ($i = 1; $i <= 10; $i++) {\n        $hasil = $angka * $i;\n        echo \"$angka x $i = $hasil<br>\";\n    }\n}\n?>",
+                "description": "Kunci model PHP Form lengkap"
+              },
+              {
+                "pattern": "if (isset($_POST['buat'])) {\n    $angka = $_POST['angka'];\n\n    for ($i = 1; $i <= 10; $i++) {\n        $hasil = $angka * $i;\n        echo \"$angka x $i = $hasil<br>\";\n    }\n}",
+                "description": "Tanpa tag <?php ?>"
+              }
+            ],
+            "commonMistakes": [
+              {
+                "pattern": "iterasi kurang dari 10",
+                "scorePercentage": 70,
+                "reason": "Perulangan belum berjalan lengkap sampai 10 (misal hanya sampai 9 atau batas keliru)."
+              },
+              {
+                "pattern": "lupa echo format",
+                "scorePercentage": 60,
+                "reason": "Menghitung perkalian namun tidak mencetak format tabel perkalian (Angka x i = Hasil)."
+              }
+            ],
+            "summaryExplanation": "Kode PHP mengambil angka dari form dan menggunakan perulangan for dari 1 sampai 10 untuk mencetak tabel perkalian lengkap.",
+            "generatedAt": "2026-11-10T01:30:37.031Z"
+          },
+          "options": []
+        },
+        {
+          "id": "q_php_09",
+          "examId": "exam_php_10",
+          "type": "ESSAY",
+          "points": 20,
+          "questionText": "SOAL 9 – REKAP DATA NILAI SISWA (ARRAY & FOREACH)\n\nSebuah form mengirimkan data nama siswa dan array yang berisi nilai 5 mata pelajaran (dalam input name=\"nilai[]\"). Program harus membaca seluruh array nilai menggunakan perulangan foreach, menampilkan masing-masing nilai, menghitung total dan rata-rata nilai, serta menghitung berapa banyak nilai yang mencapai batas lulus (minimal 75).\n\nFORM YANG SUDAH DISEDIAKAN:\n```html\n<form method=\"POST\">\n    <label>Nama Siswa</label>\n    <input type=\"text\" name=\"nama\" required>\n\n    <label>Nilai 1-5:</label>\n    <input type=\"number\" name=\"nilai[]\" required>\n    <input type=\"number\" name=\"nilai[]\" required>\n    <input type=\"number\" name=\"nilai[]\" required>\n    <input type=\"number\" name=\"nilai[]\" required>\n    <input type=\"number\" name=\"nilai[]\" required>\n\n    <button type=\"submit\" name=\"rekap\">Proses Rekapitulasi</button>\n</form>\n```\n\nTUGAS:\nTuliskan logika PHP untuk:\n1. Memeriksa tombol rekap dan mengambil data nama serta array nilai.\n2. Menggunakan perulangan foreach untuk menelusuri array nilai dan mencetak setiap nilainya.\n3. Menghitung total nilai, rata-rata nilai, dan jumlah nilai yang >= 75.\n4. Menampilkan rekapitulasi lengkap.",
+          "essayAnswerKey": "<?php\nif (isset($_POST['rekap'])) {\n    $nama = $_POST['nama'];\n    $nilai = $_POST['nilai'];\n\n    $total = 0;\n    $lulus = 0;\n\n    echo \"Nama: $nama<br>\";\n\n    foreach ($nilai as $angka) {\n        echo \"Nilai: $angka<br>\";\n        $total += $angka;\n        if ($angka >= 75) $lulus++;\n    }\n\n    $rata = $total / count($nilai);\n\n    echo \"Total: $total<br>Rata-rata: $rata<br>Jumlah nilai minimal 75: $lulus\";\n}\n?>",
+          "essayAiRubric": {
+            "idealAnswer": "<?php\nif (isset($_POST['rekap'])) {\n    $nama = $_POST['nama'];\n    $nilai = $_POST['nilai'];\n\n    $total = 0;\n    $lulus = 0;\n\n    echo \"Nama: $nama<br>\";\n\n    foreach ($nilai as $angka) {\n        echo \"Nilai: $angka<br>\";\n        $total += $angka;\n        if ($angka >= 75) $lulus++;\n    }\n\n    $rata = $total / count($nilai);\n\n    echo \"Total: $total<br>Rata-rata: $rata<br>Jumlah nilai minimal 75: $lulus\";\n}\n?>",
+            "keyConcepts": [
+              {
+                "concept": "Input Form Array Nilai ($_POST['nilai'])",
+                "weightPercentage": 20,
+                "description": "Membaca nama dan array lima nilai dari form"
+              },
+              {
+                "concept": "Perulangan foreach Iterasi Array",
+                "weightPercentage": 35,
+                "description": "Menggunakan perulangan foreach untuk menelusuri array nilai"
+              },
+              {
+                "concept": "Akumulasi Total, Rata-rata, & Filter >= 75",
+                "weightPercentage": 25,
+                "description": "Menghitung total nilai, rata-rata, dan jumlah nilai lulus (>=75)"
+              },
+              {
+                "concept": "Output Rekapitulasi Lengkap",
+                "weightPercentage": 20,
+                "description": "Menampilkan setiap nilai, total, rata-rata, dan jumlah nilai lulus"
+              }
+            ],
+            "correctVariations": [
+              {
+                "pattern": "<?php\nif (isset($_POST['rekap'])) {\n    $nama = $_POST['nama'];\n    $nilai = $_POST['nilai'];\n\n    $total = 0;\n    $lulus = 0;\n\n    echo \"Nama: $nama<br>\";\n\n    foreach ($nilai as $angka) {\n        echo \"Nilai: $angka<br>\";\n        $total += $angka;\n        if ($angka >= 75) $lulus++;\n    }\n\n    $rata = $total / count($nilai);\n\n    echo \"Total: $total<br>Rata-rata: $rata<br>Jumlah nilai minimal 75: $lulus\";\n}\n?>",
+                "description": "Kunci model PHP Form lengkap"
+              },
+              {
+                "pattern": "if (isset($_POST['rekap'])) {\n    $nama = $_POST['nama'];\n    $nilai = $_POST['nilai'];\n\n    $total = 0;\n    $lulus = 0;\n\n    echo \"Nama: $nama<br>\";\n\n    foreach ($nilai as $angka) {\n        echo \"Nilai: $angka<br>\";\n        $total += $angka;\n        if ($angka >= 75) $lulus++;\n    }\n\n    $rata = $total / count($nilai);\n\n    echo \"Total: $total<br>Rata-rata: $rata<br>Jumlah nilai minimal 75: $lulus\";\n}",
+                "description": "Tanpa tag <?php ?>"
+              }
+            ],
+            "commonMistakes": [
+              {
+                "pattern": "bukan foreach",
+                "scorePercentage": 65,
+                "reason": "Soal secara spesifik meminta perulangan foreach untuk menelusuri data array."
+              },
+              {
+                "pattern": "tanpa hitung lulus 75",
+                "scorePercentage": 70,
+                "reason": "Perulangan dan rata-rata berjalan, namun belum menghitung jumlah nilai yang mencapai minimal 75."
+              }
+            ],
+            "summaryExplanation": "Kode PHP menggunakan perulangan foreach untuk menelusuri array nilai, mencetak setiap nilai, serta menghitung total, rata-rata, dan jumlah nilai >= 75.",
+            "generatedAt": "2026-11-10T01:30:37.031Z"
+          },
+          "options": []
+        },
+        {
+          "id": "q_php_10",
+          "examId": "exam_php_10",
+          "type": "ESSAY",
+          "points": 20,
+          "questionText": "SOAL 10 – POLA SEGITIGA BINTANG (NESTED LOOP)\n\nBuatlah program PHP untuk mencetak pola segitiga siku-siku karakter bintang (*) berdasarkan jumlah baris yang diinputkan pengguna melalui form. Wajib menggunakan perulangan bersarang (nested loop: perulangan for luar untuk baris dan perulangan for dalam untuk kolom bintang).\n\nFORM YANG SUDAH DISEDIAKAN:\n```html\n<form method=\"POST\">\n    <label>Jumlah Baris Bintang</label>\n    <input type=\"number\" name=\"baris\" required>\n\n    <button type=\"submit\" name=\"buat\">Cetak Pola Bintang</button>\n</form>\n```\n\nTUGAS:\nTuliskan logika PHP untuk:\n1. Memeriksa tombol buat dan mengambil input jumlah baris.\n2. Menggunakan perulangan luar untuk mengatur baris dari 1 sampai jumlah baris.\n3. Menggunakan perulangan dalam untuk mencetak bintang sejumlah nomor baris saat itu.\n4. Mencetak tanda pindah baris (<br>) pada setiap akhir baris segitiga.",
+          "essayAnswerKey": "<?php\nif (isset($_POST['buat'])) {\n    $baris = $_POST['baris'];\n\n    for ($i = 1; $i <= $baris; $i++) {\n        for ($j = 1; $j <= $i; $j++) {\n            echo \"*\";\n        }\n        echo \"<br>\";\n    }\n}\n?>",
+          "essayAiRubric": {
+            "idealAnswer": "<?php\nif (isset($_POST['buat'])) {\n    $baris = $_POST['baris'];\n\n    for ($i = 1; $i <= $baris; $i++) {\n        for ($j = 1; $j <= $i; $j++) {\n            echo \"*\";\n        }\n        echo \"<br>\";\n    }\n}\n?>",
+            "keyConcepts": [
+              {
+                "concept": "Input Jumlah Baris ($_POST['baris'])",
+                "weightPercentage": 20,
+                "description": "Mengambil jumlah baris pola bintang dari form"
+              },
+              {
+                "concept": "Perulangan Luar for (Baris)",
+                "weightPercentage": 25,
+                "description": "Menggunakan perulangan for luar untuk menentukan baris 1 sampai N"
+              },
+              {
+                "concept": "Perulangan Dalam for (Cetak Bintang)",
+                "weightPercentage": 35,
+                "description": "Menggunakan perulangan for dalam (nested loop) untuk mencetak bintang"
+              },
+              {
+                "concept": "Output Baris Baru (<br>) & Validitas",
+                "weightPercentage": 20,
+                "description": "Mencetak baris baru setelah perulangan dalam selesai"
+              }
+            ],
+            "correctVariations": [
+              {
+                "pattern": "<?php\nif (isset($_POST['buat'])) {\n    $baris = $_POST['baris'];\n\n    for ($i = 1; $i <= $baris; $i++) {\n        for ($j = 1; $j <= $i; $j++) {\n            echo \"*\";\n        }\n        echo \"<br>\";\n    }\n}\n?>",
+                "description": "Kunci model PHP Form lengkap"
+              },
+              {
+                "pattern": "if (isset($_POST['buat'])) {\n    $baris = $_POST['baris'];\n\n    for ($i = 1; $i <= $baris; $i++) {\n        for ($j = 1; $j <= $i; $j++) {\n            echo \"*\";\n        }\n        echo \"<br>\";\n    }\n}",
+                "description": "Tanpa tag <?php ?>"
+              }
+            ],
+            "commonMistakes": [
+              {
+                "pattern": "bukan nested loop",
+                "scorePercentage": 60,
+                "reason": "Soal mewajibkan nested loop (perulangan bersarang), hindari hanya menggunakan 1 perulangan."
+              },
+              {
+                "pattern": "lupa baris baru",
+                "scorePercentage": 65,
+                "reason": "Perulangan bersarang berjalan namun lupa mencetak pemisah baris baru (<br>) di akhir tiap baris."
+              }
+            ],
+            "summaryExplanation": "Kode PHP mengambil jumlah baris dari form dan menggunakan nested loop (perulangan bersarang for) untuk mencetak pola bintang bertingkat.",
+            "generatedAt": "2026-11-10T01:30:37.031Z"
+          },
+          "options": []
+        },
+        {
+          "id": "q_test_cf_extra",
+          "examId": "exam_php_10",
+          "type": "ESSAY",
+          "points": 20,
+          "questionText": "SOAL UJI TAMBAHAN CLOUDFLARE\nTuliskan logika PHP form untuk validasi input email.",
+          "essayAnswerKey": "<?php echo \"valid\"; ?>",
+          "essayAiRubric": {
+            "idealAnswer": "<?php echo \"valid\"; ?>",
+            "keyConcepts": [
+              {
+                "concept": "Pemeriksaan Form & Input ($_POST)",
+                "weightPercentage": 25,
+                "description": "Memeriksa submit form dan mengambil input via $_POST"
+              },
+              {
+                "concept": "Struktur Logika Percabangan / Perulangan",
+                "weightPercentage": 35,
+                "description": "Mengimplementasikan struktur logika sesuai ketentuan soal"
+              },
+              {
+                "concept": "Pemrosesan Data & Logika Bisnis",
+                "weightPercentage": 20,
+                "description": "Melakukan kalkulasi atau validasi data sesuai instruksi"
+              },
+              {
+                "concept": "Output Respon Form & Sintaks Valid",
+                "weightPercentage": 20,
+                "description": "Menampilkan hasil pemrosesan form dengan echo"
+              }
+            ],
+            "correctVariations": [
+              {
+                "pattern": "<?php echo \"valid\"; ?>",
+                "description": "Kunci model PHP Form lengkap"
+              },
+              {
+                "pattern": "echo \"valid\";",
+                "description": "Tanpa tag <?php ?>"
+              }
+            ],
+            "commonMistakes": [
+              {
+                "pattern": "readline pada form",
+                "scorePercentage": 30,
+                "reason": "Menggunakan readline() CLI bukannya variabel $_POST dari form HTML."
+              },
+              {
+                "pattern": "syntax error",
+                "scorePercentage": 15,
+                "reason": "Terdapat parse error fatal pada sintaks PHP."
+              }
+            ],
+            "summaryExplanation": "Kode PHP memproses pengiriman data dari form HTML menggunakan superglobal $_POST, mengeksekusi logika yang diminta, dan menampilkan output.",
+            "generatedAt": "2026-11-10T01:30:37.032Z"
+          },
+          "options": []
+        }
+      ],
+      "answers": {},
+      "violationsCount": 0,
+      "status": "IN_PROGRESS",
+      "activeDeviceId": "device_test_123"
+    }
+  ],
+  "violationLogs": []
+}

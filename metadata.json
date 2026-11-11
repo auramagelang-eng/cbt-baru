@@ -1,0 +1,8 @@
+{
+  "name": "Remix CBT Cloud eQuiz Platform",
+  "description": "Ultra-low latency, cloud-native CBT (Computer Based Test) system with anti-cheat engine, single-payload question delivery, offline sync, and real-time exam monitoring.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
