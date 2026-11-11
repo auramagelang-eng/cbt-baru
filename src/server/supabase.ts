@@ -499,7 +499,8 @@ export class SupabaseStore implements PersistenceBackend {
 
   getStatus() {
     return {
-      mode: this.isReady ? 'supabase' : 'file',
+      // Tidak ada lagi penyimpanan file: tanpa database, mode-nya 'none'.
+      mode: this.isReady ? 'supabase' : 'none',
       reason: this.statusReason,
       message: this.statusMessage,
       durable: this.isReady,

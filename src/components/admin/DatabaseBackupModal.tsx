@@ -244,7 +244,7 @@ export const DatabaseBackupModal: React.FC<DatabaseBackupModalProps> = ({
                   <Layers className="w-3.5 h-3.5" /> Mode Penyimpanan:
                 </span>
                 <span className="font-mono font-bold text-slate-900 dark:text-zinc-100">
-                  {serverStats?.storage?.mode || '...'}
+                  {serverStats?.storage?.mode === 'supabase' ? 'supabase' : 'tidak ada (database belum tersambung)'}
                 </span>
               </div>
               <div className="flex justify-between items-center text-slate-600 dark:text-zinc-400">
