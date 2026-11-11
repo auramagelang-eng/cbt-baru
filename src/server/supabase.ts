@@ -158,6 +158,15 @@ export class SupabaseStore implements PersistenceBackend {
   private initPromise: Promise<void> | null = null;
   private isReady = false;
   private lastRefreshAt = 0;
+  /**
+   * Alasan status penyimpanan (ditampilkan di /api/health):
+   * - `ok`              : tersambung ke Supabase (data permanen)
+   * - `env-missing`     : env Supabase belum diisi di server/Vercel
+   * - `publishable-key` : yang dipakai anon/publishable key, bukan service role
+   * - `init-failed`     : env ada tapi koneksi/skema tabel bermasalah
+   */
+  private statusReason: 'ok' | 'env-missing' | 'publishable-key' | 'init-failed' = 'env-missing';
+  private statusMessage = 'SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY belum diisi.';
   private refreshTimer: ReturnType<typeof setInterval> | null = null;
   private readonly queue = new DurableWriteQueue();
 
@@ -186,6 +195,9 @@ export class SupabaseStore implements PersistenceBackend {
     );
 
     if (!url || !key) {
+      this.statusReason = 'env-missing';
+      this.statusMessage =
+        'SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY belum diisi. Data hanya ada di memori instance dan akan kembali ke data awal saat server restart.';
       console.warn(
         '[Supabase] SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY belum diisi. ' +
           'Aplikasi berjalan dengan penyimpanan file lokal (db_store.json).'
@@ -194,6 +206,9 @@ export class SupabaseStore implements PersistenceBackend {
     }
 
     if (key.startsWith('sb_publishable_') || key.startsWith('sb_anon')) {
+      this.statusReason = 'publishable-key';
+      this.statusMessage =
+        'Kunci yang dipakai adalah publishable/anon key; gunakan SERVICE ROLE KEY agar data bisa ditulis permanen.';
       console.error(
         '[Supabase] Kunci yang dipakai adalah publishable/anon key. RLS akan menolak ' +
           'semua tulisan. Gunakan SERVICE ROLE KEY di environment server.'
@@ -239,6 +254,12 @@ export class SupabaseStore implements PersistenceBackend {
       }
 
       this.isReady = true;
+      // Pastikan baris admin ada di database (dibutuhkan login admin), tanpa
+      // pernah membuat soal/ujian/peserta contoh.
+      const { dbStore: store } = await import('./db');
+      store.ensureAdminAccount();
+      this.statusReason = 'ok';
+      this.statusMessage = `Tersambung ke Supabase: ${summary}.`;
       setPersistenceBackend(this);
       this.lastRefreshAt = Date.now();
       this.startRefreshTimer();
@@ -248,6 +269,8 @@ export class SupabaseStore implements PersistenceBackend {
       console.error('[Supabase] Inisialisasi gagal:', err?.message || err);
       this.client = null;
       this.isReady = false;
+      this.statusReason = 'init-failed';
+      this.statusMessage = `Koneksi Supabase gagal: ${err?.message || err}`;
     }
   }
 
@@ -436,6 +459,9 @@ export class SupabaseStore implements PersistenceBackend {
   getStatus() {
     return {
       mode: this.isReady ? 'supabase' : 'file',
+      reason: this.statusReason,
+      message: this.statusMessage,
+      durable: this.isReady,
       pendingWrites: this.queue.pendingCount,
       failedWrites: this.queue.failedCount,
     };
