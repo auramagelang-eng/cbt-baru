@@ -110,14 +110,30 @@ export async function createApp(options: CreateAppOptions = {}): Promise<express
   // --- API ROUTES ---
 
   // Health & Server Performance Metrics
-  app.get('/api/health', (req, res) =>
+  // `data` menampilkan jumlah baris yang sedang dipegang cache (hasil hydrate dari
+  // Supabase). Berguna untuk memastikan tabel sudah terisi setelah deploy.
+  app.get('/api/health', (req, res) => {
+    let questions = 0;
+    dbStore.getAllExams().forEach((exam) => {
+      questions += dbStore.getQuestionsByExamId(exam.id).length;
+    });
+
     res.json({
       status: 'ok',
       time: new Date().toISOString(),
       uptimeSeconds: Math.round(process.uptime()),
-      storage: supabaseStore.getStatus(),
-    })
-  );
+      storage: {
+        ...supabaseStore.getStatus(),
+        data: {
+          users: dbStore.getAllParticipants().length + 1, // + admin
+          exams: dbStore.getAllExams().length,
+          questions,
+          sessions: dbStore.getAllSessions().length,
+          violations: dbStore.getViolationLogs().length,
+        },
+      },
+    });
+  });
   app.get('/api/metrics', safe(MetricsController.getMetrics));
 
   // Authentication
