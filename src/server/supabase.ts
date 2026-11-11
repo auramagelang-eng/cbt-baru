@@ -1,5 +1,5 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
-import { ensureDatabaseSchema, isMissingSchemaError } from './databaseMigrate';import type { Exam, Question, User, ViolationLog } from '../types/cbt';
+import { ensureDatabaseSchema, REQUIRED_TABLES } from './databaseMigrate';import type { Exam, Question, User, ViolationLog } from '../types/cbt';
 import type { StoredSession } from './db';
 import {
   getPersistence,
@@ -57,6 +57,15 @@ const MAX_DEAD_LETTERS = 500;
 const REFRESH_INTERVAL_MS = Number(process.env.SUPABASE_REFRESH_MS || 10_000);
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+/** Ambil project ref Supabase (subdomain pertama) untuk diagnosis di /api/health. */
+function extractProjectRef(url: string): string | null {
+  try {
+    return new URL(url).hostname.split('.')[0] || null;
+  } catch {
+    return null;
+  }
+}
 
 function readEnv(...names: string[]): string | undefined {
   for (const name of names) {
@@ -173,6 +182,10 @@ export class SupabaseStore implements PersistenceBackend {
   private refreshTimer: ReturnType<typeof setInterval> | null = null;
   /** Kapan percobaan inisialisasi terakhir dilakukan (untuk jeda percobaan ulang). */
   private lastInitAttemptAt = 0;
+  /** Project ref Supabase yang dipakai server (untuk diagnosis di /api/health). */
+  private projectRef: string | null = null;
+  /** Daftar tabel yang tidak bisa diakses pada percobaan init terakhir. */
+  private schemaIssues: string[] = [];
   private readonly queue = new DurableWriteQueue();
 
   readonly kind = 'supabase' as const;
@@ -239,6 +252,8 @@ export class SupabaseStore implements PersistenceBackend {
       return;
     }
 
+    this.projectRef = extractProjectRef(url);
+
     try {
       this.client = createClient(url, key, {
         auth: { persistSession: false, autoRefreshToken: false },
@@ -246,29 +261,21 @@ export class SupabaseStore implements PersistenceBackend {
         db: { schema: 'public' },
       });
 
-      // Probe ringan: memastikan tabel sudah dibuat (lihat supabase/schema.sql).
-      // Bila tabel belum ada, server mencoba membuatnya sendiri lewat
-      // SUPABASE_DB_URL memakai skema di src/server/schemaSql.ts.
-      let probe = await this.client
-        .from(TABLES.exams)
-        .select('id', { count: 'exact', head: true });
+      // Periksa SEMUA tabel yang dibutuhkan (bukan hanya satu), sehingga pesan
+      // error menyebutkan tabel mana saja yang belum ada di project ini.
+      this.schemaIssues = await this.probeRequiredTables();
 
-      if (probe.error && isMissingSchemaError(probe.error)) {
+      if (this.schemaIssues.length > 0) {
+        // Tabel belum lengkap: coba buat otomatis bila SUPABASE_DB_URL tersedia.
         const migration = await ensureDatabaseSchema();
         console.warn(`[Supabase] ${migration.message}`);
-        if (migration.status === 'created' || migration.status === 'exists') {
-          probe = await this.client
-            .from(TABLES.exams)
-            .select('id', { count: 'exact', head: true });
-        } else {
-          throw new Error(`${probe.error.message}. ${migration.message}`);
+        this.schemaIssues = await this.probeRequiredTables();
+        if (this.schemaIssues.length > 0) {
+          throw new Error(
+            `Tabel bermasalah di project ${this.projectRef ?? '(tidak diketahui)'}: ` +
+              `${this.schemaIssues.join('; ')}. ${migration.message}`
+          );
         }
-      }
-
-      if (probe.error) {
-        throw new Error(
-          `${probe.error.message}. Pastikan file supabase/schema.sql sudah dijalankan di SQL Editor Supabase.`
-        );
       }
 
       const snapshot = await this.loadAll();
@@ -310,6 +317,21 @@ export class SupabaseStore implements PersistenceBackend {
       this.statusReason = 'init-failed';
       this.statusMessage = `Koneksi Supabase gagal: ${err?.message || err}`;
     }
+  }
+
+  /**
+   * Uji akses ke setiap tabel wajib satu per satu dengan kunci yang dipakai.
+   * Hasil kosong berarti semua tabel bisa diakses; daftar masalah dipakai untuk
+   * pesan /api/health sehingga penyebabnya tidak ambigu lagi.
+   */
+  private async probeRequiredTables(): Promise<string[]> {
+    if (!this.client) return ['client Supabase belum dibuat'];
+    const issues: string[] = [];
+    for (const table of REQUIRED_TABLES) {
+      const { error } = await this.client.from(table).select('*', { count: 'exact', head: true });
+      if (error) issues.push(`${table} (${error.code || 'error'}: ${error.message})`);
+    }
+    return issues;
   }
 
   /** Database kosong (deploy pertama): unggah data awal dari memori (mis. akun admin). */
@@ -493,7 +515,7 @@ export class SupabaseStore implements PersistenceBackend {
   }
 
   async flush(): Promise<boolean> {
-    if (!this.isReady) return true; // tanpa Supabase, file JSON lokal yang menjadi penyimpanan
+    if (!this.isReady) return false; // tanpa database, tulisan tidak pernah durable
     return this.queue.flush();
   }
 
@@ -503,6 +525,9 @@ export class SupabaseStore implements PersistenceBackend {
       mode: this.isReady ? 'supabase' : 'none',
       reason: this.statusReason,
       message: this.statusMessage,
+      // Diagnosis: project Supabase yang dipakai server dan tabel yang gagal diakses.
+      project: this.projectRef,
+      schemaIssues: this.schemaIssues,
       durable: this.isReady,
       pendingWrites: this.queue.pendingCount,
       failedWrites: this.queue.failedCount,

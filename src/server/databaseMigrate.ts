@@ -16,7 +16,7 @@ export interface MigrationResult {
   message: string;
 }
 
-const REQUIRED_TABLES = [
+export const REQUIRED_TABLES = [
   'cbt_users',
   'cbt_exams',
   'cbt_questions',
