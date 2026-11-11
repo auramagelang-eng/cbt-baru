@@ -232,3 +232,26 @@ left join public.cbt_exams e on e.id = s.exam_id;
 
 revoke all on public.cbt_results from anon, authenticated;
 grant select on public.cbt_results to service_role;
+
+-- ----------------------------------------------------------------------------
+-- 9. Segarkan cache skema PostgREST
+--    Tanpa ini, API Supabase kadang masih membalas "Could not find the table
+--    'public.cbt_questions' in the schema cache" beberapa saat setelah tabel
+--    dibuat. Perintah berikut memaksa Supabase membaca ulang daftar tabel.
+-- ----------------------------------------------------------------------------
+notify pgrst, 'reload schema';
+
+-- ----------------------------------------------------------------------------
+-- 10. Verifikasi: kelima tabel harus muncul sebagai hasil query di bawah.
+-- ----------------------------------------------------------------------------
+select table_name
+from information_schema.tables
+where table_schema = 'public'
+  and table_name in (
+    'cbt_users',
+    'cbt_exams',
+    'cbt_questions',
+    'cbt_sessions',
+    'cbt_violation_logs'
+  )
+order by table_name;
