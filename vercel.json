@@ -8,7 +8,7 @@
     "api/index.js": {
       "maxDuration": 60,
       "memory": 1024,
-      "includeFiles": ["db_store.json", "build/handler.cjs"]
+      "includeFiles": "db_store.json"
     }
   },
   "rewrites": [
