@@ -153,6 +153,9 @@ class DurableWriteQueue {
   }
 }
 
+/** Jeda antar percobaan inisialisasi ulang setelah gagal (ms). */
+const INIT_RETRY_MS = 10_000;
+
 export class SupabaseStore implements PersistenceBackend {
   private client: SupabaseClient | null = null;
   private initPromise: Promise<void> | null = null;
@@ -168,6 +171,8 @@ export class SupabaseStore implements PersistenceBackend {
   private statusReason: 'ok' | 'env-missing' | 'publishable-key' | 'init-failed' = 'env-missing';
   private statusMessage = 'SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY belum diisi.';
   private refreshTimer: ReturnType<typeof setInterval> | null = null;
+  /** Kapan percobaan inisialisasi terakhir dilakukan (untuk jeda percobaan ulang). */
+  private lastInitAttemptAt = 0;
   private readonly queue = new DurableWriteQueue();
 
   readonly kind = 'supabase' as const;
@@ -180,9 +185,27 @@ export class SupabaseStore implements PersistenceBackend {
   // Inisialisasi & sinkronisasi
   // --------------------------------------------------------------------------
 
-  /** Dipanggil di setiap request /api; aman dipanggil berkali-kali. */
+  /**
+   * Dipanggil di setiap request /api; aman dipanggil berkali-kali.
+   *
+   * Kegagalan TIDAK di-cache selamanya: kalau koneksi/skema baru diperbaiki
+   * (mis. tabel cbt_* baru dibuat), instance yang sama bisa pulih sendiri
+   * tanpa perlu redeploy. Percobaan ulang dibatasi tiap 10 detik agar tidak
+   * membanjiri database.
+   */
   ensureReady(): Promise<void> {
-    if (!this.initPromise) this.initPromise = this.init();
+    if (this.initPromise) return this.initPromise;
+
+    const now = Date.now();
+    if (!this.isReady && this.statusReason === 'init-failed' && now - this.lastInitAttemptAt < INIT_RETRY_MS) {
+      return Promise.resolve();
+    }
+    this.lastInitAttemptAt = now;
+
+    this.initPromise = this.init().finally(() => {
+      // Bila gagal, lepaskan promise supaya request berikutnya mencoba lagi.
+      if (!this.isReady) this.initPromise = null;
+    });
     return this.initPromise;
   }
 
